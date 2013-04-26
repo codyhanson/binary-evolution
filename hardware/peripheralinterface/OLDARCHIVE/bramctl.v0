@@ -1,0 +1,196 @@
+/*
+Module:			bramctl
+
+Description:		provides 1cycle rw to bram
+Hierarchy:		SYSTEM=>memctl=>bramctl
+
+
+Team Binary Evolution
+Ben Fuhrmann, Cody Hanson, Eric Harris, Ross Nordstrom, Eric Weisman
+
+Module designed by:	Eric Weisman
+Edited by:		
+Module interface by:	Eric Weisman
+
+Date:			
+
+*/
+
+module bramctl(
+	input clk, input rst,
+	input fastclk,				//4x system clk speed, synchronized.
+	//controller end
+	input[3:0]	arrayexp,		//for neighborhood calculations. width=2^arrayexp
+	input[39:0]	MemAddr,
+	inout[71:0]	MemData,
+	output[1:0]	mode,			//byte(8b), halfword(16b), word(40b), neighborhood(discontiguous 72b)
+	output		RW			//write when low
+	//provisionally always enabled
+
+	);
+
+	//PARAMETERS-------------------------------------------------------------------------
+	'include "brammodes.inc"
+	// states
+	localparam READY0 = 3'b000;
+	localparam ALL1 = 3'b001;
+	localparam NEIG2 = 3'b010;
+	localparam NEIG3 = 3'b011;
+	//  MORE IFF IMPLEMENTING UNALIGNED ACCESS
+	
+
+	//COMBINATIONAL SIGGEN -------------------------------------------------------
+	
+	wire[71:0] arraywidth = (72'd1 << arrayexp);	//do without incurring barrel shifter?
+	
+	// data bus tristate
+	assign MemData = RW ? outdata : 72'bz ;
+	
+	// alignment check (?)
+	
+	
+
+	//BRAM INSTANTIATED ---------------------------------------------------------------
+	/*
+		banks:
+	 bram0 always enabled and reading.
+	 bram1 always writing, manually enabled.	
+	 shared address.
+	 
+	 when simult read and write, old data is read. read-before-write
+	 
+	 rising edge active.
+	*/
+	
+	reg[39:0]	writedata, nextwritedata;
+	reg[39:0]	bram0addr, nextbram0addr, bram1addr, nextbram1addr;
+	wire[39:0]	bram0data, bram1data;
+	reg		bram1en, nextbram1en;
+	
+	bram daram(
+		.DINA(writedata),
+		.ADDRA(bram0addr),
+		.WEA(1'B0),
+		.ENA(1'B1),
+		.SINITA(1'B0),
+		.CLKA(fastclk),
+		//.ND - how diff from EN?
+		.DOUTA(bram0data),
+		//.RFD, .RDY - always 1cycle behavior
+		
+		.DINB(writedata),
+		.ADDRB(bram1addr),
+		.WEB(1'B1),
+		.ENB(bram1en),
+		.SINITB(1'B0),
+		.CLKB(fastclk),
+		//.ND - how diff from EN?
+		.DOUTB(bram1data),
+		//.RFD, .RDY - always 1cycle behavior
+	);
+	// use nextsignals instead to advance a cycle?
+	
+
+	//SLOW STATE MACHINE - captures input values ---------------------------------------
+	
+	reg[1:0]	captmode;
+	reg		captRW;
+	reg[71:0] 	captdata;	//ignored later iff a read
+	reg[39:0] 	captaddr;
+	
+	always@(posedge clk) begin
+		captmode <= mode;
+		captRW <= RW;
+		captdata <= MemData;
+		captaddr <= MemAddr;
+	end
+	
+	
+	//FAST STATE MACHINE- handles all write combining -----------------------------------
+	/*
+	 always make output data as if a read and prep in data for write.
+	 write prepped data iff write, bus out enabled elsewhere iff read.
+	 4 minicycles... ready, go!
+	 
+	 neighborhood given addr shall be upper left.
+	*/
+	
+	//KLASHDFJKASDHLFKASDJLFKH ALIGNMENT draft0 assumes aligned accesses
+	
+	
+	reg[2:0]	state, nextstate;
+	reg[71:0]	outdata, nextoutdata;
+	reg[1:0]	count4, nextcount4;	//0 iff also on a slow clk edge
+	
+	always@(posedge fastclk) begin
+		state <= nextstate;
+		outdata <= nextoutdata;
+		writedata <= nextwritedata;
+		
+		bram0addr <= nextbram0addr;
+		bram1addr <= nextbram1addr;
+		bram1en <= nextbram1en;
+		
+		count4 <= nextcount4;
+	end
+	
+	always@(*) begin
+		//defaults
+		nextoutdata = outdata;
+		nextwritedata = writedata;
+		nextstate = READY0;
+		
+		nextbram0addr = 72'bx;
+		nextbram1addr = 72'bx;
+		nextbram1en= 1'b0;
+		
+		nextcount4 = count4 - 2'd1;
+		
+		//state behavior
+		if(state==READY0 && count4==2'b0) begin	//in any mode, read a word when a new signal comes in.
+			//bram0read
+			nextbram0addr = MemAddr;	//new value not yet captured
+			nextstate = ALL1;
+		end
+		else if(state==ALL1) begin
+			nextoutdata = {32'bx, bram0data};	//appropriate data present and located in any such word
+			//write data creation etc
+			if(captmode==WORD) nextwritedata = captdata;
+			else if(captmode==HALF) nextwritedata = {bram0data[39:16], captdata[15:0]};
+			else if(captmode==BYTE) nextwritedata = {bram0data[39:8], captdata[7:0]};
+			else if(captmode==NEIG) begin
+				nextwritedata = {bram0data[39:24], captdata[23:0]};
+				//bram0read - the middle line of neighborhood
+				nextbram0addr =  captaddr + arraywidth;
+				nextstate = NEIG2;
+			end
+			//bram1write
+			nextbram1addr = captaddr;
+			if(captRW) nextbram1en=1'b1;
+		end
+		else if(state==NEIG2) begin
+			nextstate = NEIG3;
+			nextoutdata = {24'bx, bram0data[23:0], outdata[23:0]};
+			nextwritedata = {bram0data[39:24], captdata[47:24]}
+			//bram1write
+			nextbram1addr = bram0addr;
+			if(captRW) nextbram1en=1'b1;
+			//bram0read - last line of neighborhood
+			nextbram0addr = bram0addr + arraywidth;
+		end
+		else if(state==NEIG3) begin
+			nextoutdata = {bram0data[23:0], outdata[47:0]};
+			nextwritedata = {bram0data[39:24], captdata[71:48]}
+			//bram1write
+			nextbram1addr = bram0addr;
+			if(captRW) nextbram1en=1'b1;	
+			//in worst case.write finishes after next read accepted.
+		end
+		
+		//synch reset overrides all; must be last
+		if(rst) begin
+			nextoutdata = 72'b0;	//sentinel value for trace
+			nextcount4 = 2'd0;
+		end
+	end
+endmodule;

@@ -1,0 +1,167 @@
+// Game of Life - Data Memory
+// FRAME BUFFER INIT
+// 256-by-256:   127 rows of 0						= 32512
+// 				 row with line of 80 in the middle	= 88 0's, 80 1's, 88 0's
+//				 128 more rows of 0					= 32768
+myFB1:			.space 65536
+myFB2:			.space 65536
+
+//image proc data
+imageprocbaseimage:	.filebin asteroid.raw
+imageprocbar:		.file gol/imageprocbar.hex
+
+
+// 1707 items = 0x6ab     1707*3 bytes = 5121 = 0x1401
+numMenuItems:	.word40 0x00000006AB
+menuItems:		.file gol/menuitems.hex
+
+//gameOfLifeLUT:	.space 0
+
+obj0Width:		.word40 0x0000000024
+obj0Height:		.word40 0x0000000009
+obj0Addr:		.word40 0x0000000000
+
+obj1Width:		.word40 0x0000000030
+obj1Height:		.word40 0x0000000030
+obj1Addr:		.word40 0x0000000000
+
+obj2Width:		.word40 0x0000000009
+obj2Height:		.word40 0x0000000009
+obj2Addr:		.word40 0x0000000000
+
+obj3Width:		.word40 0x000000000D
+obj3Height:		.word40 0x000000000D
+obj3Addr:		.word40 0x0000000000
+
+obj4Width:		.word40 0x0000000022
+obj4Height:		.word40 0x0000000022
+obj4Addr:		.word40 0x0000000000
+
+obj5Width:		.word40 0x000000000D
+obj5Height:		.word40 0x0000000013
+obj5Addr:		.word40 0x0000000000
+
+obj6Width:		.word40 0x0000000018
+obj6Height:		.word40 0x000000000F
+obj6Addr:		.word40 0x0000000000
+
+obj7Width:		.word40 0x0000000007
+obj7Height:		.word40 0x0000000003
+obj7Addr:		.word40 0x0000000000
+
+obj8Width:		.word40 0x000000001B
+obj8Height:		.word40 0x0000000007
+obj8Addr:		.word40 0x0000000000
+
+obj9Width:		.word40 0x000000003B
+obj9Height:		.word40 0x000000003B
+obj9Addr:		.word40 0x0000000000
+
+obj10Width:		.word40 0x000000003B
+obj10Height:	.word40 0x0000000039
+obj10Addr:		.word40 0x0000000000
+
+obj11Width:		.word40 0x000000002D
+obj11Height:	.word40 0x0000000015
+obj11Addr:		.word40 0x0000000000
+
+obj12Width:		.word40 0x0000000012
+obj12Height:	.word40 0x0000000005
+obj12Addr:		.word40 0x0000000000
+
+obj13Width:		.word40 0x0000000031
+obj13Height:	.word40 0x0000000010
+obj13Addr:		.word40 0x0000000000
+
+obj14Width:		.word40 0x0000000027
+obj14Height:	.word40 0x0000000001
+obj14Addr:		.word40 0x0000000000
+
+obj15Width:		.word40 0x000000000F
+obj15Height:	.word40 0x000000000F
+obj15Addr:		.word40 0x0000000000
+
+obj16Width:		.word40 0x000000001B
+obj16Height:	.word40 0x000000001B
+obj16Addr:		.word40 0x0000000000 
+
+obj17Width:		.word40 0x000000003A
+obj17Height:	.word40 0x000000000B
+obj17Addr:		.word40 0x0000000000 
+
+obj18Width:		.word40 0x0000000025
+obj18Height:	.word40 0x0000000029
+obj18Addr:		.word40 0x0000000000 
+
+obj19Width:		.word40 0x0000000022
+obj19Height:	.word40 0x0000000022
+obj19Addr:		.word40 0x0000000000 
+
+obj20Width:		.word40 0x0000000024
+obj20Height:	.word40 0x0000000019
+obj20Addr:		.word40 0x0000000000 
+
+obj21Width:		.word40 0x0000000021
+obj21Height:	.word40 0x0000000019
+obj21Addr:		.word40 0x0000000000 
+
+obj22Width:		.word40 0x0000000023
+obj22Height:	.word40 0x0000000007
+obj22Addr:		.word40 0x0000000000 
+
+obj23Width:		.word40 0x000000001C
+obj23Height:	.word40 0x000000001B
+obj23Addr:		.word40 0x0000000000 
+
+obj24Width:		.word40 0x0000000026
+obj24Height:	.word40 0x0000000015
+obj24Addr:		.word40 0x0000000000 
+
+obj25Width:		.word40 0x0000000034
+obj25Height:	.word40 0x0000000034
+obj25Addr:		.word40 0x0000000000 
+
+obj26Width:		.word40 0x00000000F5
+obj26Height:	.word40 0x000000000C
+obj26Addr:		.word40 0x0000000000 
+
+cell_000:	.file gol/cells/000_glider_gun.hex
+cell_001:	.file gol/cells/001_traffic_circle.hex
+cell_002:	.file gol/cells/002_koks_galaxy.hex
+cell_003:	.file gol/cells/003_hivenudger.hex
+cell_004:	.file gol/cells/004_loaflipflip.hex
+cell_005:	.file gol/cells/005_monkey.hex
+cell_006:	.file gol/cells/006_boatstretcher.hex
+cell_007:	.file gol/cells/007_rabbits.hex
+cell_008:	.file gol/cells/008_puffer.hex
+cell_009:	.file gol/cells/009_pi_orbital.hex
+cell_010:	.file gol/cells/010_total_aperiodic.hex
+cell_011:	.file gol/cells/011_true_gun.hex
+cell_012:	.file gol/cells/012_puffer_train.hex
+cell_013:	.file gol/cells/013_ray_gun.hex
+cell_014:	.file gol/cells/014_infinite_growth.hex
+cell_015:	.file gol/cells/015_noahs_ark.hex
+cell_016:	.file gol/cells/016_spacefiller.hex
+cell_017:	.file gol/cells/017_fuse.hex
+cell_018:	.file gol/cells/018_mwss_out_of_the_blue.hex
+cell_019:	.file gol/cells/019_new_gun.hex
+cell_020:	.file gol/cells/020_phase_change2.hex
+cell_021:	.file gol/cells/021_puff_suppressor.hex
+cell_022:	.file gol/cells/022_relay.hex
+cell_023:	.file gol/cells/023_sailboat.hex
+cell_024:	.file gol/cells/024_snail.hex
+cell_025:	.file gol/cells/025_spaceship.hex
+
+// Text for the game of life screen
+cell_026:	.file gol/text_gol.hex
+
+
+//image proc data
+swapspace: .space 10 //for median filter bubble sort
+//regstorage: .space 450 //15 40 bit registers 
+fbcount: .word40 59904
+fbcountfull: .word40 61440
+
+// These MUST be at the end of used dmem
+numStickyPixels: .word40 0x0000000000
+stickyPixels:	.space 1000

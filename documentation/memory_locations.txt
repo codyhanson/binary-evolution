@@ -1,0 +1,142 @@
+Team Binary Evolution
+ECE 554, Spring 2011
+Memory Layout
+
+---------------------------------------------------------------------------------
+
+IMEM: 32bit (really 30 bit,bottom two are always 0), word addressable
+	0x0000_0000 Exception handler begin
+	0x0000_00FF Exception handler end
+
+	0x0000_0100 Interupt handler begin
+	0x0000_07FF Interupt handler end
+
+	0x0000_0800 Main code begin
+	0x0000_27FF Main code end
+
+
+
+DRAM: 32bit byte addressable
+	0x0000_0000 VGA framebuffer 1 begin
+	0x0004_AFFF VGA fb 1 end
+
+	0x0005_0000 VGA fb 2 begin
+	0x0009_5FFF VGA fb 2 end
+
+	0x0009_6000 Stack begin
+	0x000A_FFFF Stack end
+
+	0x000B_0000 Data memory begin
+	0x000F_FFFF Data memory end
+
+	0xFFF0_0000	MMR begin
+	0xFFF0_0014	MMR end
+
+---------------------------------------------------------------------------------
+
+MMR Specification
+
+*** MMR's will work a little differently:
+		The top 12 (32:20) bits signal the processor that the memory access
+		is an MMR, so the appropriate register location will be loaded/stored
+	- VGA Frame Buffer signals (switch frame)
+	- LEDs
+	- SPARTS 1 and 2 <-- NOT IMPLEMENTED
+	- Interrupt
+	- Exception
+	- Keyboard
+	- Mouse
+
+	0xFF_F000_0000 - VGA frame buffer select
+			Bit(s):		Usage:
+			 1		 Color Mode (Read-Write)
+			 0		 next frame (Read-Write)
+	0xFF_F000_0004 - Random Number Byte		
+			Bit(s):		Usage
+			  7:0		 Random Number 
+			 
+
+	0xFF_F000_0005 - LEDs Output		
+			Bit(s):		Usage
+			  7:4		  Reserved
+			  3:0		  LED_# (4 LED's)
+		
+	0xFF_F000_0006 - SPART 0: Receive Status/Data    <- NOT IMPLEMENTED 	
+			Bit(s):		Usage:
+			 15:9		 Reserved
+				8		 RDA (Read-only)
+			  7:0		 Received data (Read-only)
+			***NOTE: Clears receive buffer and RDA on a read
+	0xFF_F000_0008 - SPART 0: Transmit Status/Data	<- NOT IMPLEMENTED
+			Bit(s):		Usage:
+			 15:9		 Reserved
+				8		 TBR (Read) or Transmit Data (Write)
+			  7:0		 Transmit Data (Write-only)
+			  
+	0xFF_F000_000A - TIMER COUNTER
+			Bit(s):		Usage:
+			 15:0		Initial value of count
+		***NOTE:	write-only register
+
+	0xFF_F000_000C - TIMER DIVISOR
+			Bit(s):		Usage:
+			 15:4		Reserved
+			  3:0		Divisor
+
+	0FF_F000_000F - Interrupt Status Register
+		Bit(s):		Usage:
+		  7:4		 (Optional) Pushbutton (3:0) interrupt
+		    3		 Dipswitch interrupt
+		    2		 Mouse Data Ready Interrupt
+			1		 Keyboard Data Ready Interrupt
+		    0		 Timer Interrupt
+		***NOTE:	Write of a 0 clears the corresponding interrupt, 1's do nothing
+				must do this as well as read the interrupting device.ú
+					
+	0xFF_F000_0010 - Interrupt Enable Register
+		Bit(s):		Usage:
+		  7:4		 (Optional) Pushbutton (3:0) interrupt
+		    3		 Dipswitch interrupt
+		    2		 Mouse Data Ready Interrupt
+			1		 Keyboard Data Ready Interrupt
+		    0		 Timer Interrupt
+
+	0xFF_F000_0011 - Exceptions 
+		Bit(s):		Usage:
+		  7: 0		 Exception Code
+		***NOTE:	Any write clears the exception register
+					and re-enables interrupts
+
+	0xFF_F000_0012 - Keyboard (Read-only)
+		Bit(s):		Usage:
+		  15:9		 Reserved
+		     8		 RDA (Redundant, since this should only
+					      be read on keyboard irq)
+		   7:0		 Data
+
+	0xFF_F000_0014 - Mouse (Read-only)
+		Bit(s):		Usage:
+		  15:9		 Reserved
+		     8		 RDA (Redundant, since this should only
+					      be read on mouse irq)
+		   7:0		 Data
+
+	0xFF_F000_0016 - Dipswitch status
+		Bit(s):		Usage:
+		  7:4			 Reserved
+		   3:0		 Dipswitch_# Value (Read-only)
+
+	0xFF_F000_0017 - Pushbutton status
+		Bit(s):		Usage:
+		  7:4		 	Reserved
+		   3:0		 Pushbutton_# Value (Read-only)
+	
+	0xFF_F000_0018 - ArrayWidth for Data Mem
+		Bit(s):		Usage:
+		  15:0		ArrayWidth
+	
+	0xFF_F000_001A - Global IRQ Disable
+		Bit(s):		Usage:
+		  7:1		      Reserved
+		    0			Disable Bit
+

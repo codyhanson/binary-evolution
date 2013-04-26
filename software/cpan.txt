@@ -1,0 +1,3 @@
+http://search.cpan.org/dist/local-lib/
+http://perl.jonallen.info/writing/articles/install-perl-modules-without-root
+

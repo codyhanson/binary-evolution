@@ -1,0 +1,7 @@
+ISA_TOOLS.pm:
+illegal register values r32 through 99
+illegal destinatino values (writing to PC)
+illegal destination registers for Neighborhood instructions
+
+
+issues with syntax checking for "shift" mov instructions

@@ -1,0 +1,27 @@
+# RS232 Configuration
+NET "txd" LOC = "AE7";
+NET "txd" IOSTANDARD = LVCMOS25;
+NET "txd" DRIVE = 8;
+NET "txd" SLEW = SLOW;
+
+NET "rxd" LOC = "AJ8";
+NET "rxd" IOSTANDARD = LVCMOS25;
+
+
+# Switch Configuration
+NET "rst" LOC = "AC11";
+#NET "SW_1" LOC = "AD11";
+NET "br_cfg<0>" LOC = "AF8";
+NET "br_cfg<1>" LOC = "AF9";
+
+NET "rst" IOSTANDARD = LVCMOS25;
+#NET "SW_1" IOSTANDARD = LVCMOS25;
+NET "br_cfg<0>" IOSTANDARD = LVCMOS25;
+NET "br_cfg<1>" IOSTANDARD = LVCMOS25;
+
+
+# Clock Configuration
+NET "clk" LOC = "AJ15";
+NET "clk" IOSTANDARD = LVCMOS25;
+NET "clk" TNM_NET = "clk";
+TIMESPEC "TS_clk" = PERIOD "clk" 10.00 ns HIGH 50 %;

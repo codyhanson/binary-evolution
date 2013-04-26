@@ -1,0 +1,264 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN -  Cloud Commit</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1> Cloud Commit</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a></div>
+  <table  rules="groups" summary="Tag Cloud of Words in Commit Log Messages">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Word</th>
+        <th>Frequency</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  class="odd">
+        <th>fixed</th>
+        <td>348 (6.7%)</td>
+      </tr>
+      <tr  class="even">
+        <th>file</th>
+        <td>312 (6.0%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>update</th>
+        <td>293 (5.6%)</td>
+      </tr>
+      <tr  class="even">
+        <th>code</th>
+        <td>249 (4.8%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>test</th>
+        <td>234 (4.5%)</td>
+      </tr>
+      <tr  class="even">
+        <th>change</th>
+        <td>189 (3.6%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>keyboard</th>
+        <td>160 (3.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>game</th>
+        <td>160 (3.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>working</th>
+        <td>140 (2.7%)</td>
+      </tr>
+      <tr  class="even">
+        <th>life</th>
+        <td>140 (2.7%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>pixel</th>
+        <td>132 (2.5%)</td>
+      </tr>
+      <tr  class="even">
+        <th>need</th>
+        <td>126 (2.4%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>data</th>
+        <td>112 (2.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>screen</th>
+        <td>108 (2.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>program</th>
+        <td>108 (2.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>move</th>
+        <td>101 (1.9%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>bramctl</th>
+        <td>100 (1.9%)</td>
+      </tr>
+      <tr  class="even">
+        <th>write</th>
+        <td>96 (1.9%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>made</th>
+        <td>96 (1.9%)</td>
+      </tr>
+      <tr  class="even">
+        <th>input</th>
+        <td>84 (1.6%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>assemble</th>
+        <td>81 (1.6%)</td>
+      </tr>
+      <tr  class="even">
+        <th>mouse</th>
+        <td>80 (1.5%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>value</th>
+        <td>76 (1.5%)</td>
+      </tr>
+      <tr  class="even">
+        <th>only</th>
+        <td>76 (1.5%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>memory</th>
+        <td>72 (1.4%)</td>
+      </tr>
+      <tr  class="even">
+        <th>color</th>
+        <td>72 (1.4%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>simulation</th>
+        <td>68 (1.3%)</td>
+      </tr>
+      <tr  class="even">
+        <th>next</th>
+        <td>68 (1.3%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>branch</th>
+        <td>66 (1.3%)</td>
+      </tr>
+      <tr  class="even">
+        <th>works</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>neighborhood</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>make</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>instruction</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>initial</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>generation</th>
+        <td>64 (1.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>synth</th>
+        <td>62 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>presentation</th>
+        <td>60 (1.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>nbrhd</th>
+        <td>60 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>error</th>
+        <td>60 (1.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th>board</th>
+        <td>60 (1.2%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>output</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>other</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>leds</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>flag</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>debug</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>comment</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>arrow</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>accumbytes</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="odd">
+        <th>about</th>
+        <td>56 (1.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th>think</th>
+        <td>52 (1.0%)</td>
+      </tr>
+    </tbody>
+  </table>
+
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

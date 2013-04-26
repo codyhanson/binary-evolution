@@ -1,0 +1,256 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - Directory software/assembled_progs/ubersnake/</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>Directory software/assembled_progs/ubersnake/</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a></div>
+<dl class="attributes">
+    <dt>Directory Created:</dt>
+    <dd><span class="date">2011-04-12 01:00</span></dd>
+    <dt>Directory Deleted:</dt>
+    <dd><span class="date">2011-04-19 13:27</span></dd>
+    <dt>Total Files:</dt>
+    <dd>0</dd>
+    <dt>Deleted Files:</dt>
+    <dd>3</dd>
+    <dt>Lines of Code:</dt>
+    <dd>0</dd>
+</dl>
+<p class="dirtree">
+<a href="dir.html">[root]</a>/<a href="dir_software.html">software</a>/<a href="dir_software_assembled_progs.html">assembled_progs</a>/<strong>ubersnake</strong><br/>
+</p>
+
+<div class="section">
+<h2>Lines of Code</h2>
+<p class="chart"><img src="loc_module_software_assembled_progs_ubersnake.png" alt="software/assembled_progs/ubersnake/ Lines of Code" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Developers</h2>
+  <table  rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="user_nordstro.html" class="author">nordstro</a></th>
+        <td>21 (100.0%)</td>
+        <td>3444 (100.0%)</td>
+        <td>164.0</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="7"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 13:27</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">571</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Moving old assembled_progs to assembled_progs/old_progs  to clear up some of the clutter<br />
+<br />
+Also assembled a version of GoL that runs infinitely but waits for keyboard input between generations<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="del">(del)</span>,
+        ubersnake.coe&#160;<span class="del">(del)</span>,
+        ubersnake.debug&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 23:29</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">490</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ubersnake is WORKING!   --- Note, VGA may be cutting off a column on either the left or right side of board (to test this, move the pixel over to the right or left edge, then click over the edge and move down a few spots then move left or right.... the pixel will still have moved but with no evidence of moving down)<br />
+
+    </p>
+    <p class="commitdetails"><strong>89</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="change">(+36&#160;-36)</span>,
+        ubersnake.coe&#160;<span class="change">(+16&#160;-16)</span>,
+        ubersnake.debug&#160;<span class="change">(+37&#160;-37)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 14:20</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">487</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+I think i was using too big of an immediate in AND (i was using 65535, which is ok for MOV's but probably is too big for AND... I don't have time to look it up)<br />
+<br />
+So assembled the changes and will test it next time i get a chance<br />
+
+    </p>
+    <p class="commitdetails"><strong>59</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="change">(+27&#160;-27)</span>,
+        ubersnake.coe&#160;<span class="change">(+4&#160;-4)</span>,
+        ubersnake.debug&#160;<span class="change">(+28&#160;-28)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 14:16</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">486</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Ubersnake got screwy this revision. I need to go to class so i can't debug it yet. Stuff is happening when the arrow keys are hit. The major change i made in the previous revision to get ANYTHING to happen was to replace cmp immediates with cmp reg's. So I think cmp immediates may still have issues.<br />
+<br />
+I wrote a test program "testprogs/test_cmp.s" that can check what cmp immediates are doing --- if they are correct, the screen should be white. If they are not working, the screen will be gray (127 value). If they are setting the flags incorrectly, the screen will be dark gray (32).<br />
+<br />
+<br />
+
+    </p>
+    <p class="commitdetails"><strong>77</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="change">(+31&#160;-31)</span>,
+        ubersnake.coe&#160;<span class="change">(+14&#160;-14)</span>,
+        ubersnake.debug&#160;<span class="change">(+32&#160;-32)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 13:48</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">485</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+THE SNAKE MOVES!!!! However.... it only writes to a bar on the left of the screen. I am going to clean up my code and try again<br />
+
+    </p>
+    <p class="commitdetails"><strong>92</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="change">(+33&#160;-33)</span>,
+        ubersnake.coe&#160;<span class="change">(+25&#160;-25)</span>,
+        ubersnake.debug&#160;<span class="change">(+34&#160;-34)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 01:39</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">483</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+made ubersnake write LED's right off the bat<br />
+
+    </p>
+    <p class="commitdetails"><strong>49</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="change">(+22&#160;-22)</span>,
+        ubersnake.coe&#160;<span class="change">(+4&#160;-4)</span>,
+        ubersnake.debug&#160;<span class="change">(+23&#160;-23)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-12 01:00</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">482</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Game of life didn't do anything. Making a "snake" game which stupidly draws pixels on the screen based on arrow keys. ***Please fuckin work***<br />
+
+    </p>
+    <p class="commitdetails"><strong>3078</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/ubersnake</strong>:
+        ubersnake.bin&#160;<span class="new">(new&#160;1025)</span>,
+        ubersnake.coe&#160;<span class="new">(new&#160;1028)</span>,
+        ubersnake.debug&#160;<span class="new">(new&#160;1025)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

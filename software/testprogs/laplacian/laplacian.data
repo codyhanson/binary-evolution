@@ -1,0 +1,6 @@
+fb1: .filebin moon_256x256.raw
+fb2: .space 65536 //blank fb2
+lapmask1: .word40 0x0000FF00FF
+lapmask2: .word40 0x04FF00FF00
+mmradd: .word40 0xFFF0000000
+sortspace: .space 9

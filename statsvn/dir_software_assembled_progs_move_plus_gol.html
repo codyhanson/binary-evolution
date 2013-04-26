@@ -1,0 +1,410 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - Directory software/assembled_progs/move_plus_gol/</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>Directory software/assembled_progs/move_plus_gol/</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a></div>
+<dl class="attributes">
+    <dt>Directory Created:</dt>
+    <dd><span class="date">2011-04-18 18:43</span></dd>
+    <dt>Directory Deleted:</dt>
+    <dd><span class="date">2011-04-20 13:22</span></dd>
+    <dt>Total Files:</dt>
+    <dd>0</dd>
+    <dt>Deleted Files:</dt>
+    <dd>11</dd>
+    <dt>Lines of Code:</dt>
+    <dd>0</dd>
+</dl>
+<p class="dirtree">
+<a href="dir.html">[root]</a>/<a href="dir_software.html">software</a>/<a href="dir_software_assembled_progs.html">assembled_progs</a>/<strong>move_plus_gol</strong><br/>
+</p>
+
+<div class="section">
+<h2>Lines of Code</h2>
+<p class="chart"><img src="loc_module_software_assembled_progs_move_plus_gol.png" alt="software/assembled_progs/move_plus_gol/ Lines of Code" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Developers</h2>
+  <table  rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="user_nordstro.html" class="author">nordstro</a></th>
+        <td>55 (100.0%)</td>
+        <td>404879 (100.0%)</td>
+        <td>7361.4</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="13"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-20 13:22</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">605</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Tested a sequence of TAB-&gt;ENTER-&gt;BACK-&gt;RIGHT-&gt;DOWN-&gt;SPACE-&gt;LEFT-&gt;DOWN-&gt;___repeat___ for 18 generations and saw the expected output in the FB*.hex files.<br />
+Moving the assembled GoL folder to /gol/ for greater ease<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">11 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="del">(del)</span>,
+        move_plus_gol.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.debug&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmem.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmem4bank0.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmem4bank1.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmem4bank2.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmem4bank3.coe&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmemdebug&#160;<span class="del">(del)</span>,
+        move_plus_gol.dmemhex&#160;<span class="del">(del)</span>,
+        move_plus_gol.readmemh&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="12"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-20 01:37</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">601</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Please work<br />
+
+    </p>
+    <p class="commitdetails"><strong>514</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+251&#160;-251)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+11&#160;-11)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+252&#160;-252)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="11"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-20 00:58</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">597</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+More changes for clear_fb<br />
+
+    </p>
+    <p class="commitdetails"><strong>303</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+139&#160;-139)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+22&#160;-22)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+142&#160;-142)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="10"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-20 00:22</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">595</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+accum_test now tests the whole fb<br />
+<br />
+clear_fb should now work<br />
+
+    </p>
+    <p class="commitdetails"><strong>425</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+201&#160;-201)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+12&#160;-12)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+212&#160;-212)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="9"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 23:51</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">592</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Hopefully clear works now. (in the middle of synthing the accum_test still)<br />
+
+    </p>
+    <p class="commitdetails"><strong>399653</strong> lines of code changed in <span class="files">11 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+292&#160;-292)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+34&#160;-34)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+298&#160;-298)</span>,
+        move_plus_gol.dmem.coe&#160;<span class="new">(new&#160;133336)</span>,
+        move_plus_gol.dmem4bank0.coe&#160;<span class="new">(new&#160;33087)</span>,
+        move_plus_gol.dmem4bank1.coe&#160;<span class="new">(new&#160;33086)</span>,
+        move_plus_gol.dmem4bank2.coe&#160;<span class="new">(new&#160;33086)</span>,
+        move_plus_gol.dmem4bank3.coe&#160;<span class="new">(new&#160;33086)</span>,
+        move_plus_gol.dmemdebug&#160;<span class="new">(new&#160;1014)</span>,
+        move_plus_gol.dmemhex&#160;<span class="new">(new&#160;1)</span>,
+        move_plus_gol.readmemh&#160;<span class="new">(new&#160;132333)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 23:04</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">588</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+lkjasd<br />
+
+    </p>
+    <p class="commitdetails"><strong>547</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+262&#160;-262)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+18&#160;-18)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+267&#160;-267)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 21:49</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">584</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Still getting glitches with the new noop style (add r26,r26,0;  add r27,r27,0;  add r28,r28,0  -- avoids data forwarding in noop sequence)<br />
+Changed code to ACTUALLY write the current generation to the LEDs<br />
+
+    </p>
+    <p class="commitdetails"><strong>565</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+277&#160;-277)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+8&#160;-8)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+280&#160;-280)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 21:08</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">581</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Currently checking simulation for Clear_fb functionality. About to synth it as well<br />
+<br />
+
+    </p>
+    <p class="commitdetails"><strong>713</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+274&#160;-274)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+147&#160;-147)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+292&#160;-292)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 18:55</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">578</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Removed debug code (has no affect on board funcitonality). This bitch should be ready to rock the FPGA<br />
+
+    </p>
+    <p class="commitdetails"><strong>406</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+192&#160;-192)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+9&#160;-9)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+205&#160;-205)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 18:34</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">576</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fixed gol/ code to correctly move the cursor when in the other FB. I manipulated the UI code to repeat the following keyboard clicks: &lt;TAB&gt; &lt;RIGHT_ARROW&gt; &lt;RIGHT_ARROW&gt; &lt;RIGHT_ARROW&gt; __repeat__<br />
+Simulation showed the expected results (0x64 in FB2_HEXIMG1.hex, 0x64 moved over one column in FB2_..2, same for ..3 and ..4.      Then the 0x64 move to the same location but in FB1_HEXIMG5.hex, and continued to move, etc...)<br />
+<br />
+My next commit will remove the debug UI manipulations (they shouldn't affect synthesis anyways, as MMR loads will overwrite the values i was putting in)<br />
+
+    </p>
+    <p class="commitdetails"><strong>457</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+203&#160;-203)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+44&#160;-44)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+210&#160;-210)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 15:31</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">575</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated GoL+move cursor code to (hopefully) update the cursor correctly for the current FB. This code is now being assembled to /move_plus_gol. Synthing now...<br />
+
+    </p>
+    <p class="commitdetails"><strong>431</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+180&#160;-180)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+43&#160;-43)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+208&#160;-208)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-19 13:44</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">573</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Moved /move_pixel to old_progs/<br />
+<br />
+Assembled GoL prog embedded in move cursor:<br />
+	// ARROWS   - Move cursor<br />
+	// SPACE    - Toggle cursor<br />
+	// TAB      - Switch FB<br />
+	// A    	- Accumbytes on current nbrhd, store result in LEDs<br />
+	// N		- GoL rules on current nbrhd, store result in LEDs<br />
+	// BACKSPACE	- Clear current FB to all gray<br />
+	// ENTER	- Run 1 generation of GoL on the current FB, write to other FB<br />
+<br />
+<br />
+
+    </p>
+    <p class="commitdetails"><strong>128</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="change">(+56&#160;-56)</span>,
+        move_plus_gol.coe&#160;<span class="change">(+14&#160;-14)</span>,
+        move_plus_gol.debug&#160;<span class="change">(+58&#160;-58)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-18 18:43</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">548</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move_cursor modified to have gol stuff in software/gol<br />
+assembled cod is in assembled_progs/move_plus_gol<br />
+
+    </p>
+    <p class="commitdetails"><strong>737</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/move_plus_gol</strong>:
+        move_plus_gol.bin&#160;<span class="new">(new&#160;292)</span>,
+        move_plus_gol.coe&#160;<span class="new">(new&#160;147)</span>,
+        move_plus_gol.debug&#160;<span class="new">(new&#160;298)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

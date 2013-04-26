@@ -1,0 +1,467 @@
+# RS232 Configuration
+NET "txd" LOC = "AE7";
+NET "txd" IOSTANDARD = LVCMOS25;
+NET "txd" DRIVE = 8;
+NET "txd" SLEW = SLOW;
+
+NET "rxd" LOC = "AJ8";
+NET "rxd" IOSTANDARD = LVCMOS25;
+
+
+# Switch Configuration
+NET "rst" LOC = "AC11";
+#NET "SW_1" LOC = "AD11";
+NET "br_cfg<0>" LOC = "AF8";
+NET "br_cfg<1>" LOC = "AF9";
+
+NET "rst" IOSTANDARD = LVCMOS25;
+#NET "SW_1" IOSTANDARD = LVCMOS25;
+NET "br_cfg<0>" IOSTANDARD = LVCMOS25;
+NET "br_cfg<1>" IOSTANDARD = LVCMOS25;
+
+
+# Clock Configuration
+#NET "clk" LOC = "AJ15";
+#NET "clk" IOSTANDARD = LVCMOS25;
+#NET "clk" TNM_NET = "clk";
+#TIMESPEC "TS_clk" = PERIOD "clk" 10.00 ns HIGH 50 %;
+
+
+# Specifying global clock period
+net "clk"     period = 100 MHz ;
+
+net "*sys_reset_1_q" MAXDELAY = 10 ns;
+net "*sys_reset_1_q" TIG;
+
+# The following timespec is only for demonstration of P&R,
+# All Core DDR SDRAM I/Os should use IOB-FFs !
+timespec ts_non = from FFS to PADS 10 ns; 
+
+# location constraints (this is an example !) EDITED
+NET a_q<0> LOC=M25; 
+NET a_q<1> LOC=N25;
+NET a_q<2> LOC=L26;
+NET a_q<3> LOC=M29;
+NET a_q<4> LOC=K30;
+NET a_q<5> LOC=G25;
+NET a_q<6> LOC=G26;
+NET a_q<7> LOC=D26;
+NET a_q<8> LOC=J24;
+NET a_q<9> LOC=K24;
+NET a_q<10> LOC=F28;
+NET a_q<11> LOC=F30;
+NET a_q<12> LOC=M24;
+NET a_q<13> LOC=M23; #
+
+NET data<0> LOC=C27;
+NET data<1> LOC=D28;
+NET data<2> LOC=D29;
+NET data<3> LOC=D30;
+NET data<4> LOC=H25;
+NET data<5> LOC=H26;
+NET data<6> LOC=E27;
+NET data<7> LOC=E28;
+NET data<8> LOC=J26; 
+NET data<9> LOC=G27;
+NET data<10> LOC=G28;
+NET data<11> LOC=G30;
+NET data<12> LOC=L23;
+NET data<13> LOC=L24;
+NET data<14> LOC=H27;
+NET data<15> LOC=H28;
+NET data<16> LOC=J27; #
+NET data<17> LOC=J28; #
+NET data<18> LOC=K29; #
+NET data<19> LOC=L29; #
+NET data<20> LOC=N23; #
+NET data<21> LOC=N24; #
+NET data<22> LOC=K27; #
+NET data<23> LOC=K28; #
+NET data<24> LOC=R22; #
+NET data<25> LOC=M27; #
+NET data<26> LOC=M28; #
+NET data<27> LOC=P30; #
+NET data<28> LOC=P23; #
+NET data<29> LOC=P24; #
+NET data<30> LOC=N27; #
+NET data<31> LOC=N28; #
+NET data<32> LOC=V27; #
+NET data<33> LOC=Y30; #
+NET data<34> LOC=U24; #
+NET data<35> LOC=U23; #
+NET data<36> LOC=V26; #
+NET data<37> LOC=V25; #
+NET data<38> LOC=Y29; #
+NET data<39> LOC=AA29; #
+NET data<40> LOC=Y26; #
+NET data<41> LOC=AA28; #
+NET data<42> LOC=AA27; #
+NET data<43> LOC=W24; #
+NET data<44> LOC=W23; #
+NET data<45> LOC=AB28; #
+NET data<46> LOC=AB27; #
+NET data<47> LOC=AC29; #
+NET data<48> LOC=AB25; #
+NET data<49> LOC=AE29; #
+NET data<50> LOC=AA24; #
+NET data<51> LOC=AA23; #
+NET data<52> LOC=AD28; #
+NET data<53> LOC=AD27; #
+NET data<54> LOC=AF30; #
+NET data<55> LOC=AF29; #
+NET data<56> LOC=AF25; #
+NET data<57> LOC=AG30; #
+NET data<58> LOC=AG29; #
+NET data<59> LOC=AD26; #
+NET data<60> LOC=AD25; #
+NET data<61> LOC=AG28; #
+NET data<62> LOC=AH27; #
+NET data<63> LOC=AH29; #
+
+NET ba_q<0> LOC=M26; #~
+NET ba_q<1> LOC=K26;
+
+NET ras_qn LOC=N29; #~
+NET cas_qn LOC=L27;
+NET we_qn LOC=N26;
+
+NET dm_q<0> LOC=U26;
+NET dm_q<1> LOC=V29;
+NET dm_q<2> LOC=W29; #
+NET dm_q<3> LOC=T22; #
+NET dm_q<4> LOC=W28; #
+NET dm_q<5> LOC=W27; #
+NET dm_q<6> LOC=W26; #
+NET dm_q<7> LOC=W25; #
+
+NET cs_qn LOC=R24; #~?
+
+NET cke_q LOC=R26; #?
+
+NET dqs_q<0> LOC=E30;
+NET dqs_q<1> LOC=V29;
+NET dqs_q<2> LOC=M30; #
+NET dqs_q<3> LOC=P29; #
+NET dqs_q<4> LOC=V23; #
+NET dqs_q<5> LOC=AA25; #
+NET dqs_q<6> LOC=AC25; #
+NET dqs_q<7> LOC=AH26; #
+
+NET sdr_clk LOC=AC27; #~?
+NET sdr_clk_n LOC=AC28;
+
+#NET clk_fb LOC = "F13";
+NET clk LOC = "D11";
+
+#NET "rst_n" LOC = B6; #
+
+# Defining I/O Standards
+
+NET a_q<0> IOSTANDARD = SSTL2_I;
+NET a_q<1> IOSTANDARD = SSTL2_I;
+NET a_q<2> IOSTANDARD = SSTL2_I;
+NET a_q<3> IOSTANDARD = SSTL2_I;
+NET a_q<4> IOSTANDARD = SSTL2_I;
+NET a_q<5> IOSTANDARD = SSTL2_I;
+NET a_q<6> IOSTANDARD = SSTL2_I;
+NET a_q<7> IOSTANDARD = SSTL2_I;
+NET a_q<8> IOSTANDARD = SSTL2_I;
+NET a_q<9> IOSTANDARD = SSTL2_I;
+NET a_q<10> IOSTANDARD = SSTL2_I;
+NET a_q<11> IOSTANDARD = SSTL2_I;
+NET a_q<12> IOSTANDARD = SSTL2_I;
+NET a_q<13> IOSTANDARD = SSTL2_I; #
+
+NET dm_q<0> IOSTANDARD = SSTL2_I; 
+NET dm_q<1> IOSTANDARD = SSTL2_I; 
+NET dm_q<2> IOSTANDARD = SSTL2_I; #
+NET dm_q<3> IOSTANDARD = SSTL2_I; #
+NET dm_q<4> IOSTANDARD = SSTL2_I; #
+NET dm_q<5> IOSTANDARD = SSTL2_I; #
+NET dm_q<6> IOSTANDARD = SSTL2_I; #
+NET dm_q<7> IOSTANDARD = SSTL2_I; #
+
+NET ba_q<0> IOSTANDARD = SSTL2_I; 
+NET ba_q<1> IOSTANDARD = SSTL2_I; 
+
+NET ras_qn IOSTANDARD = SSTL2_I;  
+NET cas_qn IOSTANDARD = SSTL2_I;  
+NET we_qn IOSTANDARD = SSTL2_I; 
+
+NET sdr_clk IOSTANDARD = SSTL2_I; 
+NET sdr_clk_n IOSTANDARD = SSTL2_I;
+
+NET dqs_q<0> IOSTANDARD = SSTL2_I;
+NET dqs_q<1> IOSTANDARD = SSTL2_I;
+NET dqs_q<2> IOSTANDARD = SSTL2_I; #
+NET dqs_q<3> IOSTANDNET "a_q<12>" FAST;
+ARD = SSTL2_I; #
+NET dqs_q<4> IOSTANDARD = SSTL2_I; #
+NET dqs_q<5> IOSTANDARD = SSTL2_I; #
+NET dqs_q<6> IOSTANDARD = SSTL2_I; #
+NET dqs_q<7> IOSTANDARD = SSTL2_I; #
+
+NET cs_qn IOSTANDARD = SSTL2_I; 
+
+NET cke_q IOSTANDARD = SSTL2_I; 
+
+NET data<0> IOSTANDARD = SSTL2_I; 
+NET data<1> IOSTANDARD = SSTL2_I; 
+NET data<2> IOSTANDARD = SSTL2_I; 
+NET data<3> IOSTANDARD = SSTL2_I; 
+NET data<4> IOSTANDARD = SSTL2_I; 
+NET data<5> IOSTANDARD = SSTL2_I; 
+NET data<6> IOSTANDARD = SSTL2_I; 
+NET data<7> IOSTANDARD = SSTL2_I; 
+NET data<8> IOSTANDARD = SSTL2_I; 
+NET data<9> IOSTANDARD = SSTL2_I; 
+NET data<10> IOSTANDARD = SSTL2_I; 
+NET data<11> IOSTANDARD = SSTL2_I; 
+NET data<12> IOSTANDARD = SSTL2_I; 
+NET data<13> IOSTANDARD = SSTL2_I; 
+NET data<14> IOSTANDARD = SSTL2_I; 
+NET data<15> IOSTANDARD = SSTL2_I; 
+NET data<16> IOSTANDARD = SSTL2_I; #
+NET data<17> IOSTANDARD = SSTL2_I; #
+NET data<18> IOSTANDARD = SSTL2_I; #
+NET data<19> IOSTANDARD = SSTL2_I; #
+NET data<20> IOSTANDARD = SSTL2_I; #
+NET data<21> IOSTANDARD = SSTL2_I; #
+NET data<22> IOSTANDARD = SSTL2_I; #
+NET data<23> IOSTANDARD = SSTL2_I; #
+NET data<24> IOSTANDARD = SSTL2_I; #
+NET data<25> IOSTANDARD = SSTL2_I; #
+NET data<26> IOSTANDARD = SSTL2_I; #
+NET data<27> IOSTANDARD = SSTL2_I; #
+NET data<28> IOSTANDARD = SSTL2_I; #
+NET data<29> IOSTANDARD = SSTL2_I; #
+NET data<30> IOSTANDARD = SSTL2_I; #
+NET data<31> IOSTANDARD = SSTL2_I; #
+NET data<32> IOSTANDARD = SSTL2_I; #
+NET data<33> IOSTANDARD = SSTL2_I; #
+NET data<34> IOSTANDARD = SSTL2_I; #
+NET data<35> IOSTANDARD = SSTL2_I; #
+NET data<36> IOSTANDARD = SSTL2_I; #
+NET data<37> IOSTANDARD = SSTL2_I; #
+NET data<38> IOSTANDARD = SSTL2_I; #
+NET data<39> IOSTANDARD = SSTL2_I; #
+NET data<40> IOSTANDARD = SSTL2_I; #
+NET data<41> IOSTANDARD = SSTL2_I; #
+NET data<42> IOSTANDARD = SSTL2_I; #
+NET data<43> IOSTANDARD = SSTL2_I; #
+NET data<44> IOSTANDARD = SSTL2_I; #
+NET data<45> IOSTANDARD = SSTL2_I; #
+NET data<46> IOSTANDARD = SSTL2_I; #
+NET data<47> IOSTANDARD = SSTL2_I; #
+NET data<48> IOSTANDARD = SSTL2_I; #
+NET data<49> IOSTANDARD = SSTL2_I; #
+NET data<50> IOSTANDARD = SSTL2_I; #
+NET data<51> IOSTANDARD = SSTL2_I; #
+NET data<52> IOSTANDARD = SSTL2_I; #
+NET data<53> IOSTANDARD = SSTL2_I; #
+NET data<54> IOSTANDARD = SSTL2_I; #
+NET data<55> IOSTANDARD = SSTL2_I; #
+NET data<56> IOSTANDARD = SSTL2_I; #
+NET data<57> IOSTANDARD = SSTL2_I; #
+NET data<58> IOSTANDARD = SSTL2_I; #
+NET data<59> IOSTANDARD = SSTL2_I; #
+NET data<60> IOSTANDARD = SSTL2_I; #
+NET data<61> IOSTANDARD = SSTL2_I; #
+NET data<62> IOSTANDARD = SSTL2_I; #
+NET data<63> IOSTANDARD = SSTL2_I; #
+
+
+#NET clk_fb IOSTANDARD = SSTL2_I;	#how external is necessary?
+
+
+# set NODELAY attribute for input signals 
+#By default, the IBUF has a DELAY element to guarantee 0 hold time
+#By turning off the DELAY element, we save ~2ns in IBUF delay
+
+NET data<0> NODELAY; 
+NET data<1> NODELAY; 
+NET data<2> NODELAY; 
+NET data<3> NODELAY; 
+NET data<4> NODELAY; 
+NET data<5> NODELAY; 
+NET data<6> NODELAY; 
+NET data<7> NODELAY; 
+NET data<8> NODELAY; 
+NET data<9> NODELAY; 
+NET data<10> NODELAY; 
+NET data<11> NODELAY; 
+NET data<12> NODELAY; 
+NET data<13> NODELAY; 
+NET data<14> NODELAY; 
+NET data<15> NODELAY; 
+NET data<16> NODELAY; #
+NET data<17> NODELAY; #
+NET data<18> NODELAY; #
+NET data<19> NODELAY; #
+NET data<20> NODELAY; #
+NET data<21> NODELAY; #
+NET data<22> NODELAY; #
+NET data<23> NODELAY; #
+NET data<24> NODELAY; #
+NET data<25> NODELAY; #
+NET data<26> NODELAY; #
+NET data<27> NODELAY; #
+NET data<28> NODELAY; #
+NET data<29> NODELAY; #
+NET data<30> NODELAY; #
+NET data<31> NODELAY; #
+NET data<32> NODELAY; #
+NET data<33> NODELAY; #
+NET data<34> NODELAY; #
+NET data<35> NODELAY; #
+NET data<36> NODELAY; #
+NET data<37> NODELAY; #
+NET data<38> NODELAY; #
+NET data<39> NODELAY; #
+NET data<40> NODELAY; #
+NET data<41> NODELAY; #
+NET data<42> NODELAY; #
+NET data<43> NODELAY; #
+NET data<44> NODELAY; #
+NET data<45> NODELAY; #
+NET data<46> NODELAY; #
+NET data<47> NODELAY; #
+NET data<48> NODELAY; #
+NET data<49> NODELAY; #
+NET data<50> NODELAY; #
+NET data<51> NODELAY; #
+NET data<52> NODELAY; #
+NET data<53> NODELAY; #
+NET data<54> NODELAY; #
+NET data<55> NODELAY; #
+NET data<56> NODELAY; #
+NET data<57> NODELAY; #
+NET data<58> NODELAY; #
+NET data<59> NODELAY; #
+NET data<60> NODELAY; #
+NET data<61> NODELAY; #
+NET data<62> NODELAY; #
+NET data<63> NODELAY; #
+
+
+#Set FAST attribute for all outputs
+NET "a_q<0>" FAST;
+NET "a_q<1>" FAST;
+NET "a_q<2>" FAST;
+NET "a_q<3>" FAST;
+NET "a_q<4>" FAST;
+NET "a_q<5>" FAST;
+NET "a_q<6>" FAST;
+NET "a_q<7>" FAST;
+NET "a_q<8>" FAST;
+NET "a_q<9>" FAST;
+NET "a_q<10>" FAST;
+NET "a_q<11>" FAST;
+NET "a_q<12>" FAST;
+NET "a_q<13>" FAST;
+
+NET "dm_q<0>" FAST; 
+NET "dm_q<1>" FAST; 
+NET "dm_q<2>" FAST; #
+NET "dm_q<3>" FAST; #
+NET "dm_q<4>" FAST; #
+NET "dm_q<5>" FAST; #
+NET "dm_q<6>" FAST; #
+NET "dm_q<7>" FAST; #
+
+NET "ba_q<0>" FAST; 
+NET "ba_q<1>" FAST; 
+
+NET "ras_qn" FAST;  
+NET "cas_qn" FAST;  
+NET "we_qn" FAST; 
+
+NET "sdr_clk" FAST; 
+NET "sdr_clk_n" FAST;
+
+NET "dqs_q<0>" FAST; 
+NET "dqs_q<1>" FAST; 
+NET "dqs_q<2>" FAST; #
+NET "dqs_q<3>" FAST; #
+NET "dqs_q<4>" FAST; #
+NET "dqs_q<5>" FAST; #
+NET "dqs_q<6>" FAST; #
+NET "dqs_q<7>" FAST; #
+
+NET "cs_qn" FAST; 
+NET "cke_q" FAST; 
+
+NET "data<0>" FAST; 
+NET "data<1>" FAST; 
+NET "data<2>" FAST; 
+NET "data<3>" FAST; 
+NET "data<4>" FAST; 
+NET "data<5>" FAST; 
+NET "data<6>" FAST; 
+NET "data<7>" FAST; 
+NET "data<8>" FAST; 
+NET "data<9>" FAST; 
+NET "data<10>" FAST; 
+NET "data<11>" FAST; 
+NET "data<12>" FAST; 
+NET "data<13>" FAST; 
+NET "data<14>" FAST; 
+NET "data<15>" FAST; 
+NET "data<16>" FAST; #
+NET "data<17>" FAST; #
+NET "data<18>" FAST; #
+NET "data<19>" FAST; #
+NET "data<20>" FAST; #
+NET "data<21>" FAST; #
+NET "data<22>" FAST; #
+NET "data<23>" FAST; #
+NET "data<24>" FAST; #
+NET "data<25>" FAST; #
+NET "data<26>" FAST; #
+NET "data<27>" FAST; #
+NET "data<28>" FAST; #
+NET "data<29>" FAST; #
+NET "data<30>" FAST; #
+NET "data<31>" FAST; #
+NET "data<32>" FAST; #
+NET "data<33>" FAST; #
+NET "data<34>" FAST; #
+NET "data<35>" FAST; #
+NET "data<36>" FAST; #
+NET "data<37>" FAST; #
+NET "data<38>" FAST; #
+NET "data<39>" FAST; #
+NET "data<40>" FAST; #
+NET "data<41>" FAST; #
+NET "data<42>" FAST; #
+NET "data<43>" FAST; #
+NET "data<44>" FAST; #
+NET "data<45>" FAST; #
+NET "data<46>" FAST; #
+NET "data<47>" FAST; #
+NET "data<48>" FAST; #
+NET "data<49>" FAST; #
+NET "data<50>" FAST; #
+NET "data<51>" FAST; #
+NET "data<52>" FAST; #
+NET "data<53>" FAST; #
+NET "data<54>" FAST; #
+NET "data<55>" FAST; #
+NET "data<56>" FAST; #
+NET "data<57>" FAST; #
+NET "data<58>" FAST; #
+NET "data<59>" FAST; #
+NET "data<60>" FAST; #
+NET "data<61>" FAST; #
+NET "data<62>" FAST; #
+NET "data<63>" FAST; #
+
+#Set PULLUPS for some signals
+NET ras_qn PULLUP;
+NET cas_qn PULLUP;
+NET we_qn PULLUP;
+NET cs_qn PULLUP;
+
+
+
+

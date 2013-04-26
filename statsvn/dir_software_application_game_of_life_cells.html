@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - Directory software/application/game_of_life/cells/</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>Directory software/application/game_of_life/cells/</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a></div>
+<dl class="attributes">
+    <dt>Directory Created:</dt>
+    <dd><span class="date">2011-04-10 20:10</span></dd>
+    <dt>Directory Deleted:</dt>
+    <dd><span class="date">2011-04-28 13:56</span></dd>
+    <dt>Total Files:</dt>
+    <dd>0</dd>
+    <dt>Deleted Files:</dt>
+    <dd>51</dd>
+    <dt>Lines of Code:</dt>
+    <dd>0</dd>
+</dl>
+<p class="dirtree">
+<a href="dir.html">[root]</a>/<a href="dir_software.html">software</a>/<a href="dir_software_application.html">application</a>/<a href="dir_software_application_game_of_life.html">game_of_life</a>/<strong>cells</strong><br/>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_software_application_game_of_life_cells_original_files.html">original_files</a> 
+(0 files, 0 lines)<br />
+</p>
+
+<div class="section">
+<h2>Lines of Code</h2>
+<p class="chart"><img src="loc_module_software_application_game_of_life_cells.png" alt="software/application/game_of_life/cells/ Lines of Code" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Developers</h2>
+  <table  rules="groups" summary="All authors and the number of their changes and lines of code in this directory">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Totals</th>
+        <td>103 (100.0%)</td>
+        <td>676 (100.0%)</td>
+        <td>6.5</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="user_nordstro.html" class="author">nordstro</a></th>
+        <td>85 (82.5%)</td>
+        <td>338 (50.0%)</td>
+        <td>3.9</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="user_chanson.html" class="author">chanson</a></th>
+        <td>18 (17.5%)</td>
+        <td>338 (50.0%)</td>
+        <td>18.7</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="4"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-28 13:56</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">720</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Moved old files to software/old/<br />
+Changed set_fb and copy_fb to only operate on the first 240 rows of the FB's<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">51 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/application/game_of_life/cells</strong>:
+        000_fuse.hex&#160;<span class="del">(del)</span>,
+        001_phoenix.hex&#160;<span class="del">(del)</span>,
+        002_koks_galaxy.hex&#160;<span class="del">(del)</span>,
+        003_hivenudger.hex&#160;<span class="del">(del)</span>,
+        004_loaflipflip.hex&#160;<span class="del">(del)</span>,
+        005_monkey.hex&#160;<span class="del">(del)</span>,
+        006_boatstretcher.hex&#160;<span class="del">(del)</span>,
+        007_rabbits.hex&#160;<span class="del">(del)</span>,
+        008_puffer.hex&#160;<span class="del">(del)</span>,
+        009_pi_orbital.hex&#160;<span class="del">(del)</span>,
+        010_total_aperiodic.hex&#160;<span class="del">(del)</span>,
+        011_true_gun.hex&#160;<span class="del">(del)</span>,
+        012_puffer_train.hex&#160;<span class="del">(del)</span>,
+        013_ray_gun.hex&#160;<span class="del">(del)</span>,
+        014_infinite_growth.hex&#160;<span class="del">(del)</span>,
+        015_noahs_ark.hex&#160;<span class="del">(del)</span>,
+        016_spacefiller.hex&#160;<span class="del">(del)</span>,
+        boatstretcher.cells&#160;<span class="del">(del)</span>,
+        boatstretcher.hex&#160;<span class="del">(del)</span>,
+        fuse.cells&#160;<span class="del">(del)</span>,
+        fuse.hex&#160;<span class="del">(del)</span>,
+        hivenudger.cells&#160;<span class="del">(del)</span>,
+        hivenudger.hex&#160;<span class="del">(del)</span>,
+        infinite_growth.cells&#160;<span class="del">(del)</span>,
+        infinite_growth.hex&#160;<span class="del">(del)</span>,
+        koks_galaxy.cells&#160;<span class="del">(del)</span>,
+        koks_galaxy.hex&#160;<span class="del">(del)</span>,
+        loaflipflop.cells&#160;<span class="del">(del)</span>,
+        loaflipflop.hex&#160;<span class="del">(del)</span>,
+        monkey.cells&#160;<span class="del">(del)</span>,
+        monkey.hex&#160;<span class="del">(del)</span>,
+        noahs_ark.cells&#160;<span class="del">(del)</span>,
+        noahs_ark.hex&#160;<span class="del">(del)</span>,
+        phoenix.cells&#160;<span class="del">(del)</span>,
+        phoenix.hex&#160;<span class="del">(del)</span>,
+        pi_orbital.cells&#160;<span class="del">(del)</span>,
+        pi_orbital.hex&#160;<span class="del">(del)</span>,
+        puffer.cells&#160;<span class="del">(del)</span>,
+        puffer.hex&#160;<span class="del">(del)</span>,
+        puffer_train.cells&#160;<span class="del">(del)</span>,
+        puffer_train.hex&#160;<span class="del">(del)</span>,
+        rabbits.cells&#160;<span class="del">(del)</span>,
+        rabbits.hex&#160;<span class="del">(del)</span>,
+        ray_gun.cells&#160;<span class="del">(del)</span>,
+        ray_gun.hex&#160;<span class="del">(del)</span>,
+        spacefiller.cells&#160;<span class="del">(del)</span>,
+        spacefiller.hex&#160;<span class="del">(del)</span>,
+        total_aperiodic.cells&#160;<span class="del">(del)</span>,
+        total_aperiodic.hex&#160;<span class="del">(del)</span>,
+        true_gun.cells&#160;<span class="del">(del)</span>,
+        true_gun.hex&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-10 22:40</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">454</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+gave game of life data files indexes in an attempt to rank them by both coolness and complexity (higher number having more of both)<br />
+<br />
+modified game_of_life.data to use have a LUT (currently doesn't work... will need to make a routine to set up the LUT)<br />
+
+    </p>
+    <p class="commitdetails"><strong>337</strong> lines of code changed in <span class="files">17 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/application/game_of_life/cells</strong>:
+        000_fuse.hex&#160;<span class="new">(new&#160;12)</span>,
+        001_phoenix.hex&#160;<span class="new">(new&#160;9)</span>,
+        002_koks_galaxy.hex&#160;<span class="new">(new&#160;10)</span>,
+        003_hivenudger.hex&#160;<span class="new">(new&#160;14)</span>,
+        004_loaflipflip.hex&#160;<span class="new">(new&#160;35)</span>,
+        005_monkey.hex&#160;<span class="new">(new&#160;20)</span>,
+        006_boatstretcher.hex&#160;<span class="new">(new&#160;16)</span>,
+        007_rabbits.hex&#160;<span class="new">(new&#160;4)</span>,
+        008_puffer.hex&#160;<span class="new">(new&#160;8)</span>,
+        009_pi_orbital.hex&#160;<span class="new">(new&#160;60)</span>,
+        010_total_aperiodic.hex&#160;<span class="new">(new&#160;58)</span>,
+        011_true_gun.hex&#160;<span class="new">(new&#160;22)</span>,
+        012_puffer_train.hex&#160;<span class="new">(new&#160;6)</span>,
+        013_ray_gun.hex&#160;<span class="new">(new&#160;17)</span>,
+        014_infinite_growth.hex&#160;<span class="new">(new&#160;2)</span>,
+        015_noahs_ark.hex&#160;<span class="new">(new&#160;16)</span>,
+        016_spacefiller.hex&#160;<span class="new">(new&#160;28)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-10 20:28</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">451</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added the hex files after conversions<br />
+
+    </p>
+    <p class="commitdetails"><strong>338</strong> lines of code changed in <span class="files">18 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/application/game_of_life/cells</strong>:
+        boatstretcher.hex&#160;<span class="new">(new&#160;16)</span>,
+        fuse.hex&#160;<span class="new">(new&#160;12)</span>,
+        hivenudger.hex&#160;<span class="new">(new&#160;14)</span>,
+        infinite_growth.cells&#160;<span class="change">(+1&#160;-1)</span>,
+        infinite_growth.hex&#160;<span class="new">(new&#160;2)</span>,
+        koks_galaxy.hex&#160;<span class="new">(new&#160;10)</span>,
+        loaflipflop.hex&#160;<span class="new">(new&#160;35)</span>,
+        monkey.hex&#160;<span class="new">(new&#160;20)</span>,
+        noahs_ark.hex&#160;<span class="new">(new&#160;16)</span>,
+        phoenix.hex&#160;<span class="new">(new&#160;9)</span>,
+        pi_orbital.hex&#160;<span class="new">(new&#160;60)</span>,
+        puffer.hex&#160;<span class="new">(new&#160;8)</span>,
+        puffer_train.hex&#160;<span class="new">(new&#160;6)</span>,
+        rabbits.hex&#160;<span class="new">(new&#160;4)</span>,
+        ray_gun.hex&#160;<span class="new">(new&#160;17)</span>,
+        spacefiller.hex&#160;<span class="new">(new&#160;28)</span>,
+        total_aperiodic.hex&#160;<span class="new">(new&#160;58)</span>,
+        true_gun.hex&#160;<span class="new">(new&#160;22)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-04-10 20:10</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">450</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added .cells files to use for initial game of life boards<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">17 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/application/game_of_life/cells</strong>:
+        boatstretcher.cells&#160;<span class="new">(new)</span>,
+        fuse.cells&#160;<span class="new">(new)</span>,
+        hivenudger.cells&#160;<span class="new">(new)</span>,
+        infinite_growth.cells&#160;<span class="new">(new&#160;1)</span>,
+        koks_galaxy.cells&#160;<span class="new">(new)</span>,
+        loaflipflop.cells&#160;<span class="new">(new)</span>,
+        monkey.cells&#160;<span class="new">(new)</span>,
+        noahs_ark.cells&#160;<span class="new">(new)</span>,
+        phoenix.cells&#160;<span class="new">(new)</span>,
+        pi_orbital.cells&#160;<span class="new">(new)</span>,
+        puffer.cells&#160;<span class="new">(new)</span>,
+        puffer_train.cells&#160;<span class="new">(new)</span>,
+        rabbits.cells&#160;<span class="new">(new)</span>,
+        ray_gun.cells&#160;<span class="new">(new)</span>,
+        spacefiller.cells&#160;<span class="new">(new)</span>,
+        total_aperiodic.cells&#160;<span class="new">(new)</span>,
+        true_gun.cells&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

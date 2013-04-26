@@ -1,0 +1,1685 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN -  Developers: chanson</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1> Developers: chanson</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a> &#171; <a href="developers.html">Developers</a></div>
+<dl class="attributes">
+    <dt>Login name:</dt>
+    <dd>chanson</dd>
+    <dt>Total Commits:</dt>
+    <dd>1,293 (24.9%)</dd>
+    <dt>Lines of Code:</dt>
+    <dd>3,191,494 (24.7%)</dd>
+    <dt>Most Recent Commit:</dt>
+    <dd><span class="date">2011-04-29 16:49</span></dd>
+    <dt>Tweet this:</dt>
+    <dd><a onclick="return shortenTweet(this.href);" href="http://twitter.com/home?status=chanson%20contributed%203%2C191%2C494%20(24.7%25)%20lines%20to%20%20%7B0}%20most%20recent%20commit%202011-04-29%20stats%20by%20StatSVN%20http%3A%2F%2Fstatsvn.org"><img style="border:0px" alt="Tweet this" src="tweet-this.png"/></a></dd>
+</dl>
+
+<div class="section">
+<h2>Activity by Clock Time</h2>
+<p class="chart"><img src="activity_time_chanson.png" alt="Activity by Hour of Day for chanson" width="800" height="500" /></p><p class="chart"><img src="activity_day_chanson.png" alt="Activity by Day of Week for chanson" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Activity in Directories</h2>
+  <table  rules="groups" summary="Overview of this author's activities in different directories">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Directory</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Totals</th>
+        <td>1293 (100.0%)</td>
+        <td>3191494 (100.0%)</td>
+        <td>2468.2</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_color.html" class="directory">software/assembled_progs/color/</a></th>
+        <td>22 (1.7%)</td>
+        <td>787354 (24.7%)</td>
+        <td>35788.8</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_assembled_progs_median.html" class="directory">software/assembled_progs/median/</a></th>
+        <td>33 (2.6%)</td>
+        <td>728874 (22.8%)</td>
+        <td>22087.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_avg.html" class="directory">software/assembled_progs/avg/</a></th>
+        <td>14 (1.1%)</td>
+        <td>528276 (16.6%)</td>
+        <td>37734.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_assembled_progs_basic_gameoflife.html" class="directory">software/assembled_progs/basic_gameoflife/</a></th>
+        <td>14 (1.1%)</td>
+        <td>402214 (12.6%)</td>
+        <td>28729.5</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_lena.html" class="directory">software/assembled_progs/lena/</a></th>
+        <td>21 (1.6%)</td>
+        <td>340431 (10.7%)</td>
+        <td>16211.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_assembled_progs_gol.html" class="directory">software/assembled_progs/gol/</a></th>
+        <td>44 (3.4%)</td>
+        <td>164017 (5.1%)</td>
+        <td>3727.6</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_darwin.html" class="directory">software/assembled_progs/darwin/</a></th>
+        <td>8 (0.6%)</td>
+        <td>140713 (4.4%)</td>
+        <td>17589.1</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_assembled_progs_color_colortest.html" class="directory">software/assembled_progs/color/colortest/</a></th>
+        <td>8 (0.6%)</td>
+        <td>78242 (2.5%)</td>
+        <td>9780.2</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software.html" class="directory">software/</a></th>
+        <td>236 (18.3%)</td>
+        <td>7149 (0.2%)</td>
+        <td>30.2</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_mini_spart_docs.html" class="directory">mini_spart/docs/</a></th>
+        <td>3 (0.2%)</td>
+        <td>6240 (0.2%)</td>
+        <td>2080.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_simplekb.html" class="directory">software/assembled_progs/simplekb/</a></th>
+        <td>14 (1.1%)</td>
+        <td>3160 (0.1%)</td>
+        <td>225.7</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_mini_spart.html" class="directory">mini_spart/</a></th>
+        <td>57 (4.4%)</td>
+        <td>1113 (0.0%)</td>
+        <td>19.5</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware.html" class="directory">hardware/</a></th>
+        <td>27 (2.1%)</td>
+        <td>1073 (0.0%)</td>
+        <td>39.7</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_gol.html" class="directory">software/gol/</a></th>
+        <td>29 (2.2%)</td>
+        <td>579 (0.0%)</td>
+        <td>19.9</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_application_game_of_life_cells.html" class="directory">software/application/game_of_life/cells/</a></th>
+        <td>18 (1.4%)</td>
+        <td>338 (0.0%)</td>
+        <td>18.7</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_testprogs_colortest.html" class="directory">software/testprogs/colortest/</a></th>
+        <td>9 (0.7%)</td>
+        <td>333 (0.0%)</td>
+        <td>37.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_assembled_progs_kbd_test.html" class="directory">software/assembled_progs/kbd_test/</a></th>
+        <td>3 (0.2%)</td>
+        <td>310 (0.0%)</td>
+        <td>103.3</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_gol_cells_original_files.html" class="directory">software/gol/cells/original_files/</a></th>
+        <td>10 (0.8%)</td>
+        <td>253 (0.0%)</td>
+        <td>25.3</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_testprogs.html" class="directory">software/testprogs/</a></th>
+        <td>11 (0.9%)</td>
+        <td>226 (0.0%)</td>
+        <td>20.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_testprogs_median.html" class="directory">software/testprogs/median/</a></th>
+        <td>6 (0.5%)</td>
+        <td>152 (0.0%)</td>
+        <td>25.3</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_testprogs_laplacian.html" class="directory">software/testprogs/laplacian/</a></th>
+        <td>2 (0.2%)</td>
+        <td>100 (0.0%)</td>
+        <td>50.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_testprogs_avgfilter.html" class="directory">software/testprogs/avgfilter/</a></th>
+        <td>4 (0.3%)</td>
+        <td>98 (0.0%)</td>
+        <td>24.5</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_documentation.html" class="directory">documentation/</a></th>
+        <td>36 (2.8%)</td>
+        <td>83 (0.0%)</td>
+        <td>2.3</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_testprogs_simplekb.html" class="directory">software/testprogs/simplekb/</a></th>
+        <td>3 (0.2%)</td>
+        <td>51 (0.0%)</td>
+        <td>17.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_gol_cells.html" class="directory">software/gol/cells/</a></th>
+        <td>1 (0.1%)</td>
+        <td>49 (0.0%)</td>
+        <td>49.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_application.html" class="directory">software/application/</a></th>
+        <td>9 (0.7%)</td>
+        <td>20 (0.0%)</td>
+        <td>2.2</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_testprogs_ldstrtest.html" class="directory">software/testprogs/ldstrtest/</a></th>
+        <td>1 (0.1%)</td>
+        <td>14 (0.0%)</td>
+        <td>14.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_assembled_progs.html" class="directory">software/assembled_progs/</a></th>
+        <td>1 (0.1%)</td>
+        <td>12 (0.0%)</td>
+        <td>12.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_application_game_of_life.html" class="directory">software/application/game_of_life/</a></th>
+        <td>5 (0.4%)</td>
+        <td>10 (0.0%)</td>
+        <td>2.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface.html" class="directory">hardware/peripheralinterface/</a></th>
+        <td>1 (0.1%)</td>
+        <td>9 (0.0%)</td>
+        <td>9.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_executeinterface.html" class="directory">hardware/executeinterface/</a></th>
+        <td>1 (0.1%)</td>
+        <td>1 (0.0%)</td>
+        <td>1.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_test.html" class="directory">test/</a></th>
+        <td>5 (0.4%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_simulator.html" class="directory">software/simulator/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_man_man3.html" class="directory">software/perl5/man/man3/</a></th>
+        <td>99 (7.7%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_man_man1.html" class="directory">software/perl5/man/man1/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_version.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/version/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_version_vxs.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/version/vxs/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_version.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/version/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_local_lib.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/local/lib/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_Test_Simple.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/Test/Simple/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_Test_Harness.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/Test/Harness/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_Perl_OSType.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/Perl/OSType/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_Module_Metadata.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/Module/Metadata/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_Module_Build.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/Module/Build/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_IO_Tee.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/IO/Tee/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_ExtUtils_ParseXS.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/ExtUtils/ParseXS/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_ExtUtils_CBuilder.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/ExtUtils/CBuilder/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi_auto_CPAN_Meta_YAML.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/auto/CPAN/Meta/YAML/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_x86_64-linux-gnu-thread-multi.html" class="directory">software/perl5/lib/perl5/x86_64-linux-gnu-thread-multi/</a></th>
+        <td>3 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_local.html" class="directory">software/perl5/lib/perl5/local/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_lib_core.html" class="directory">software/perl5/lib/perl5/lib/core/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_inc_latest.html" class="directory">software/perl5/lib/perl5/inc/latest/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_inc.html" class="directory">software/perl5/lib/perl5/inc/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_Test_Builder_Tester.html" class="directory">software/perl5/lib/perl5/Test/Builder/Tester/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_Test_Builder_IO.html" class="directory">software/perl5/lib/perl5/Test/Builder/IO/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_Test_Builder.html" class="directory">software/perl5/lib/perl5/Test/Builder/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_Test.html" class="directory">software/perl5/lib/perl5/Test/</a></th>
+        <td>6 (0.5%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser_YAMLish.html" class="directory">software/perl5/lib/perl5/TAP/Parser/YAMLish/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser_SourceHandler.html" class="directory">software/perl5/lib/perl5/TAP/Parser/SourceHandler/</a></th>
+        <td>5 (0.4%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser_Scheduler.html" class="directory">software/perl5/lib/perl5/TAP/Parser/Scheduler/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser_Result.html" class="directory">software/perl5/lib/perl5/TAP/Parser/Result/</a></th>
+        <td>8 (0.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser_Iterator.html" class="directory">software/perl5/lib/perl5/TAP/Parser/Iterator/</a></th>
+        <td>3 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Parser.html" class="directory">software/perl5/lib/perl5/TAP/Parser/</a></th>
+        <td>11 (0.9%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Harness.html" class="directory">software/perl5/lib/perl5/TAP/Harness/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Formatter_File.html" class="directory">software/perl5/lib/perl5/TAP/Formatter/File/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Formatter_Console.html" class="directory">software/perl5/lib/perl5/TAP/Formatter/Console/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_TAP_Formatter.html" class="directory">software/perl5/lib/perl5/TAP/Formatter/</a></th>
+        <td>5 (0.4%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_TAP.html" class="directory">software/perl5/lib/perl5/TAP/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_Perl.html" class="directory">software/perl5/lib/perl5/Perl/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_POD2_PT_BR_local.html" class="directory">software/perl5/lib/perl5/POD2/PT_BR/local/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_POD2_DE_local.html" class="directory">software/perl5/lib/perl5/POD2/DE/local/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_Module_Build_Platform.html" class="directory">software/perl5/lib/perl5/Module/Build/Platform/</a></th>
+        <td>14 (1.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_Module_Build.html" class="directory">software/perl5/lib/perl5/Module/Build/</a></th>
+        <td>15 (1.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_Module.html" class="directory">software/perl5/lib/perl5/Module/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_IO.html" class="directory">software/perl5/lib/perl5/IO/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_ExtUtils_CBuilder_Platform_Windows.html" class="directory">software/perl5/lib/perl5/ExtUtils/CBuilder/Platform/Windows/</a></th>
+        <td>3 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_ExtUtils_CBuilder_Platform.html" class="directory">software/perl5/lib/perl5/ExtUtils/CBuilder/Platform/</a></th>
+        <td>8 (0.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_ExtUtils_CBuilder.html" class="directory">software/perl5/lib/perl5/ExtUtils/CBuilder/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_ExtUtils.html" class="directory">software/perl5/lib/perl5/ExtUtils/</a></th>
+        <td>3 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_CPAN_Meta.html" class="directory">software/perl5/lib/perl5/CPAN/Meta/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_App_Prove_State_Result.html" class="directory">software/perl5/lib/perl5/App/Prove/State/Result/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_App_Prove_State.html" class="directory">software/perl5/lib/perl5/App/Prove/State/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_lib_perl5_App_Prove.html" class="directory">software/perl5/lib/perl5/App/Prove/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_perl5_lib_perl5_App.html" class="directory">software/perl5/lib/perl5/App/</a></th>
+        <td>1 (0.1%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_perl5_bin.html" class="directory">software/perl5/bin/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_dump_run150.html" class="directory">software/dump/run150/</a></th>
+        <td>10 (0.8%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_software_dump_game_3gens_quiet.html" class="directory">software/dump/game_3gens_quiet/</a></th>
+        <td>12 (0.9%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_software_dump_game_3gens_noquiet.html" class="directory">software/dump/game_3gens_noquiet/</a></th>
+        <td>12 (0.9%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work_vlg6B.html" class="directory">hardware/peripheralinterface/vga/xst/work/vlg6B/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work_vlg6A.html" class="directory">hardware/peripheralinterface/vga/xst/work/vlg6A/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work_vlg68.html" class="directory">hardware/peripheralinterface/vga/xst/work/vlg68/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work_vlg5F.html" class="directory">hardware/peripheralinterface/vga/xst/work/vlg5F/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work_vlg43.html" class="directory">hardware/peripheralinterface/vga/xst/work/vlg43/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_work.html" class="directory">hardware/peripheralinterface/vga/xst/work/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_dump.xst_vga.prj_ngx.html" class="directory">hardware/peripheralinterface/vga/xst/dump.xst/vga.prj/ngx/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_dump.xst_vga.prj.html" class="directory">hardware/peripheralinterface/vga/xst/dump.xst/vga.prj/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_dump.xst_draw_logic.prj_ngx.html" class="directory">hardware/peripheralinterface/vga/xst/dump.xst/draw_logic.prj/ngx/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst_dump.xst_draw_logic.prj.html" class="directory">hardware/peripheralinterface/vga/xst/dump.xst/draw_logic.prj/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xst.html" class="directory">hardware/peripheralinterface/vga/xst/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___common.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/common/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY____ProjRepoInternal_.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/_ProjRepoInternal_/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___STE_xst.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE/xst/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___STE_ngcbuild.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE/ngcbuild/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___STE.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___HierarchicalDesign_HDProject.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/HDProject/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___HierarchicalDesign.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY___Autonym.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/Autonym/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___REGISTRY__.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___OBJSTORE___HierarchicalDesign_HDProject.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign/HDProject/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise___OBJSTORE__.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/__OBJSTORE__/</a></th>
+        <td>8 (0.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp_ise.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/ise/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_xlnx_auto_0_xdb_tmp.html" class="directory">hardware/peripheralinterface/vga/xlnx_auto_0_xdb/tmp/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___xst.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/xst/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___xreport.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/xreport/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___xpwr.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/xpwr/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___vlogcomp.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/vlogcomp/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___vhpcomp.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/vhpcomp/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___tsim.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/tsim/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___trce.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/trce/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___taengine.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/taengine/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___runner.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/runner/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___par.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/par/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ngdbuild.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ngdbuild/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ngcbuild.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ngcbuild/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ngc2edif.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ngc2edif/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___netgen.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/netgen/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___map.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/map/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___idem.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/idem/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___hprep6.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/hprep6/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___fuse.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/fuse/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___dumpngdio.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/dumpngdio/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___cpldfit.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/cpldfit/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___common.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/common/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___bitgen.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/bitgen/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY____ProjRepoInternal_.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/_ProjRepoInternal_/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___XSLTProcess.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/XSLTProcess/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___SrcCtrl.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/SrcCtrl/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_xst.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/xst/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_trce.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/trce/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_par.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/par/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_ngdbuild.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/ngdbuild/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_map.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/map/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE_bitgen.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/bitgen/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___STE.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/STE/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData_UserSourceFiles.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserSourceFiles/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData_UserPartitions.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserPartitions/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData_UserLibraries.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserLibraries/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData_ProjectProperties.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/ProjectProperties/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData_ProcessProperties.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/ProcessProperties/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectSeedData.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectNavigatorGui.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectNavigatorGui/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___ProjectNavigator.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/ProjectNavigator/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___HierarchicalDesign_HDProject.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/HDProject/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___HierarchicalDesign.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___Cs.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/Cs/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___REGISTRY___Autonym.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__REGISTRY__/Autonym/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___xreport.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/xreport/</a></th>
+        <td>16 (1.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___SrcCtrl.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/SrcCtrl/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___ProjectNavigatorGui.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/ProjectNavigatorGui/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___ProjectNavigator_dpm_project_main.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/ProjectNavigator/dpm_project_main/</a></th>
+        <td>8 (0.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___ProjectNavigator.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/ProjectNavigator/</a></th>
+        <td>6 (0.5%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___PnAutoRun_Scripts.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/PnAutoRun/Scripts/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___HierarchicalDesign_HDProject.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign/HDProject/</a></th>
+        <td>4 (0.3%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE___HierarchicalDesign.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise___OBJSTORE__.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/__OBJSTORE__/</a></th>
+        <td>8 (0.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp_ise.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/ise/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb_tmp.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/tmp/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_vga_xdb.html" class="directory">hardware/peripheralinterface/vga/vga_xdb/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga_tmp.html" class="directory">hardware/peripheralinterface/vga/tmp/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga_templates.html" class="directory">hardware/peripheralinterface/vga/templates/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_hardware_peripheralinterface_vga__ngo.html" class="directory">hardware/peripheralinterface/vga/_ngo/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_hardware_peripheralinterface_vga.html" class="directory">hardware/peripheralinterface/vga/</a></th>
+        <td>150 (11.6%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir.html" class="directory">/</a></th>
+        <td>2 (0.2%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p class="chart"><img src="directory_sizes_chanson.png" alt="Activity of chanson" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="20"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 16:49</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">741</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+changed image proc slide<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        final_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="19"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 16:31</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">738</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added noops to the spin loop and fixed the image proc bar<br />
+
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+4&#160;-1)</span>,
+        imageprocbar.hex&#160;<span class="change">(+6&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="18"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 15:30</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">733</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+trying to fix a random problem in gnoise<br />
+
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="17"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 14:31</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">730</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added gaussian noise, and changed the instruction writing for image proc<br />
+
+    </p>
+    <p class="commitdetails"><strong>4430</strong> lines of code changed in <span class="files">14 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/gol</strong>:
+        gol.bin&#160;<span class="change">(+271&#160;-271)</span>,
+        gol.coe&#160;<span class="change">(+47&#160;-47)</span>,
+        gol.debug&#160;<span class="change">(+272&#160;-272)</span>,
+        gol.dmem.coe&#160;<span class="change">(+1238&#160;-1238)</span>,
+        gol.dmem4bank0.coe&#160;<span class="change">(+296&#160;-296)</span>,
+        gol.dmem4bank1.coe&#160;<span class="change">(+322&#160;-322)</span>,
+        gol.dmem4bank2.coe&#160;<span class="change">(+318&#160;-318)</span>,
+        gol.dmem4bank3.coe&#160;<span class="change">(+315&#160;-315)</span>,
+        gol.dmemdebug&#160;<span class="change">(+1&#160;-1)</span>,
+        gol.dmemhex&#160;<span class="change">(+1&#160;-1)</span>,
+        gol.readmemh&#160;<span class="change">(+1313&#160;-1313)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+26)</span>,
+        imageproc.s&#160;<span class="change">(+4)</span>,
+        imageprocbar.hex&#160;<span class="change">(+6&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="16"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 13:40</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">728</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+fixed a bug with the BCD r6 -1<br />
+modified edges of asteroid.raw to be black<br />
+
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        final_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        asteroid.raw&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+8&#160;-4)</span>,
+        imageproc.s&#160;<span class="change">(+2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="15"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-29 12:55</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">725</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+changed to asteroid and hopefully threshold is fixed<br />
+
+    </p>
+    <p class="commitdetails"><strong>154120</strong> lines of code changed in <span class="files">15 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        asteroid.raw&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>software/assembled_progs/gol</strong>:
+        gol.bin&#160;<span class="change">(+34&#160;-34)</span>,
+        gol.coe&#160;<span class="change">(+11&#160;-11)</span>,
+        gol.debug&#160;<span class="change">(+34&#160;-34)</span>,
+        gol.dmem.coe&#160;<span class="change">(+48534&#160;-48534)</span>,
+        gol.dmem4bank0.coe&#160;<span class="change">(+12193&#160;-12193)</span>,
+        gol.dmem4bank1.coe&#160;<span class="change">(+12219&#160;-12219)</span>,
+        gol.dmem4bank2.coe&#160;<span class="change">(+12208&#160;-12208)</span>,
+        gol.dmem4bank3.coe&#160;<span class="change">(+12173&#160;-12173)</span>,
+        gol.dmemdebug&#160;<span class="change">(+235&#160;-235)</span>,
+        gol.dmemhex&#160;<span class="change">(+1&#160;-1)</span>,
+        gol.readmemh&#160;<span class="change">(+56471&#160;-56471)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        appdata.data&#160;<span class="change">(+1&#160;-1)</span>,
+        filters.s&#160;<span class="change">(+5&#160;-6)</span>,
+        imageproc.s&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="14"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-27 19:02</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">714</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+those files were pissing me off<br />
+
+    </p>
+    <p class="commitdetails"><strong>16</strong> lines of code changed in <span class="files">15 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/gol</strong>:
+        gol.bin&#160;<span class="del">(del)</span>,
+        gol.coe&#160;<span class="del">(del)</span>,
+        gol.debug&#160;<span class="del">(del)</span>,
+        gol.dmem.coe&#160;<span class="del">(del)</span>,
+        gol.dmem4bank0.coe&#160;<span class="del">(del)</span>,
+        gol.dmem4bank1.coe&#160;<span class="del">(del)</span>,
+        gol.dmem4bank2.coe&#160;<span class="del">(del)</span>,
+        gol.dmem4bank3.coe&#160;<span class="del">(del)</span>,
+        gol.dmemdebug&#160;<span class="del">(del)</span>,
+        gol.dmemhex&#160;<span class="del">(del)</span>,
+        gol.readmemh&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        appdata.data&#160;<span class="change">(+3&#160;-2)</span>,
+        filters.s&#160;<span class="change">(+8&#160;-6)</span>,
+        imageproc.s&#160;<span class="change">(+1&#160;-1)</span>,
+        main_menu.s&#160;<span class="change">(+4&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="13"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-27 17:30</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">710</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added the hex file<br />
+
+    </p>
+    <p class="commitdetails"><strong>49</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/gol/cells</strong>:
+        026_traffic_circle.hex&#160;<span class="new">(new&#160;49)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="12"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-27 16:41</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">705</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added hex files of the cells for ross, and modified some of the filters<br />
+
+    </p>
+    <p class="commitdetails"><strong>603</strong> lines of code changed in <span class="files">19 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        vga_fast_prototype.v&#160;<span class="new">(new&#160;218)</span>,
+        vga_prototype.v&#160;<span class="change">(+4&#160;-4)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        appdata.data&#160;<span class="change">(+12&#160;-5)</span>,
+        filters.s&#160;<span class="change">(+81&#160;-61)</span>,
+        imageproc.s&#160;<span class="change">(+27&#160;-22)</span>,
+        imageprocbar.hex&#160;<span class="new">(new&#160;6)</span>,
+        imageprocxray.raw&#160;<span class="new">(new)</span>,
+        main_menu.s&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>software/gol/cells/original_files</strong>:
+        000_glider_gun.hex&#160;<span class="new">(new&#160;12)</span>,
+        018_mwss_out_of_the_blue.hex&#160;<span class="new">(new&#160;42)</span>,
+        019_new_gun.hex&#160;<span class="new">(new&#160;35)</span>,
+        020_phase_change2.hex&#160;<span class="new">(new&#160;26)</span>,
+        021_puff_suppressor.hex&#160;<span class="new">(new&#160;26)</span>,
+        022_relay.hex&#160;<span class="new">(new&#160;8)</span>,
+        023_sailboat.hex&#160;<span class="new">(new&#160;28)</span>,
+        024_snail.hex&#160;<span class="new">(new&#160;22)</span>,
+        025_spaceship.hex&#160;<span class="new">(new&#160;53)</span>,
+        026_traffic_circle.cells&#160;<span class="change">(+1&#160;-50)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="11"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 23:08</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">697</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+changed the comment <br />
+
+    </p>
+    <p class="commitdetails"><strong>11</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        mainmenuhex.pl&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+7&#160;-5)</span>,
+        imageproc.s&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="10"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 20:27</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">693</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+changed it so that the bottom byte is the encoding by itself for the color<br />
+
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        mainmenuhex.pl&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="9"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 20:09</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">692</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+fixed the comment bug<br />
+
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        mainmenuhex.pl&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 19:03</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">691</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+made ross's little program<br />
+
+    </p>
+    <p class="commitdetails"><strong>1760</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        main_menu_processed_40bit.hex&#160;<span class="new">(new&#160;1707)</span>,
+        mainmenuhex.pl&#160;<span class="new">(new&#160;53)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 17:06</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">690</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+wierd bug with region offsets. fixed<br />
+
+    </p>
+    <p class="commitdetails"><strong>3263</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+3&#160;-3)</span>,
+        asm.pl&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>software/assembled_progs/median</strong>:
+        median.bin&#160;<span class="change">(+1113&#160;-87)</span>,
+        median.coe&#160;<span class="change">(+1031&#160;-5)</span>,
+        median.debug&#160;<span class="change">(+1114&#160;-88)</span>
+      </li>
+      <li>
+        <strong>software/testprogs/median</strong>:
+        medianfilter.s&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 16:49</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">689</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+raw imgs<br />
+
+    </p>
+    <p class="commitdetails"><strong>267</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        lightsaltpep.raw&#160;<span class="new">(new)</span>,
+        moon_256x256.raw&#160;<span class="new">(new)</span>,
+        moon_halfFb.raw&#160;<span class="new">(new&#160;71)</span>,
+        picasso_color.raw&#160;<span class="new">(new&#160;95)</span>,
+        salt_pep_xray.raw&#160;<span class="new">(new)</span>,
+        star_wars.raw&#160;<span class="new">(new&#160;101)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-26 09:54</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">687</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added image files to the makefile, they also assemble, not fully written<br />
+
+    </p>
+    <p class="commitdetails"><strong>5580</strong> lines of code changed in <span class="files">16 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+4&#160;-4)</span>,
+        makefile&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+      <li>
+        <strong>software/assembled_progs/gol</strong>:
+        gol.bin&#160;<span class="change">(+2175&#160;-1019)</span>,
+        gol.coe&#160;<span class="change">(+1156)</span>,
+        gol.debug&#160;<span class="change">(+2177&#160;-1021)</span>,
+        gol.dmem.coe&#160;<span class="change">(-8192)</span>,
+        gol.dmem4bank0.coe&#160;<span class="change">(-1024)</span>,
+        gol.dmem4bank1.coe&#160;<span class="change">(-1024)</span>,
+        gol.dmem4bank2.coe&#160;<span class="change">(-1024)</span>,
+        gol.dmem4bank3.coe&#160;<span class="change">(-1024)</span>,
+        gol.dmemdebug&#160;<span class="change">(+1&#160;-4097)</span>,
+        gol.dmemhex&#160;<span class="change">(+1&#160;-1)</span>,
+        gol.readmemh&#160;<span class="change">(-4096)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="change">(+16&#160;-15)</span>,
+        gol.data&#160;<span class="change">(+2&#160;-1)</span>,
+        imageproc.s&#160;<span class="change">(+45&#160;-30)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-25 18:46</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">682</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added in image proc code to GOL. <br />
+
+    </p>
+    <p class="commitdetails"><strong>99249</strong> lines of code changed in <span class="files">13 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(-1)</span>
+      </li>
+      <li>
+        <strong>software/assembled_progs/median</strong>:
+        median.dmem.coe&#160;<span class="change">(+32898&#160;-32898)</span>,
+        median.dmem4bank0.coe&#160;<span class="change">(+8256&#160;-8256)</span>,
+        median.dmem4bank1.coe&#160;<span class="change">(+8274&#160;-8274)</span>,
+        median.dmem4bank2.coe&#160;<span class="change">(+8141&#160;-8141)</span>,
+        median.dmem4bank3.coe&#160;<span class="change">(+8227&#160;-8227)</span>,
+        median.dmemdebug&#160;<span class="change">(+256&#160;-256)</span>,
+        median.dmemhex&#160;<span class="change">(+1&#160;-1)</span>,
+        median.readmemh&#160;<span class="change">(+32898&#160;-32898)</span>
+      </li>
+      <li>
+        <strong>software/gol</strong>:
+        filters.s&#160;<span class="new">(new&#160;126)</span>,
+        gol.data&#160;<span class="change">(+8&#160;-3)</span>,
+        imageproc.s&#160;<span class="new">(new&#160;159)</span>
+      </li>
+      <li>
+        <strong>software/testprogs/median</strong>:
+        medianfilter.s&#160;<span class="change">(+5&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-25 13:57</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">673</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+updated assembled median<br />
+
+    </p>
+    <p class="commitdetails"><strong>98951</strong> lines of code changed in <span class="files">11 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/assembled_progs/median</strong>:
+        median.bin&#160;<span class="change">(-2)</span>,
+        median.coe&#160;<span class="change">(-2)</span>,
+        median.debug&#160;<span class="change">(-2)</span>,
+        median.dmem.coe&#160;<span class="change">(+32898&#160;-32898)</span>,
+        median.dmem4bank0.coe&#160;<span class="change">(+8256&#160;-8256)</span>,
+        median.dmem4bank1.coe&#160;<span class="change">(+8274&#160;-8274)</span>,
+        median.dmem4bank2.coe&#160;<span class="change">(+8141&#160;-8141)</span>,
+        median.dmem4bank3.coe&#160;<span class="change">(+8227&#160;-8227)</span>,
+        median.dmemdebug&#160;<span class="change">(+256&#160;-256)</span>,
+        median.dmemhex&#160;<span class="change">(+1&#160;-1)</span>,
+        median.readmemh&#160;<span class="change">(+32898&#160;-32898)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-24 23:39</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">667</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+2.xx framebuffers for ross<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-04-24 19:26</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">665</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added byte counting code<br />
+
+    </p>
+    <p class="commitdetails"><strong>23</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+14&#160;-1)</span>,
+        asm.pl&#160;<span class="change">(+9&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p>(152 more)</p>
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

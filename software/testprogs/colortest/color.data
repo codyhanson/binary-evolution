@@ -1,0 +1,3 @@
+fb0: .filebincolor picasso_color.raw 
+fb1: .filebincolor lenna_256x256_color.raw 
+mmr_add: .word40 0xFFF0000000

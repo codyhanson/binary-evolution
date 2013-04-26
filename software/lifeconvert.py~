@@ -1,0 +1,18 @@
+
+#for python > 3.0
+import re #for regex 
+
+usage = "USAGE: lifeconvert.py infilename outfilename"
+print(usage)
+
+infname = 'example_life_lexicon.cells'
+
+#outfile = open(outfname, mode='w')
+infile = open(infname, mode='r')
+
+while True:
+	line = infile.read() #read a line
+	if not line: break
+	hexstr = re.sub('0','FF ',line)
+	hexstr = re.sub('\.','00 ',line)
+	print(hexstr)

@@ -1,0 +1,3714 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - February 2011 Commit Log</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN 0.7.0"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+<script type="text/javascript" charset="utf-8" src="http://bit.ly/javascript-api.js?version=latest&#38;login=statsvn&#38;apiKey=R_2c362b417d0517c27876cbaca1bb68cc"></script>
+<script type="text/javascript" charset="utf-8">
+   // wait until page is loaded to call API
+   var redir_url;
+   var short_url;
+   BitlyCB.myShortenCallback = function(data) {
+      // this is how to get a result of shortening a single url
+      var result;
+      short_url=null;
+      for (var r in data.results) {
+         result = data.results[r];
+         result['longUrl'] = r;
+         short_url = result['shortUrl'];
+         break;
+      }
+      if (short_url==null) // bit.ly failed
+      document.location=redir_url;
+      else
+      redirToTwitter();
+   };
+   function shortenTweet(url) {
+      if (short_url == null || redir_url!=url) {
+      redir_url = url;
+      BitlyClient.shorten(document.location, 'BitlyCB.myShortenCallback');
+      }
+      else
+      redirToTwitter();
+      return false;
+   }
+   function redirToTwitter() { 
+      // replace {0} which is visible as %7B0} in the link
+      document.location = redir_url.replace('%7B0}', short_url);
+   }
+</script>
+  </head>
+
+<body>
+
+<h1>February 2011 Commit Log</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for </a></div>
+
+<div id="nav" class="section">
+<h2>Commit Logs</h2>
+<ul>
+    <li><a href="commitlog.html">May 2011</a></li>
+    <li><a href="2011-04.html">April 2011</a></li>
+    <li><a href="2011-03.html">March 2011</a></li>
+    <li><span class="here">February 2011</span></li>
+    <li><a href="2011-01.html">January 2011</a></li>
+</ul>
+</div><dl class="attributes">
+    <dt>Number of Commits:</dt>
+    <dd>141</dd>
+    <dt>Number of Active Developers:</dt>
+    <dd>5</dd>
+</dl>
+<dl class="commitlist">
+  <dt><a name="141"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-28 21:13</span>
+    <a class="permalink" title="Permalink to this commit" href="#141">#141</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">180</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+got some 552 tools which might help us out<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>test</strong>:
+        proc_hier.v&#160;<span class="new">(new)</span>,
+        proc_hier_bench.v&#160;<span class="new">(new)</span>,
+        proc_hier_pbench.v&#160;<span class="new">(new)</span>,
+        synth.pl&#160;<span class="new">(new)</span>,
+        wsrun.pl&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="140"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-28 20:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#140">#140</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">179</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Deleted old files and updated execute cycle stuff
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        multiplier8b.v&#160;<span class="del">(del)</span>,
+        multiplierBank.v&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="139"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-28 19:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#139">#139</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">178</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>132</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        neighborOpController.v&#160;<span class="change">(+2&#160;-2)</span>,
+        t_executetoplevel.v&#160;<span class="new">(new&#160;130)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="138"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-28 19:46</span>
+    <a class="permalink" title="Permalink to this commit" href="#138">#138</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">177</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+revamping keyboard controller<br />
+also added modelsim project, with the hopes it will work.
+    </p>
+    <p class="commitdetails"><strong>1088</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        keyboard.v&#160;<span class="change">(+13&#160;-92)</span>,
+        keyboard_tb.do&#160;<span class="change">(+9&#160;-12)</span>,
+        keyboard_tb.v&#160;<span class="change">(+4&#160;-6)</span>,
+        top_level_tb.v&#160;<span class="change">(+4&#160;-6)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test/kbd_modelsim</strong>:
+        keyboard_controller.mpf&#160;<span class="new">(new&#160;1058)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="137"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-28 19:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#137">#137</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">176</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Top Level
+    </p>
+    <p class="commitdetails"><strong>73</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+32&#160;-29)</span>,
+        toplevel.v&#160;<span class="change">(+41&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="136"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-28 19:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#136">#136</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">175</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>98</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+10&#160;-6)</span>,
+        executetoplevel.v&#160;<span class="change">(+73&#160;-13)</span>,
+        neighborOpController.v&#160;<span class="change">(+11&#160;-7)</span>,
+        reorder.v&#160;<span class="change">(+4&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="135"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-28 18:41</span>
+    <a class="permalink" title="Permalink to this commit" href="#135">#135</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">174</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Decode and Instruction Stages are Alive :)
+    </p>
+    <p class="commitdetails"><strong>453</strong> lines of code changed in <span class="files">7 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+6&#160;-2)</span>,
+        imemtest.bin&#160;<span class="new">(new&#160;400)</span>,
+        instr_mem.v&#160;<span class="change">(+1&#160;-1)</span>,
+        regfile.v.bak&#160;<span class="del">(del)</span>,
+        t_instr_mem.v&#160;<span class="new">(new&#160;21)</span>,
+        t_toplevel.v&#160;<span class="new">(new&#160;15)</span>,
+        toplevel.v&#160;<span class="change">(+10&#160;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="134"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-28 17:52</span>
+    <a class="permalink" title="Permalink to this commit" href="#134">#134</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">173</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+need to do datafile still. outputs 3 files<br />
+
+    </p>
+    <p class="commitdetails"><strong>19</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+1&#160;-6)</span>,
+        asm.pl&#160;<span class="change">(+18&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="133"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-28 16:19</span>
+    <a class="permalink" title="Permalink to this commit" href="#133">#133</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">171</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Oh boy this is causing trouble.
+    </p>
+    <p class="commitdetails"><strong>41</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/xilinxproj/binevo</strong>:
+        _impact.cmd&#160;<span class="change">(+27)</span>,
+        _impact.log&#160;<span class="change">(+14)</span>,
+        binevo.ise&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp</strong>:
+        ise.lock&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="132"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-28 16:16</span>
+    <a class="permalink" title="Permalink to this commit" href="#132">#132</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">170</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Attempting to add Xilinx Project. No promises it works.
+    </p>
+    <p class="commitdetails"><strong>55113</strong> lines of code changed in <span class="files">261 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        draw_logic.v&#160;<span class="new">(new&#160;130)</span>,
+        imem_init.coe&#160;<span class="new">(new&#160;22)</span>,
+        main_logic.v&#160;<span class="new">(new&#160;47)</span>,
+        numbers.mem&#160;<span class="new">(new&#160;4097)</span>,
+        regfile.v&#160;<span class="change">(+37&#160;-3)</span>,
+        regfile.v.bak&#160;<span class="new">(new&#160;90)</span>,
+        simple_rom.v&#160;<span class="new">(new&#160;33)</span>,
+        toplevel.v&#160;<span class="change">(+6&#160;-3)</span>,
+        vga_logic.v&#160;<span class="new">(new&#160;56)</span>,
+        vgamult.ucf&#160;<span class="new">(new&#160;73)</span>,
+        vgamult.v&#160;<span class="new">(new&#160;52)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo</strong>:
+        .lso&#160;<span class="new">(new&#160;1)</span>,
+        _impact.cmd&#160;<span class="new">(new)</span>,
+        _impact.log&#160;<span class="new">(new&#160;367)</span>,
+        binevo.ise&#160;<span class="new">(new)</span>,
+        binevo.ntrc_log&#160;<span class="new">(new&#160;48)</span>,
+        binevo.restore&#160;<span class="new">(new&#160;1313)</span>,
+        blk_mem_gen_ds512.pdf&#160;<span class="new">(new&#160;20107)</span>,
+        data_cache.asy&#160;<span class="new">(new&#160;45)</span>,
+        data_cache.ngc&#160;<span class="new">(new&#160;3)</span>,
+        data_cache.sym&#160;<span class="new">(new&#160;69)</span>,
+        data_cache.v&#160;<span class="new">(new&#160;140)</span>,
+        data_cache.veo&#160;<span class="new">(new&#160;52)</span>,
+        data_cache.vhd&#160;<span class="new">(new&#160;139)</span>,
+        data_cache.vho&#160;<span class="new">(new&#160;74)</span>,
+        data_cache.xco&#160;<span class="new">(new&#160;78)</span>,
+        data_cache_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt&#160;<span class="new">(new&#160;53)</span>,
+        data_cache_flist.txt&#160;<span class="new">(new&#160;13)</span>,
+        data_cache_readme.txt&#160;<span class="new">(new&#160;58)</span>,
+        data_cache_xmdf.tcl&#160;<span class="new">(new&#160;88)</span>,
+        decode.prj&#160;<span class="new">(new&#160;2)</span>,
+        decode.stx&#160;<span class="new">(new&#160;33)</span>,
+        decode.xst&#160;<span class="new">(new&#160;4)</span>,
+        instr_mem.bld&#160;<span class="new">(new&#160;38)</span>,
+        instr_mem.cmd_log&#160;<span class="new">(new&#160;7)</span>,
+        instr_mem.lso&#160;<span class="new">(new&#160;1)</span>,
+        instr_mem.ncd&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem.ngc&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem.ngd&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem.pad&#160;<span class="new">(new&#160;926)</span>,
+        instr_mem.par&#160;<span class="new">(new&#160;188)</span>,
+        instr_mem.pcf&#160;<span class="new">(new&#160;8)</span>,
+        instr_mem.prj&#160;<span class="new">(new&#160;2)</span>,
+        instr_mem.ptwx&#160;<span class="new">(new&#160;332)</span>,
+        instr_mem.stx&#160;<span class="new">(new)</span>,
+        instr_mem.syr&#160;<span class="new">(new&#160;367)</span>,
+        instr_mem.twr&#160;<span class="new">(new&#160;142)</span>,
+        instr_mem.twx&#160;<span class="new">(new&#160;340)</span>,
+        instr_mem.unroutes&#160;<span class="new">(new&#160;9)</span>,
+        instr_mem.xpi&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem.xst&#160;<span class="new">(new&#160;58)</span>,
+        instr_mem_bram.asy&#160;<span class="new">(new&#160;29)</span>,
+        instr_mem_bram.mif&#160;<span class="new">(new&#160;18)</span>,
+        instr_mem_bram.ngc&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem_bram.sym&#160;<span class="new">(new&#160;45)</span>,
+        instr_mem_bram.v&#160;<span class="new">(new&#160;132)</span>,
+        instr_mem_bram.veo&#160;<span class="new">(new&#160;48)</span>,
+        instr_mem_bram.vhd&#160;<span class="new">(new&#160;127)</span>,
+        instr_mem_bram.vho&#160;<span class="new">(new&#160;66)</span>,
+        instr_mem_bram.xco&#160;<span class="new">(new&#160;78)</span>,
+        instr_mem_bram_blk_mem_gen_v2_8_xst_1.ngc_xst.xrpt&#160;<span class="new">(new&#160;68)</span>,
+        instr_mem_bram_flist.txt&#160;<span class="new">(new&#160;14)</span>,
+        instr_mem_bram_readme.txt&#160;<span class="new">(new&#160;64)</span>,
+        instr_mem_bram_xmdf.tcl&#160;<span class="new">(new&#160;92)</span>,
+        instr_mem_guide.ncd&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem_map.map&#160;<span class="new">(new&#160;65)</span>,
+        instr_mem_map.mrp&#160;<span class="new">(new&#160;244)</span>,
+        instr_mem_map.ncd&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem_map.ngm&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem_map.xrpt&#160;<span class="new">(new&#160;722)</span>,
+        instr_mem_ngdbuild.xrpt&#160;<span class="new">(new&#160;31)</span>,
+        instr_mem_pad.csv&#160;<span class="new">(new&#160;927)</span>,
+        instr_mem_pad.txt&#160;<span class="new">(new&#160;926)</span>,
+        instr_mem_par.xrpt&#160;<span class="new">(new&#160;42)</span>,
+        instr_mem_prev_built.ngd&#160;<span class="new">(new&#160;3)</span>,
+        instr_mem_summary.html&#160;<span class="new">(new&#160;173)</span>,
+        instr_mem_summary.xml&#160;<span class="new">(new&#160;10)</span>,
+        instr_mem_usage.xml&#160;<span class="new">(new&#160;33)</span>,
+        instr_mem_xst.xrpt&#160;<span class="new">(new&#160;81)</span>,
+        top_level.cmd_log&#160;<span class="new">(new&#160;5)</span>,
+        top_level.lso&#160;<span class="new">(new&#160;1)</span>,
+        top_level.prj&#160;<span class="new">(new&#160;3)</span>,
+        top_level.syr&#160;<span class="new">(new&#160;130)</span>,
+        top_level.xst&#160;<span class="new">(new&#160;58)</span>,
+        top_level_xst.xrpt&#160;<span class="new">(new&#160;16)</span>,
+        toplevel_summary.html&#160;<span class="new">(new&#160;111)</span>,
+        toplevel_xst.xrpt&#160;<span class="new">(new&#160;91)</span>,
+        vga_clk.v&#160;<span class="new">(new&#160;87)</span>,
+        vga_clk.xaw&#160;<span class="new">(new&#160;3)</span>,
+        vga_clk_arwz.ucf&#160;<span class="new">(new&#160;17)</span>,
+        vgamult.bgn&#160;<span class="new">(new&#160;164)</span>,
+        vgamult.bit&#160;<span class="new">(new)</span>,
+        vgamult.bld&#160;<span class="new">(new&#160;40)</span>,
+        vgamult.cmd_log&#160;<span class="new">(new&#160;41)</span>,
+        vgamult.drc&#160;<span class="new">(new&#160;19)</span>,
+        vgamult.lso&#160;<span class="new">(new&#160;1)</span>,
+        vgamult.ncd&#160;<span class="new">(new&#160;3)</span>,
+        vgamult.ngc&#160;<span class="new">(new&#160;3)</span>,
+        vgamult.ngd&#160;<span class="new">(new&#160;3)</span>,
+        vgamult.ngr&#160;<span class="new">(new&#160;3)</span>,
+        vgamult.pad&#160;<span class="new">(new&#160;926)</span>,
+        vgamult.par&#160;<span class="new">(new&#160;194)</span>,
+        vgamult.pcf&#160;<span class="new">(new&#160;42)</span>,
+        vgamult.prj&#160;<span class="new">(new&#160;11)</span>,
+        vgamult.ptwx&#160;<span class="new">(new&#160;332)</span>,
+        vgamult.stx&#160;<span class="new">(new)</span>,
+        vgamult.syr&#160;<span class="new">(new&#160;3438)</span>,
+        vgamult.twr&#160;<span class="new">(new&#160;119)</span>,
+        vgamult.twx&#160;<span class="new">(new&#160;340)</span>,
+        vgamult.unroutes&#160;<span class="new">(new&#160;16)</span>,
+        vgamult.ut&#160;<span class="new">(new&#160;38)</span>,
+        vgamult.xpi&#160;<span class="new">(new&#160;3)</span>,
+        vgamult.xst&#160;<span class="new">(new&#160;58)</span>,
+        vgamult_guide.ncd&#160;<span class="new">(new&#160;3)</span>,
+        vgamult_map.map&#160;<span class="new">(new&#160;64)</span>,
+        vgamult_map.mrp&#160;<span class="new">(new&#160;217)</span>,
+        vgamult_map.ncd&#160;<span class="new">(new&#160;3)</span>,
+        vgamult_map.ngm&#160;<span class="new">(new&#160;3)</span>,
+        vgamult_map.xrpt&#160;<span class="new">(new&#160;415)</span>,
+        vgamult_ngdbuild.xrpt&#160;<span class="new">(new&#160;31)</span>,
+        vgamult_pad.csv&#160;<span class="new">(new&#160;927)</span>,
+        vgamult_pad.txt&#160;<span class="new">(new&#160;926)</span>,
+        vgamult_par.xrpt&#160;<span class="new">(new&#160;42)</span>,
+        vgamult_prev_built.ngd&#160;<span class="new">(new&#160;3)</span>,
+        vgamult_summary.html&#160;<span class="new">(new&#160;168)</span>,
+        vgamult_summary.xml&#160;<span class="new">(new&#160;10)</span>,
+        vgamult_usage.xml&#160;<span class="new">(new&#160;790)</span>,
+        vgamult_xst.xrpt&#160;<span class="new">(new&#160;109)</span>,
+        xaw2verilog.log&#160;<span class="new">(new&#160;1)</span>,
+        xil_308_21.out&#160;<span class="new">(new&#160;46)</span>,
+        xil_3636_42.out&#160;<span class="new">(new&#160;46)</span>,
+        xlnx_auto_0.ise&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/_ngo</strong>:
+        netlist.lst&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/_xmsgs</strong>:
+        bitgen.xmsgs&#160;<span class="new">(new&#160;33)</span>,
+        map.xmsgs&#160;<span class="new">(new&#160;46)</span>,
+        ngdbuild.xmsgs&#160;<span class="new">(new&#160;9)</span>,
+        par.xmsgs&#160;<span class="new">(new&#160;34)</span>,
+        trce.xmsgs&#160;<span class="new">(new&#160;15)</span>,
+        xst.xmsgs&#160;<span class="new">(new&#160;8133)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb</strong>:
+        cst.xbcd&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp</strong>:
+        ise.lock&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise</strong>:
+        version&#160;<span class="new">(new&#160;10)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__</strong>:
+        Autonym&#160;<span class="new">(new)</span>,
+        STE&#160;<span class="new">(new)</span>,
+        _ProjRepoInternal_&#160;<span class="new">(new)</span>,
+        common&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign</strong>:
+        __stored_object_table__&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign/HDProject</strong>:
+        HDProject&#160;<span class="new">(new)</span>,
+        HDProject_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/PnAutoRun/Scripts</strong>:
+        RunOnce_tcl&#160;<span class="new">(new)</span>,
+        RunOnce_tcl_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/ProjectNavigator</strong>:
+        __stored_object_table__&#160;<span class="new">(new)</span>,
+        __stored_objects__&#160;<span class="new">(new)</span>,
+        __stored_objects___StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/ProjectNavigator/dpm_project_main</strong>:
+        NameMap&#160;<span class="new">(new)</span>,
+        NameMap_StrTbl&#160;<span class="new">(new)</span>,
+        dpm_project_main&#160;<span class="new">(new)</span>,
+        dpm_project_main_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/ProjectNavigatorGui</strong>:
+        GuiProjectData&#160;<span class="new">(new)</span>,
+        GuiProjectData_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/SrcCtrl</strong>:
+        SavedOptions&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__OBJSTORE__/xreport</strong>:
+        Gc_RvReportViewer-Current-Module&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Current-Module_StrTbl&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-instr_mem&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-instr_mem_StrTbl&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-toplevel&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-toplevel_StrTbl&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-vgamult&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-Data-vgamult_StrTbl&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-DataFactory-Default&#160;<span class="new">(new)</span>,
+        Gc_RvReportViewer-Module-DataFactory-Default_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/Autonym</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/Cs</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/HDProject</strong>:
+        regkeys&#160;<span class="new">(new&#160;24)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectNavigator</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectNavigatorGui</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/ProcessProperties</strong>:
+        regkeys&#160;<span class="new">(new&#160;2379)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/ProjectProperties</strong>:
+        regkeys&#160;<span class="new">(new&#160;33)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserLibraries</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserPartitions</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ProjectSeedData/UserSourceFiles</strong>:
+        regkeys&#160;<span class="new">(new&#160;48)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/bitgen</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/map</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/ngdbuild</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/par</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/trce</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/STE/xst</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/SrcCtrl</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/XSLTProcess</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/_ProjRepoInternal_</strong>:
+        regkeys&#160;<span class="new">(new&#160;21)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/bitgen</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/common</strong>:
+        regkeys&#160;<span class="new">(new&#160;15)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/cpldfit</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/dumpngdio</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/fuse</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/hprep6</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/idem</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/map</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/netgen</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ngc2edif</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ngcbuild</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/ngdbuild</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/par</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/runner</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/taengine</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/trce</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/tsim</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/vhpcomp</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/vlogcomp</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/xpwr</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/xreport</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/binevo_xdb/tmp/ise/__REGISTRY__/xst</strong>:
+        regkeys&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/templates</strong>:
+        coregen.xml&#160;<span class="new">(new&#160;117)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/tmp/_cg</strong>:
+        xil_308_21.out&#160;<span class="new">(new&#160;46)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp</strong>:
+        ise.lock&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise</strong>:
+        version&#160;<span class="new">(new&#160;10)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__OBJSTORE__</strong>:
+        Autonym&#160;<span class="new">(new)</span>,
+        STE&#160;<span class="new">(new)</span>,
+        _ProjRepoInternal_&#160;<span class="new">(new)</span>,
+        common&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__OBJSTORE__/HierarchicalDesign/HDProject</strong>:
+        HDProject&#160;<span class="new">(new)</span>,
+        HDProject_StrTbl&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__</strong>:
+        ngcbuild&#160;<span class="new">(new)</span>,
+        xst&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/Autonym</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/HierarchicalDesign/HDProject</strong>:
+        regkeys&#160;<span class="new">(new&#160;24)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE/ngcbuild</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/STE/xst</strong>:
+        regkeys&#160;<span class="new">(new&#160;6)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/_ProjRepoInternal_</strong>:
+        regkeys&#160;<span class="new">(new&#160;21)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xlnx_auto_0_xdb/tmp/ise/__REGISTRY__/common</strong>:
+        regkeys&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst</strong>:
+        projnav.tmp&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/instr_mem.prj</strong>:
+        ntrc.scr&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/instr_mem.prj/ngx</strong>:
+        notopt&#160;<span class="new">(new)</span>,
+        opt&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/top_level.prj</strong>:
+        ntrc.scr&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/top_level.prj/ngx</strong>:
+        notopt&#160;<span class="new">(new)</span>,
+        opt&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/toplevel.prj</strong>:
+        ntrc.scr&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/toplevel.prj/ngx</strong>:
+        notopt&#160;<span class="new">(new)</span>,
+        opt&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/vgamult.prj</strong>:
+        ntrc.scr&#160;<span class="new">(new&#160;3)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/dump.xst/vgamult.prj/ngx</strong>:
+        notopt&#160;<span class="new">(new)</span>,
+        opt&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work</strong>:
+        hdllib.ref&#160;<span class="new">(new&#160;12)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg00</strong>:
+        vgamult.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg03</strong>:
+        instr__mem__bram.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg1E</strong>:
+        main__logic.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg43</strong>:
+        vga__logic.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg4F</strong>:
+        simple__rom.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg50</strong>:
+        decode.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg52</strong>:
+        reg_file.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg5F</strong>:
+        vga__clk.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg63</strong>:
+        toplevel.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg6B</strong>:
+        draw__logic.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg6E</strong>:
+        instr__mem.bin&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware/xilinxproj/binevo/xst/work/vlg7A</strong>:
+        top__level.bin&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="131"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-28 14:45</span>
+    <a class="permalink" title="Permalink to this commit" href="#131">#131</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">169</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added execute stage stuff
+    </p>
+    <p class="commitdetails"><strong>82</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        executetoplevel.v&#160;<span class="new">(new&#160;45)</span>,
+        reorder.v&#160;<span class="new">(new&#160;37)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="130"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-28 12:53</span>
+    <a class="permalink" title="Permalink to this commit" href="#130">#130</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">168</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+tiny compilation error bug<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+1&#160;-1)</span>,
+        asm.pl&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="129"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-27 23:16</span>
+    <a class="permalink" title="Permalink to this commit" href="#129">#129</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">167</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+mmrs drafted and some others, comments in memory_locations.txt
+    </p>
+    <p class="commitdetails"><strong>258</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="change">(+23&#160;-6)</span>
+      </li>
+      <li>
+        <strong>hardware</strong>:
+        notes.txt&#160;<span class="change">(+7&#160;-2)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        mmrcachemuxes.v&#160;<span class="change">(+11&#160;-4)</span>,
+        mmrnames.inc&#160;<span class="new">(new&#160;23)</span>,
+        mmrs.v&#160;<span class="change">(+178&#160;-6)</span>,
+        periphsyswrapper.v&#160;<span class="change">(+16&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="128"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-27 22:35</span>
+    <a class="permalink" title="Permalink to this commit" href="#128">#128</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">166</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Needs testing and hazard prevention (not just detection) but created decode.v
+    </p>
+    <p class="commitdetails"><strong>8</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+3)</span>,
+        regfile.v&#160;<span class="change">(+5&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="127"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-27 22:26</span>
+    <a class="permalink" title="Permalink to this commit" href="#127">#127</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">165</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Made it easier to detect data conflict
+    </p>
+    <p class="commitdetails"><strong>125</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+125&#160;-125)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="126"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 18:55</span>
+    <a class="permalink" title="Permalink to this commit" href="#126">#126</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">164</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Giving up on keyboard for now and switching to mouse. The keyboard sends data as "scan codes", which means we will probably want to interpret the keyboard using a LUT in software.<br />
+<br />
+The main changes I've recently made:<br />
+ - Keyboard data needs to be sampled on FALLING edge, not rising.<br />
+ - Declaring keyboard data and clk lines as "Input" for now to simplify things. The only real downside of this is we won't be able to set the Caps/Num/Scroll Lock keys.<br />
+
+    </p>
+    <p class="commitdetails"><strong>27</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        driver.v&#160;<span class="change">(+16&#160;-9)</span>,
+        keyboard.v&#160;<span class="change">(+9&#160;-9)</span>,
+        top_level.v&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="125"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 17:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#125">#125</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">163</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Typing on FPGA's keyboard causes some output in the terminal, but it's random characters.
+    </p>
+    <p class="commitdetails"><strong>21</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        keyboard.v&#160;<span class="change">(+1&#160;-1)</span>,
+        top_level.ucf&#160;<span class="change">(+20&#160;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="124"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 16:51</span>
+    <a class="permalink" title="Permalink to this commit" href="#124">#124</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">162</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Wired SPART's TX to RX so that when the character read from the keyboard is sent out of the SPART, it also reads it (and 0x53 correctly appears in the RX's buffer).<br />
+<br />
+Done with Modelsim. About to test out keyboard in Xilinx
+    </p>
+    <p class="commitdetails"><strong>22</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        spart.v&#160;<span class="change">(+2&#160;-2)</span>,
+        top_level.v&#160;<span class="change">(+2&#160;-1)</span>,
+        top_level_tb.v&#160;<span class="change">(+7&#160;-8)</span>,
+        top_level_wave.do&#160;<span class="change">(+5&#160;-8)</span>,
+        tx_spart.v&#160;<span class="change">(+6&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="123"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 15:39</span>
+    <a class="permalink" title="Permalink to this commit" href="#123">#123</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">161</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+lkasjdf<br />
+
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        top_level_tb.v&#160;<span class="change">(+4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="122"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 15:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#122">#122</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">160</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+blkje
+    </p>
+    <p class="commitdetails"><strong>99</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        driver.v&#160;<span class="change">(+2&#160;-1)</span>,
+        keyboard.v&#160;<span class="change">(+1&#160;-1)</span>,
+        top_level.v&#160;<span class="change">(+4&#160;-4)</span>,
+        top_level_tb.v&#160;<span class="change">(+2&#160;-1)</span>,
+        top_level_wave.do&#160;<span class="new">(new&#160;90)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="121"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 15:15</span>
+    <a class="permalink" title="Permalink to this commit" href="#121">#121</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">159</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Created testbench for the Keyboard/SPART combo<br />
+
+    </p>
+    <p class="commitdetails"><strong>66</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        top_level.v&#160;<span class="change">(+3&#160;-1)</span>,
+        top_level_tb.v&#160;<span class="new">(new&#160;63)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="120"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 14:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#120">#120</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">158</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Using a Spart to send any received keyboard packets to the terminal for testing purposes.<br />
+About to test in modelsim<br />
+
+    </p>
+    <p class="commitdetails"><strong>46</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        driver.v&#160;<span class="change">(+29&#160;-21)</span>,
+        top_level.v&#160;<span class="change">(+17&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="119"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 13:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#119">#119</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">157</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Moving keyboard stuff to a new subdirectory to avoid clutter. Adding SPART files for use in testing the keyboard<br />
+
+    </p>
+    <p class="commitdetails"><strong>939</strong> lines of code changed in <span class="files">14 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="del">(del)</span>,
+        keyboard_tb.do&#160;<span class="del">(del)</span>,
+        keyboard_tb.v&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface/keyboard_test</strong>:
+        brg_spart.v&#160;<span class="new">(new&#160;63)</span>,
+        driver.v&#160;<span class="new">(new&#160;166)</span>,
+        keyboard.ucf&#160;<span class="new">(new&#160;30)</span>,
+        keyboard.v&#160;<span class="new">(new&#160;127)</span>,
+        keyboard_tb.do&#160;<span class="new">(new&#160;50)</span>,
+        keyboard_tb.v&#160;<span class="new">(new&#160;95)</span>,
+        rx_spart.v&#160;<span class="new">(new&#160;161)</span>,
+        spart.v&#160;<span class="new">(new&#160;69)</span>,
+        top_level.ucf&#160;<span class="new">(new&#160;27)</span>,
+        top_level.v&#160;<span class="new">(new&#160;61)</span>,
+        tx_spart.v&#160;<span class="new">(new&#160;90)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="118"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 12:55</span>
+    <a class="permalink" title="Permalink to this commit" href="#118">#118</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">156</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+typo<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="117"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-25 12:50</span>
+    <a class="permalink" title="Permalink to this commit" href="#117">#117</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">155</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Furhter work on keyboard<br />
+
+    </p>
+    <p class="commitdetails"><strong>24</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+2&#160;-2)</span>,
+        keyboard_tb.v&#160;<span class="change">(+22&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="116"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-23 23:32</span>
+    <a class="permalink" title="Permalink to this commit" href="#116">#116</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">154</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+more exciting improvements<br />
+
+    </p>
+    <p class="commitdetails"><strong>46</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+23&#160;-45)</span>,
+        asm.pl&#160;<span class="change">(+23&#160;-143)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="115"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-23 20:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#115">#115</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">153</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added opensource vga,ddr controllers and docs
+    </p>
+    <p class="commitdetails"><strong>46531</strong> lines of code changed in <span class="files">19 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>fpga docs and examples</strong>:
+        cachecontroller_latest.tar.gz&#160;<span class="new">(new)</span>,
+        csr.pdf&#160;<span class="new">(new)</span>,
+        fml.pdf&#160;<span class="new">(new)</span>,
+        vga_lcd_latest.tar.gz&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>fpga docs and examples/ddrctl</strong>:
+        256MBDDRx4x8x16.pdf&#160;<span class="new">(new&#160;42368)</span>,
+        ddr_sdr_V1_1.zip&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>fpga docs and examples/opencores vgafb</strong>:
+        vgafb.pdf&#160;<span class="new">(new)</span>,
+        vgafb.tar&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>hardware</strong>:
+        notes.txt&#160;<span class="change">(+4&#160;-1)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface/ddr_sdr</strong>:
+        ddr_dcm.vhd&#160;<span class="new">(new&#160;203)</span>,
+        ddr_sdr.ucf&#160;<span class="new">(new&#160;231)</span>,
+        ddr_sdr.vhd&#160;<span class="new">(new&#160;1015)</span>,
+        ddr_sdr_conf_pkg.vhd&#160;<span class="new">(new&#160;157)</span>,
+        license.dat&#160;<span class="new">(new&#160;180)</span>,
+        mt46v16m16.vhd&#160;<span class="new">(new&#160;1320)</span>,
+        readme.txt&#160;<span class="new">(new&#160;404)</span>,
+        reset.vhd&#160;<span class="new">(new&#160;106)</span>,
+        tb.vhd&#160;<span class="new">(new&#160;283)</span>,
+        user_if.vhd&#160;<span class="new">(new&#160;260)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="114"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-23 19:21</span>
+    <a class="permalink" title="Permalink to this commit" href="#114">#114</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">152</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Alu and exController update
+    </p>
+    <p class="commitdetails"><strong>51</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+27&#160;-6)</span>,
+        neighborOpController.v&#160;<span class="change">(+24&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="113"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-23 16:57</span>
+    <a class="permalink" title="Permalink to this commit" href="#113">#113</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">151</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+debugging instr encoding. need to do data encoding next<br />
+
+    </p>
+    <p class="commitdetails"><strong>66</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_REGEX.pm&#160;<span class="change">(+6&#160;-6)</span>,
+        ISA_TOOLS.pm&#160;<span class="change">(+7&#160;-7)</span>,
+        asm.pl&#160;<span class="change">(+34&#160;-16)</span>,
+        region2.s&#160;<span class="change">(+12&#160;-4)</span>
+      </li>
+      <li>
+        <strong>software/application</strong>:
+        game_of_life.s&#160;<span class="change">(+7&#160;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="112"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-23 15:28</span>
+    <a class="permalink" title="Permalink to this commit" href="#112">#112</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">150</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated alu 
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="111"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-23 15:23</span>
+    <a class="permalink" title="Permalink to this commit" href="#111">#111</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">149</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Finished alu.v and added t_alu.v to Test it
+    </p>
+    <p class="commitdetails"><strong>70</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+3&#160;-1)</span>,
+        t_alu.v&#160;<span class="new">(new&#160;67)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="110"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-23 15:16</span>
+    <a class="permalink" title="Permalink to this commit" href="#110">#110</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">148</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Further simulation of keyboard controller. Added waveform formatting for it<br />
+
+    </p>
+    <p class="commitdetails"><strong>73</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+12&#160;-12)</span>,
+        keyboard_tb.do&#160;<span class="new">(new&#160;50)</span>,
+        keyboard_tb.v&#160;<span class="change">(+11&#160;-9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="109"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-23 14:51</span>
+    <a class="permalink" title="Permalink to this commit" href="#109">#109</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">147</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Testing keyboard controller.<br />
+Keyboard controller successfully read '0x53' from a manually simulated serial line in modelsim<br />
+
+    </p>
+    <p class="commitdetails"><strong>86</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+14&#160;-6)</span>,
+        keyboard_tb.v&#160;<span class="new">(new&#160;72)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="108"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-23 11:01</span>
+    <a class="permalink" title="Permalink to this commit" href="#108">#108</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">146</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+a<br />
+
+    </p>
+    <p class="commitdetails"><strong>18</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_REGEX.pm&#160;<span class="change">(+5&#160;-1)</span>,
+        asm.pl&#160;<span class="change">(+13&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="107"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-23 10:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#107">#107</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">145</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+getting close to done with instr encoding<br />
+
+    </p>
+    <p class="commitdetails"><strong>239</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_REGEX.pm&#160;<span class="change">(+45&#160;-45)</span>,
+        asm.pl&#160;<span class="change">(+171&#160;-91)</span>,
+        cpan.txt&#160;<span class="new">(new&#160;3)</span>,
+        region2.s&#160;<span class="change">(+20)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="106"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-23 00:04</span>
+    <a class="permalink" title="Permalink to this commit" href="#106">#106</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">144</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+argh<br />
+
+    </p>
+    <p class="commitdetails"><strong>18</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        asm.pl&#160;<span class="change">(+11&#160;-8)</span>,
+        bit_vector_demo.pl&#160;<span class="change">(+7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="105"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-22 18:36</span>
+    <a class="permalink" title="Permalink to this commit" href="#105">#105</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">143</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated some decode logic. Still needs work
+    </p>
+    <p class="commitdetails"><strong>186</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+186&#160;-179)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="104"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-22 18:31</span>
+    <a class="permalink" title="Permalink to this commit" href="#104">#104</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">142</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+starting to do cool things with Bit::Vector<br />
+
+    </p>
+    <p class="commitdetails"><strong>108</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+4&#160;-3)</span>,
+        asm.pl&#160;<span class="change">(+72&#160;-4)</span>,
+        bit_vector_demo.pl&#160;<span class="new">(new&#160;15)</span>,
+        region2.s&#160;<span class="new">(new&#160;15)</span>,
+        sim.pl&#160;<span class="change">(+2&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="103"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-22 01:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#103">#103</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">141</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+playing around with constants<br />
+
+    </p>
+    <p class="commitdetails"><strong>100</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+8&#160;-31)</span>,
+        asm.pl&#160;<span class="change">(+92)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="102"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-22 00:53</span>
+    <a class="permalink" title="Permalink to this commit" href="#102">#102</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">140</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Worked more on decode for second pipe<br />
+
+    </p>
+    <p class="commitdetails"><strong>383</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+356&#160;-28)</span>,
+        regfile.v&#160;<span class="change">(+24&#160;-5)</span>,
+        toplevel.v&#160;<span class="change">(+3&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="101"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-21 21:45</span>
+    <a class="permalink" title="Permalink to this commit" href="#101">#101</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">139</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added northwest logic ddr iface docs
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>fpga docs and examples/ddrctl/nwlogic</strong>:
+        DDR2_SDRAM_Controller_Core_User_Guide_1_31.pdf&#160;<span class="new">(new)</span>,
+        DDR_SDRAM_Controller_Core_User_Guide_6_25.pdf&#160;<span class="new">(new)</span>,
+        FPGA_Core_Comparison_1_17.pdf&#160;<span class="new">(new)</span>,
+        Latency_Analysis_App_Note_1_08.pdf&#160;<span class="new">(new)</span>,
+        Memory_Controller_Cores_App_Note_Xilinx_1_22.pdf&#160;<span class="new">(new)</span>,
+        NWL_Xilinx_Product_Overview_1_06.pdf&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="100"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-21 20:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#100">#100</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">138</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+more data on ddr iface
+    </p>
+    <p class="commitdetails"><strong>44484</strong> lines of code changed in <span class="files">7 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>fpga docs and examples</strong>:
+        KVR266X64C25_256.pdf&#160;<span class="new">(new&#160;1157)</span>,
+        lookinto.txt&#160;<span class="change">(+2&#160;-3)</span>,
+        userguideXUPv2.pdf&#160;<span class="new">(new&#160;36407)</span>
+      </li>
+      <li>
+        <strong>fpga docs and examples/ddrctl</strong>:
+        AllianceCORE_data_sheet_DDR_SDRAM_Controller_XS.pdf&#160;<span class="new">(new)</span>,
+        xapp549dramiface.pdf&#160;<span class="new">(new&#160;2056)</span>,
+        xilinxoverview.pdf&#160;<span class="new">(new&#160;4830)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        memctl.v&#160;<span class="change">(+32&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="99"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-21 19:41</span>
+    <a class="permalink" title="Permalink to this commit" href="#99">#99</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">137</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+updated alu.v
+    </p>
+    <p class="commitdetails"><strong>28</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+28&#160;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="98"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-21 19:39</span>
+    <a class="permalink" title="Permalink to this commit" href="#98">#98</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">136</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated QuickRef and ISA<br />
+<br />
+Worked on Decode verilog heavily
+    </p>
+    <p class="commitdetails"><strong>230</strong> lines of code changed in <span class="files">8 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        DeepQuestions.txt&#160;<span class="del">(del)</span>,
+        ISA.txt&#160;<span class="del">(del)</span>,
+        ISA_QUICKREF.xlsx&#160;<span class="change">(changed)</span>,
+        asm_syntax.txt&#160;<span class="del">(del)</span>,
+        draft-signal naming conventions.txt&#160;<span class="del">(del)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>,
+        example-signal naming conventions.dia&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+230&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="97"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-21 19:35</span>
+    <a class="permalink" title="Permalink to this commit" href="#97">#97</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">135</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+my svn comments are so helpful.<br />
+
+    </p>
+    <p class="commitdetails"><strong>294</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_REGEX.pm&#160;<span class="new">(new&#160;211)</span>,
+        ISA_TOOLS.pm&#160;<span class="change">(+9&#160;-118)</span>,
+        sim.pl&#160;<span class="change">(+74&#160;-3)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="96"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-21 19:32</span>
+    <a class="permalink" title="Permalink to this commit" href="#96">#96</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">134</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Got rid of unnecessary data register<br />
+
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+3&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="95"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-21 19:20</span>
+    <a class="permalink" title="Permalink to this commit" href="#95">#95</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">133</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+PS/2 calls for odd parity, so quick fix to do that instead of even<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="94"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-21 19:11</span>
+    <a class="permalink" title="Permalink to this commit" href="#94">#94</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">132</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated flags to isa
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        BinaryEvolution_ISA.doc&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="93"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-21 19:08</span>
+    <a class="permalink" title="Permalink to this commit" href="#93">#93</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">131</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+ISA: Made &lt;ACCUMBYTES&gt; instr set the Zero flag<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        BinaryEvolution_ISA.doc&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="92"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-21 19:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#92">#92</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">130</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Began verilog for keyboard controller<br />
+
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        keyboard.v&#160;<span class="new">(new&#160;9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="91"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-21 18:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#91">#91</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">129</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Modified Execute stage .v files
+    </p>
+    <p class="commitdetails"><strong>70</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="change">(+65&#160;-3)</span>,
+        multiplierBank.v&#160;<span class="change">(+5&#160;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="90"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-21 18:13</span>
+    <a class="permalink" title="Permalink to this commit" href="#90">#90</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">128</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+about to tear apart some regexes. god help me<br />
+
+    </p>
+    <p class="commitdetails"><strong>66</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="change">(+1&#160;-3)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+9&#160;-8)</span>,
+        pack.pl&#160;<span class="change">(+11&#160;-2)</span>,
+        sim.pl&#160;<span class="change">(+45&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="89"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-21 17:31</span>
+    <a class="permalink" title="Permalink to this commit" href="#89">#89</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">127</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+memctl now arbitrates vga accesses<br />
+
+    </p>
+    <p class="commitdetails"><strong>26</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        cache.v&#160;<span class="change">(+2&#160;-5)</span>,
+        memctl.v&#160;<span class="change">(+12&#160;-5)</span>,
+        mmrcachemuxes.v&#160;<span class="change">(+7&#160;-1)</span>,
+        vga.v&#160;<span class="change">(+5&#160;-8)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="88"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-21 17:01</span>
+    <a class="permalink" title="Permalink to this commit" href="#88">#88</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">126</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Documentation. Cleaned up Docs Folder. Added Include file.
+    </p>
+    <p class="commitdetails"><strong>35</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        BinaryEvolution_ISA.doc&#160;<span class="change">(changed)</span>,
+        architecture_presentation.odp&#160;<span class="change">(changed)</span>,
+        readme.txt&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>hardware</strong>:
+        decode.v&#160;<span class="change">(+3&#160;-3)</span>,
+        opcodes.inc&#160;<span class="new">(new&#160;32)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="87"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-21 15:44</span>
+    <a class="permalink" title="Permalink to this commit" href="#87">#87</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">125</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated ISA Document. Changed some bugs in memory_locations.txt
+    </p>
+    <p class="commitdetails"><strong>47</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        BinaryEvolution_ISA.doc&#160;<span class="new">(new)</span>,
+        Neighborhood_Ops_Explainations.doc&#160;<span class="change">(changed)</span>,
+        memory_locations.txt&#160;<span class="change">(+47&#160;-46)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="86"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-21 10:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#86">#86</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">124</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Documentation
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Neighborhood_Ops_Explainations.doc&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="85"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-21 01:07</span>
+    <a class="permalink" title="Permalink to this commit" href="#85">#85</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">123</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated memory specifications:<br />
+	Added details for the MMR usage. Current MMR's include:<br />
+		VGA, LEDs status, Dipswitch status, Interrupts, Exceptions, Mouse status, Keyboard status, 2x SPART Rx and Tx registers, ... uh i think that's all. Feel free to suggest or add other ones.<br />
+
+    </p>
+    <p class="commitdetails"><strong>98</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="change">(+98&#160;-7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="84"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-20 23:45</span>
+    <a class="permalink" title="Permalink to this commit" href="#84">#84</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">122</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+experimenting with binary pack and unpack<br />
+
+    </p>
+    <p class="commitdetails"><strong>81</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+69&#160;-15)</span>,
+        pack.pl&#160;<span class="new">(new&#160;10)</span>,
+        test.data&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="83"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-20 23:35</span>
+    <a class="permalink" title="Permalink to this commit" href="#83">#83</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">121</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Worked on decode stage. Added toplevel hardware
+    </p>
+    <p class="commitdetails"><strong>189</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        alu.v&#160;<span class="del">(del)</span>,
+        decode.v&#160;<span class="new">(new&#160;100)</span>,
+        regfile.v&#160;<span class="new">(new&#160;37)</span>,
+        toplevel.v&#160;<span class="new">(new&#160;52)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="82"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-20 20:36</span>
+    <a class="permalink" title="Permalink to this commit" href="#82">#82</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">120</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added initial MMR specs (16 mem-mapped registers, accessed by addressing 0x0010_0000 - 0x0010_000F)<br />
+
+    </p>
+    <p class="commitdetails"><strong>4</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="change">(+4&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="81"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-19 23:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#81">#81</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">119</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+starting on datafile processing<br />
+
+    </p>
+    <p class="commitdetails"><strong>122</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+56&#160;-31)</span>,
+        asm.pl&#160;<span class="change">(+48)</span>,
+        sim.pl&#160;<span class="change">(+10&#160;-42)</span>,
+        test.data&#160;<span class="new">(new&#160;4)</span>,
+        wanted_features.txt&#160;<span class="change">(+4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="80"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-19 18:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#80">#80</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">118</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>119</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+112&#160;-10)</span>,
+        needed_features.txt&#160;<span class="change">(+1&#160;-4)</span>,
+        region.s&#160;<span class="change">(+6&#160;-6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="79"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-19 03:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#79">#79</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">117</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+k<br />
+
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+5&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="78"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-18 18:31</span>
+    <a class="permalink" title="Permalink to this commit" href="#78">#78</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">116</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>67</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+51&#160;-32)</span>,
+        region.s&#160;<span class="new">(new&#160;15)</span>,
+        sim.pl&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="77"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-18 15:41</span>
+    <a class="permalink" title="Permalink to this commit" href="#77">#77</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">115</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+playing with imem
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        instr_mem.v&#160;<span class="change">(+3&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="76"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-18 15:03</span>
+    <a class="permalink" title="Permalink to this commit" href="#76">#76</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">114</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+addedinstr mem
+    </p>
+    <p class="commitdetails"><strong>28</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        instr_mem.v&#160;<span class="new">(new&#160;28)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="75"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-18 14:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#75">#75</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">113</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+alu.v added
+    </p>
+    <p class="commitdetails"><strong>27</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        alu.v&#160;<span class="new">(new&#160;27)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="74"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-18 14:27</span>
+    <a class="permalink" title="Permalink to this commit" href="#74">#74</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">112</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added execute stage
+    </p>
+    <p class="commitdetails"><strong>122</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        alu.v&#160;<span class="new">(new&#160;29)</span>,
+        template.v&#160;<span class="change">(+4&#160;-1)</span>
+      </li>
+      <li>
+        <strong>hardware/executeinterface</strong>:
+        multiplier8b.v&#160;<span class="new">(new&#160;27)</span>,
+        multiplierBank.v&#160;<span class="new">(new&#160;33)</span>,
+        neighborOpController.v&#160;<span class="new">(new&#160;29)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="73"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-18 10:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#73">#73</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">111</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+began adding "region" support<br />
+
+    </p>
+    <p class="commitdetails"><strong>103</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+95&#160;-61)</span>,
+        ruminations_of_a_disturbed_mind.txt&#160;<span class="change">(-4)</span>,
+        test_asm.s&#160;<span class="change">(+8&#160;-11)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="72"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-17 23:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#72">#72</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">110</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+i<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ruminations_of_a_disturbed_mind.txt&#160;<span class="change">(-1)</span>
+      </li>
+      <li>
+        <strong>software/application</strong>:
+        game_of_life.s&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="71"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-17 19:21</span>
+    <a class="permalink" title="Permalink to this commit" href="#71">#71</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">109</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+template updates, draft 0 peripheral modules interfaces<br />
+
+    </p>
+    <p class="commitdetails"><strong>197</strong> lines of code changed in <span class="files">8 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        notes.txt&#160;<span class="new">(new&#160;5)</span>,
+        template.v&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        cache.v&#160;<span class="change">(+19&#160;-3)</span>,
+        memctl.v&#160;<span class="new">(new&#160;42)</span>,
+        mmrcachemuxes.v&#160;<span class="new">(new&#160;24)</span>,
+        mmrs.v&#160;<span class="new">(new&#160;29)</span>,
+        periphsyswrapper.v&#160;<span class="new">(new&#160;40)</span>,
+        vga.v&#160;<span class="new">(new&#160;37)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="70"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-17 18:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#70">#70</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">108</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+- Added commas to game of life code.<br />
+- Updated memory usage<br />
+
+    </p>
+    <p class="commitdetails"><strong>49</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="change">(+27&#160;-6)</span>
+      </li>
+      <li>
+        <strong>software/application</strong>:
+        game_of_life.s&#160;<span class="change">(+22&#160;-15)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="69"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-17 18:15</span>
+    <a class="permalink" title="Permalink to this commit" href="#69">#69</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">107</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>14</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        memory_locations.txt&#160;<span class="new">(new&#160;14)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="68"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-17 17:53</span>
+    <a class="permalink" title="Permalink to this commit" href="#68">#68</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">106</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+real update to module template<br />
+
+    </p>
+    <p class="commitdetails"><strong>1</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        template.v&#160;<span class="change">(+1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="67"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-17 17:52</span>
+    <a class="permalink" title="Permalink to this commit" href="#67">#67</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">105</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+update to template: interface designer<br />
+
+    </p>
+    <p class="commitdetails"><strong>24</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware/peripheralinterface</strong>:
+        cache.v&#160;<span class="new">(new&#160;24)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="66"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-17 17:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#66">#66</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">104</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+template and preipheral interface folders added<br />
+
+    </p>
+    <p class="commitdetails"><strong>23</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        template.v&#160;<span class="new">(new&#160;23)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="65"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-17 17:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#65">#65</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">103</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Eric added some conventions
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        Verilog_Conventions.txt&#160;<span class="change">(+9)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="64"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-17 17:35</span>
+    <a class="permalink" title="Permalink to this commit" href="#64">#64</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">102</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Locking in Cody and Eric_H's bets<br />
+
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        RevisionSizePool.txt&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="63"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-17 17:35</span>
+    <a class="permalink" title="Permalink to this commit" href="#63">#63</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">101</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added verilog conventions
+    </p>
+    <p class="commitdetails"><strong>13</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        Verilog_Conventions.txt&#160;<span class="new">(new&#160;13)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="62"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-17 17:32</span>
+    <a class="permalink" title="Permalink to this commit" href="#62">#62</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">100</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+blargh<br />
+
+    </p>
+    <p class="commitdetails"><strong>62</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+54&#160;-38)</span>,
+        asm_correct.s&#160;<span class="change">(+3&#160;-2)</span>,
+        sim.pl&#160;<span class="change">(+5&#160;-50)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="61"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-17 15:28</span>
+    <a class="permalink" title="Permalink to this commit" href="#61">#61</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">99</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+move great improvements<br />
+
+    </p>
+    <p class="commitdetails"><strong>101</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+101&#160;-94)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="60"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-17 13:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#60">#60</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">98</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Beginning of Game of Life assembly code<br />
+
+    </p>
+    <p class="commitdetails"><strong>22</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/application</strong>:
+        game_of_life.s&#160;<span class="new">(new&#160;22)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="59"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-17 01:55</span>
+    <a class="permalink" title="Permalink to this commit" href="#59">#59</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">97</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+MAJOR changes to the structure of ISA_TOOLS. much better<br />
+
+    </p>
+    <p class="commitdetails"><strong>136</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+102&#160;-30)</span>,
+        ruminations_of_a_disturbed_mind.txt&#160;<span class="new">(new&#160;17)</span>,
+        sim.pl&#160;<span class="change">(+17&#160;-10)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="58"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-17 00:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#58">#58</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">96</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated typos on presentation
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="57"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-16 16:44</span>
+    <a class="permalink" title="Permalink to this commit" href="#57">#57</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">95</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Slides
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="56"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-16 16:21</span>
+    <a class="permalink" title="Permalink to this commit" href="#56">#56</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">94</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+drafts of signal naming conventions,<br />
+xilinx dram interface spec
+    </p>
+    <p class="commitdetails"><strong>38</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        draft-signal naming conventions.txt&#160;<span class="new">(new&#160;38)</span>,
+        example-signal naming conventions.dia&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>fpga docs and examples</strong>:
+        xapp549dramiface.pdf&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="55"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-16 16:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#55">#55</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">93</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Edits before our presentation
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA_QUICKREF.xlsx&#160;<span class="change">(changed)</span>,
+        Neighborhood_Ops_Explainations.doc&#160;<span class="change">(changed)</span>,
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="54"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-16 13:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#54">#54</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">92</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+a few edits on the language guide for the LDADR pseudo-op<br />
+
+    </p>
+    <p class="commitdetails"><strong>9</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        known_bugs.txt&#160;<span class="change">(+2)</span>,
+        needed_features.txt&#160;<span class="change">(+7)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="53"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-16 01:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#53">#53</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">91</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated the sw architecture slide<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="52"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-16 00:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#52">#52</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">90</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Open office version... Added it temporarily until I have access to powerpoint<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.odp&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="51"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-15 21:50</span>
+    <a class="permalink" title="Permalink to this commit" href="#51">#51</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">89</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Gantt Chart and put in Presentation. PPT just waiting for Ross's slide
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Gantt_Chart.mpp&#160;<span class="change">(changed)</span>,
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>,
+        gantt_screenshot.bmp&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="50"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 21:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#50">#50</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">88</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+blargh<br />
+
+    </p>
+    <p class="commitdetails"><strong>31</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+30&#160;-45)</span>,
+        asm_correct.s&#160;<span class="change">(+1&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="49"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 18:59</span>
+    <a class="permalink" title="Permalink to this commit" href="#49">#49</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">87</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+blargh<br />
+
+    </p>
+    <p class="commitdetails"><strong>25</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+25&#160;-17)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="48"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 18:29</span>
+    <a class="permalink" title="Permalink to this commit" href="#48">#48</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">86</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+did my slides<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="47"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 18:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#47">#47</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">85</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        High_Level_Datapath.jpg&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="46"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-15 18:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#46">#46</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">84</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Assigned Tasks
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="45"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 17:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#45">#45</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">83</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+cleaned up the highlevel visio a bit
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        High_Level_Datapath.vsd&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="44"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-15 17:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#44">#44</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">82</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Powerpoint again
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="43"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-15 17:34</span>
+    <a class="permalink" title="Permalink to this commit" href="#43">#43</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">81</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Powerpoint
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Neighborhood_Ops_Explainations.doc&#160;<span class="change">(changed)</span>,
+        architecture_presentation.ppt&#160;<span class="change">(changed)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="42"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-15 17:30</span>
+    <a class="permalink" title="Permalink to this commit" href="#42">#42</a>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated ISA_quickref
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA_QUICKREF.xlsx&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="41"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-15 17:29</span>
+    <a class="permalink" title="Permalink to this commit" href="#41">#41</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">78</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+LOCK IN YOUR BETS!!!<br />
+
+    </p>
+    <p class="commitdetails"><strong>25</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        RevisionSizePool.txt&#160;<span class="new">(new&#160;25)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="40"></a>
+    <a href="user_nordstro.html" class="author">nordstro</a>
+    <span class="date">2011-02-15 17:22</span>
+    <a class="permalink" title="Permalink to this commit" href="#40">#40</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">77</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Fixed caps format on "MyVal, myval" in assembly language guide<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="39"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-15 17:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#39">#39</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">76</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+worked some more on the asm guide<br />
+
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="change">(changed)</span>,
+        DeepQuestions.txt&#160;<span class="change">(-3)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        needed_features.txt&#160;<span class="change">(+3&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="38"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-14 19:23</span>
+    <a class="permalink" title="Permalink to this commit" href="#38">#38</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">75</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Prep for Architecture Presentation. Updated MOV ISA
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        High_Level_Datapath.vsd&#160;<span class="new">(new)</span>,
+        architecture_presentation.ppt&#160;<span class="new">(new)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="37"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-14 19:19</span>
+    <a class="permalink" title="Permalink to this commit" href="#37">#37</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">74</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added preliminary documentation on FPGA and DRAM/VGA examples
+    </p>
+    <p class="commitdetails"><strong>3</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>fpga docs and examples</strong>:
+        DAAD15_Vasko.pdf&#160;<span class="new">(new)</span>,
+        alldsheets.pdf&#160;<span class="new">(new)</span>,
+        lookinto.txt&#160;<span class="new">(new&#160;3)</span>,
+        slideshow_256mb.zip&#160;<span class="new">(new)</span>,
+        userguide.pdf&#160;<span class="new">(new)</span>,
+        xup_bsb_256Mb_single_rank_vga_rev_1_1.zip&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="36"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-14 19:11</span>
+    <a class="permalink" title="Permalink to this commit" href="#36">#36</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">73</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+worked on the formal assembly spec<br />
+
+    </p>
+    <p class="commitdetails"><strong>15</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Binary_Evolution_Assembly_Language_Guide.odt&#160;<span class="new">(new)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        known_bugs.txt&#160;<span class="new">(new&#160;5)</span>,
+        needed_features.txt&#160;<span class="new">(new&#160;4)</span>,
+        wanted_features.txt&#160;<span class="new">(new&#160;6)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="35"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-14 14:57</span>
+    <a class="permalink" title="Permalink to this commit" href="#35">#35</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">72</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+UPDATED ISA_QUICKREF **BEN
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA_QUICKREF.xlsx&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="34"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-13 23:42</span>
+    <a class="permalink" title="Permalink to this commit" href="#34">#34</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">71</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+symbol table generation implemented<br />
+
+    </p>
+    <p class="commitdetails"><strong>86</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+61&#160;-27)</span>,
+        asm_correct.s&#160;<span class="change">(+12&#160;-4)</span>,
+        sim.pl&#160;<span class="change">(+13&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="33"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-13 21:24</span>
+    <a class="permalink" title="Permalink to this commit" href="#33">#33</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+more improvements to syntax checking, and updated branch instructions to use B &lt;LABEL&gt;<br />
+
+    </p>
+    <p class="commitdetails"><strong>77</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        asm_syntax.txt&#160;<span class="change">(+2)</span>,
+        ece554_ISA.xls&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+58&#160;-73)</span>,
+        asm_correct.s&#160;<span class="new">(new&#160;6)</span>,
+        sim.pl&#160;<span class="change">(+11&#160;-4)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="32"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-13 16:08</span>
+    <a class="permalink" title="Permalink to this commit" href="#32">#32</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+initial version of syntax checking is in, nothing for illeagle register numbers yet, however.<br />
+also duplicate labels are not checked for yet<br />
+
+    </p>
+    <p class="commitdetails"><strong>108</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+80&#160;-38)</span>,
+        sim.pl&#160;<span class="change">(-3)</span>,
+        test_asm.s&#160;<span class="change">(+28&#160;-14)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="31"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-12 20:02</span>
+    <a class="permalink" title="Permalink to this commit" href="#31">#31</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">68</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added in some hashes for syntax checking<br />
+
+    </p>
+    <p class="commitdetails"><strong>54</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+54&#160;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="30"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-12 18:54</span>
+    <a class="permalink" title="Permalink to this commit" href="#30">#30</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">67</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+blah<br />
+
+    </p>
+    <p class="commitdetails"><strong>60</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+30&#160;-18)</span>,
+        test_asm.s&#160;<span class="new">(new&#160;30)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="29"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-12 18:32</span>
+    <a class="permalink" title="Permalink to this commit" href="#29">#29</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">66</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated ISA Documentation
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Neighborhood_Ops_Explainations.doc&#160;<span class="new">(new)</span>,
+        Neighborhood_Ops_Explainations.docx&#160;<span class="change">(changed)</span>,
+        ece554_ISA.csv&#160;<span class="del">(del)</span>,
+        ece554_ISA.xls&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="28"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-12 17:02</span>
+    <a class="permalink" title="Permalink to this commit" href="#28">#28</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">65</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+got a good start on the syntax checking<br />
+
+    </p>
+    <p class="commitdetails"><strong>52</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="change">(+48&#160;-4)</span>,
+        sim.pl&#160;<span class="change">(+4&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="27"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-12 16:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#27">#27</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">64</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Gannt and Project Proposal. Emailed to Saluja and TAs
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Gantt_Chart.mpp&#160;<span class="change">(changed)</span>,
+        Project_Proposal.odp&#160;<span class="change">(changed)</span>,
+        gantt_screenshot.bmp&#160;<span class="change">(changed)</span>,
+        pptx_version.pptx&#160;<span class="del">(del)</span>,
+        pptx_version_updated.pptx&#160;<span class="change">(changed)</span>,
+        project_presentation.ppt&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="26"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-12 14:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#26">#26</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">63</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+initial version of .EQU replacement working in ISA_TOOLS.pm<br />
+
+    </p>
+    <p class="commitdetails"><strong>102</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software</strong>:
+        ISA_TOOLS.pm&#160;<span class="new">(new&#160;85)</span>,
+        sim.pl&#160;<span class="change">(+17&#160;-20)</span>,
+        syntax_symbol.pm&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="25"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-11 16:57</span>
+    <a class="permalink" title="Permalink to this commit" href="#25">#25</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">62</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added a STRNEIGHBOR Instruction. Began writing documentation for ISA Neighborhood patterns
+    </p>
+    <p class="commitdetails"><strong>32</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Neighborhood_Ops_Explainations.docx&#160;<span class="new">(new)</span>,
+        ece554_ISA.csv&#160;<span class="change">(+32&#160;-12)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="24"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-11 16:24</span>
+    <a class="permalink" title="Permalink to this commit" href="#24">#24</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">61</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added some new files, updated asm_syntax register conventions<br />
+
+    </p>
+    <p class="commitdetails"><strong>7</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        asm_syntax.txt&#160;<span class="change">(+2&#160;-1)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        asm.pl&#160;<span class="new">(new)</span>,
+        syntax_symbol.pm&#160;<span class="new">(new&#160;5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="23"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-11 16:12</span>
+    <a class="permalink" title="Permalink to this commit" href="#23">#23</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">60</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+finalized ISA document Probably<br />
+
+    </p>
+    <p class="commitdetails"><strong>57</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ece554_ISA.csv&#160;<span class="change">(+57&#160;-57)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="22"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-11 15:51</span>
+    <a class="permalink" title="Permalink to this commit" href="#22">#22</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">59</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added the asm_syntax spec (initial) and moved some files around<br />
+
+    </p>
+    <p class="commitdetails"><strong>154</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        asm_syntax.txt&#160;<span class="new">(new&#160;52)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        assembler&#160;<span class="del">(del)</span>,
+        sim.pl&#160;<span class="new">(new&#160;102)</span>
+      </li>
+      <li>
+        <strong>software/simulator</strong>:
+        sim.pl&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="21"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-11 15:47</span>
+    <a class="permalink" title="Permalink to this commit" href="#21">#21</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">58</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added quick reference for isa
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA_QUICKREF.xlsx&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="20"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-11 15:19</span>
+    <a class="permalink" title="Permalink to this commit" href="#20">#20</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">57</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+ISA Update<br />
+
+    </p>
+    <p class="commitdetails"><strong>57</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ece554_ISA.csv&#160;<span class="change">(+57&#160;-33)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="19"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-11 14:00</span>
+    <a class="permalink" title="Permalink to this commit" href="#19">#19</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">56</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+test<br />
+<br />
+
+    </p>
+    <p class="commitdetails"><strong>34</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        DeepQuestions.txt&#160;<span class="change">(+1&#160;-1)</span>,
+        ece554_ISA.csv&#160;<span class="change">(+33&#160;-33)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="18"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-11 13:58</span>
+    <a class="permalink" title="Permalink to this commit" href="#18">#18</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">55</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added some docs
+    </p>
+    <p class="commitdetails"><strong>5</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        DeepQuestions.txt&#160;<span class="new">(new&#160;5)</span>,
+        arm7tdmi_instruction_set_reference.pdf&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="17"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-11 11:40</span>
+    <a class="permalink" title="Permalink to this commit" href="#17">#17</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">54</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added Base ISA as discussed the other day
+    </p>
+    <p class="commitdetails"><strong>33</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ece554_ISA.csv&#160;<span class="new">(new&#160;33)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="16"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-10 20:08</span>
+    <a class="permalink" title="Permalink to this commit" href="#16">#16</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">53</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+did initial work on the simulator, reads in files into it's data structures<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>software/simulator</strong>:
+        sim.pl&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="15"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-09 16:29</span>
+    <a class="permalink" title="Permalink to this commit" href="#15">#15</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">52</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Updated Slides
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        pptx_version_updated.pptx&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="14"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-09 16:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#14">#14</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">51</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added Bug/Solution excel doc
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>hardware</strong>:
+        Bugs_Solutions.xlsx&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="13"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-09 13:48</span>
+    <a class="permalink" title="Permalink to this commit" href="#13">#13</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">49</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added a ppt file with a change from class<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        pptx_version_updated.pptx&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="12"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-09 13:39</span>
+    <a class="permalink" title="Permalink to this commit" href="#12">#12</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">48</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+moved some files around and made dirs<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        Gantt_Chart.mpp&#160;<span class="change">(changed)</span>,
+        gantt_screenshot.bmp&#160;<span class="change">(changed)</span>
+      </li>
+      <li>
+        <strong>documentation</strong>:
+        Gantt_Chart.mpp&#160;<span class="new">(new)</span>,
+        gantt_screenshot.bmp&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>software</strong>:
+        assembler&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="11"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-08 18:06</span>
+    <a class="permalink" title="Permalink to this commit" href="#11">#11</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">47</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Converted To Powerpoint. Still Working
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        pptx_version.pptx&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="10"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-08 17:16</span>
+    <a class="permalink" title="Permalink to this commit" href="#10">#10</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">46</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+some changes to presentation. still working
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Project_Proposal.odp&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="9"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-07 19:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#9">#9</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">45</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Done. Feel free to make changes -- Ross<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Project_Proposal.odp&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-07 19:39</span>
+    <a class="permalink" title="Permalink to this commit" href="#8">#8</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">44</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Paranoid commit -- Ross<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Project_Proposal.odp&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-07 19:10</span>
+    <a class="permalink" title="Permalink to this commit" href="#7">#7</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">43</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+gantt_screen
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        Gantt_Chart.mpp&#160;<span class="change">(changed)</span>,
+        gantt_screenshot.bmp&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-07 18:34</span>
+    <a class="permalink" title="Permalink to this commit" href="#6">#6</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">42</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added gannt
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        Gantt_Chart.mpp&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>documentation</strong>:
+        gannt.mpp&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-07 17:13</span>
+    <a class="permalink" title="Permalink to this commit" href="#5">#5</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">41</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added a few different slides<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Project_Proposal.odp&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_fuhrmann.html" class="author">fuhrmann</a>
+    <span class="date">2011-02-07 17:09</span>
+    <a class="permalink" title="Permalink to this commit" href="#4">#4</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">40</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+testing svn
+    </p>
+    <p class="commitdetails"><strong>2</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA.txt&#160;<span class="change">(+1)</span>,
+        readme.txt&#160;<span class="new">(new&#160;1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_chanson.html" class="author">chanson</a>
+    <span class="date">2011-02-07 14:39</span>
+    <a class="permalink" title="Permalink to this commit" href="#3">#3</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">39</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added an initial slideshow file, idk if we want odp or ppt<br />
+
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        Project_Proposal.odp&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_enharris.html" class="author">enharris</a>
+    <span class="date">2011-02-05 17:38</span>
+    <a class="permalink" title="Permalink to this commit" href="#2">#2</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">38</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Added sample Microsoft Project gantt chart
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        gannt.mpp&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_eweisman.html" class="author">eweisman</a>
+    <span class="date">2011-02-05 17:37</span>
+    <a class="permalink" title="Permalink to this commit" href="#1">#1</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">37</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+added the ISA file
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">1 file</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>documentation</strong>:
+        ISA.txt&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p class="previous"><a href="2011-01.html">January 2011</a> &#187; </p>
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> 0.7.0</div>
+</body>
+</html>

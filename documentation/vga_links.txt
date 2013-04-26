@@ -1,0 +1,7 @@
+http://www.epanorama.net/documents/pc/vga_timing.html
+https://cgi.cae.wisc.edu/~ece554/pmwiki/pmwiki.php?n=Documentation.ResistorArray
+
+https://cgi.cae.wisc.edu/~ece554/pmwiki/pmwiki.php?n=Documentation.RAMDAC
+
+https://cgi.cae.wisc.edu/~ece554/pmwiki/pmwiki.php?n=Documentation.VGA
+

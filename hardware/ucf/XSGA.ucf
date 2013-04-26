@@ -1,0 +1,139 @@
+## PINOUT AND IO DRIVE CHARACTERISTICS FOR THE XSGA
+## VIDEO OUTPUT OF THE XUP-V2PRO DEVELOPMENT SYSTEM
+## REVISION C PRINTED CIRCUIT BOARD DEC 8 2004
+
+NET "vsync" LOC = "D11";
+NET "hsync" LOC = "B8";
+NET "blank" LOC = "A8";
+NET "comp_sync" LOC = "G12";
+NET "VGA_OUT_PIXEL_CLOCK" LOC = "H12";
+
+NET "pixel_r[7]" LOC = "H10";
+NET "pixel_r[6]" LOC = "C7";
+NET "pixel_r[5]" LOC = "D7";
+NET "pixel_r[4]" LOC = "F10";
+NET "pixel_r[3]" LOC = "F9";
+NET "pixel_r[2]" LOC = "G9";
+NET "pixel_r[1]" LOC = "H9";
+NET "pixel_r[0]" LOC = "G8";
+
+NET "pixel_g[7]" LOC = "E11";
+NET "pixel_g[6]" LOC = "G11";
+NET "pixel_g[5]" LOC = "H11";
+NET "pixel_g[4]" LOC = "C8";
+NET "pixel_g[3]" LOC = "D8";
+NET "pixel_g[2]" LOC = "D10";
+NET "pixel_g[1]" LOC = "E10";
+NET "pixel_g[0]" LOC = "G10";
+
+NET "pixel_b[7]" LOC = "E14";
+NET "pixel_b[6]" LOC = "D14";
+NET "pixel_b[5]" LOC = "D13";
+NET "pixel_b[4]" LOC = "C13";
+NET "pixel_b[3]" LOC = "J15";
+NET "pixel_b[2]" LOC = "H15";
+NET "pixel_b[1]" LOC = "E15";
+NET "pixel_b[0]" LOC = "D15";
+
+NET "pixel_b[0]" IOSTANDARD = LVTTL;
+NET "pixel_b[1]" IOSTANDARD = LVTTL;
+NET "pixel_b[2]" IOSTANDARD = LVTTL;
+NET "pixel_b[3]" IOSTANDARD = LVTTL;
+NET "pixel_b[4]" IOSTANDARD = LVTTL;
+NET "pixel_b[5]" IOSTANDARD = LVTTL;
+NET "pixel_b[6]" IOSTANDARD = LVTTL;
+NET "pixel_b[7]" IOSTANDARD = LVTTL;
+
+NET "pixel_g[0]" IOSTANDARD = LVTTL;
+NET "pixel_g[1]" IOSTANDARD = LVTTL;
+NET "pixel_g[2]" IOSTANDARD = LVTTL;
+NET "pixel_g[3]" IOSTANDARD = LVTTL;
+NET "pixel_g[4]" IOSTANDARD = LVTTL;
+NET "pixel_g[5]" IOSTANDARD = LVTTL;
+NET "pixel_g[6]" IOSTANDARD = LVTTL;
+NET "pixel_g[7]" IOSTANDARD = LVTTL;
+
+NET "pixel_r[0]" IOSTANDARD = LVTTL;
+NET "pixel_r[1]" IOSTANDARD = LVTTL;
+NET "pixel_r[2]" IOSTANDARD = LVTTL;
+NET "pixel_r[3]" IOSTANDARD = LVTTL;
+NET "pixel_r[4]" IOSTANDARD = LVTTL;
+NET "pixel_r[5]" IOSTANDARD = LVTTL;
+NET "pixel_r[6]" IOSTANDARD = LVTTL;
+NET "pixel_r[7]" IOSTANDARD = LVTTL;
+
+NET "pixel_b[0]" SLEW = SLOW;
+NET "pixel_b[1]" SLEW = SLOW;
+NET "pixel_b[2]" SLEW = SLOW;
+NET "pixel_b[3]" SLEW = SLOW;
+NET "pixel_b[4]" SLEW = SLOW;
+NET "pixel_b[5]" SLEW = SLOW;
+NET "pixel_b[6]" SLEW = SLOW;
+NET "pixel_b[7]" SLEW = SLOW;
+
+NET "pixel_g[0]" SLEW = SLOW;
+NET "pixel_g[1]" SLEW = SLOW;
+NET "pixel_g[2]" SLEW = SLOW;
+NET "pixel_g[3]" SLEW = SLOW;
+NET "pixel_g[4]" SLEW = SLOW;
+NET "pixel_g[5]" SLEW = SLOW;
+NET "pixel_g[6]" SLEW = SLOW;
+NET "pixel_g[7]" SLEW = SLOW;
+
+NET "pixel_r[0]" SLEW = SLOW;
+NET "pixel_r[1]" SLEW = SLOW;
+NET "pixel_r[2]" SLEW = SLOW;
+NET "pixel_r[3]" SLEW = SLOW;
+NET "pixel_r[4]" SLEW = SLOW;
+NET "pixel_r[5]" SLEW = SLOW;
+NET "pixel_r[6]" SLEW = SLOW;
+NET "pixel_r[7]" SLEW = SLOW;
+
+NET "pixel_b[0]" DRIVE = 6;
+NET "pixel_b[1]" DRIVE = 6;
+NET "pixel_b[2]" DRIVE = 6;
+NET "pixel_b[3]" DRIVE = 6;
+NET "pixel_b[4]" DRIVE = 6;
+NET "pixel_b[5]" DRIVE = 6;
+NET "pixel_b[6]" DRIVE = 6;
+NET "pixel_b[7]" DRIVE = 6;
+
+NET "pixel_g[0]" DRIVE = 6;
+NET "pixel_g[1]" DRIVE = 6;
+NET "pixel_g[2]" DRIVE = 6;
+NET "pixel_g[3]" DRIVE = 6;
+NET "pixel_g[4]" DRIVE = 6;
+NET "pixel_g[5]" DRIVE = 6;
+NET "pixel_g[6]" DRIVE = 6;
+NET "pixel_g[7]" DRIVE = 6;
+
+NET "pixel_r[0]" DRIVE = 6;
+NET "pixel_r[1]" DRIVE = 6;
+NET "pixel_r[2]" DRIVE = 6;
+NET "pixel_r[3]" DRIVE = 6;
+NET "pixel_r[4]" DRIVE = 6;
+NET "pixel_r[5]" DRIVE = 6;
+NET "pixel_r[6]" DRIVE = 6;
+NET "pixel_r[7]" DRIVE = 6;
+
+NET "vsync" IOSTANDARD = LVTTL;
+NET "VGA_OUT_PIXEL_CLOCK" IOSTANDARD = LVTTL;
+NET "hsync" IOSTANDARD = LVTTL;
+NET "blank" IOSTANDARD = LVTTL;
+NET "comp_sync" IOSTANDARD = LVTTL;
+
+NET "vsync" DRIVE = 12;
+NET "VGA_OUT_PIXEL_CLOCK" DRIVE = 6;
+NET "hsync" DRIVE = 12;
+NET "blank" DRIVE = 6;
+NET "comp_sync" DRIVE = 6;
+
+NET "vsync" SLEW = SLOW;
+NET "VGA_OUT_PIXEL_CLOCK" SLEW = SLOW;
+NET "hsync" SLEW = SLOW;
+NET "blank" SLEW = SLOW;
+NET "comp_sync" SLEW = SLOW;
+
+
+
+

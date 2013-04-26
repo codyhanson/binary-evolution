@@ -1,0 +1,5 @@
+// Game of Life - Data Memory
+// FRAME BUFFER INIT
+myFB1:	.file application/fb_10by10.hex
+myFB2:	.file application/fb_10by10.hex
+myFBLUT: .file application/fb_lut_10by10.hex

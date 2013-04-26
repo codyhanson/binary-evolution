@@ -1,0 +1,22 @@
+All signals are named in CamelCase
+Signal format is <Type><Operation><Target>
+where Type is something like Addr, Data, Sel and/or its origin module (like MemExStall)
+and Operation is like "Read" or "Write"
+and Target is like "MemEx"
+
+The clock will be: clk
+Reset will be synchronous and active high and called: rst
+
+modules will be named in lowercase and verilog files are also lowercase. Ex- alu.v
+testbenches will be of format t_module.v
+
+Inputs and Outputs will be instantiated with 2001 conventions like: module DUT(.clk(clk), .rst(rst), .signal(anothername));
+
+Inputs should be before output and clk and rst should be first. 
+It doesn't matter whether multiple lines or one line is used.
+
+
+
+
+
+

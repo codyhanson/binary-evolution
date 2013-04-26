@@ -1,0 +1,30 @@
+# File: keyboard.ucf
+# Desc: Pinout descriptions for implementing a ps/2 input for a keyboard
+# Team Binary Evolution
+# Creator: Ross Nordstrom
+# Notes: Pinouts found in <userguideXUPv2.pdf>, pp66 (Table 2-18)
+
+# PS-2 Configuration
+NET "kbd_data" LOC = "AG1";
+NET "kbd_data" IOSTANDARD = LVTTL;
+NET "kbd_clk" LOC = "AG2";
+NET "kbd_clk" IOSTANDARD = LVTTL;
+
+# Switch Configuration
+NET "rst" LOC = "AC11";
+		##NET "SW_1" LOC = "AD11";
+		#NET "br_cfg<0>" LOC = "AF8";
+		#NET "br_cfg<1>" LOC = "AF9";
+
+NET "rst" IOSTANDARD = LVCMOS25;
+		##NET "SW_1" IOSTANDARD = LVCMOS25;
+		#NET "br_cfg<0>" IOSTANDARD = LVCMOS25;
+		#NET "br_cfg<1>" IOSTANDARD = LVCMOS25;
+
+
+# Clock Configuration
+NET "clk" LOC = "AJ15";
+NET "clk" IOSTANDARD = LVCMOS25;
+NET "clk" TNM_NET = "clk";
+TIMESPEC "TS_clk" = PERIOD "clk" 10.00 ns HIGH 50 %;
+

@@ -1,0 +1,405 @@
+/*
+Module:			bramctl
+
+Description:		provides 1cycle rw to bram
+Hierarchy:		SYSTEM=>memctl=>bramctl
+
+
+Team Binary Evolution
+Ben Fuhrmann, Cody Hanson, Eric Harris, Ross Nordstrom, Eric Weisman
+
+Module designed by:	Eric Weisman
+Edited by:		
+Module interface by:	Eric Weisman
+
+Date:			
+
+*/
+
+/*		TODO
+	*
+	*	reIMPLEMENT? PRIORITY
+	*		@addr, r0 w1 => get old val		automatic
+	*		@addr, r1 w0 => get new val
+	*		@addr, w1 w0 => write w1 val
+	*		can this be done in slow fsm?neighborhoods
+	*		whole vs. partial addressing conflicts, must deal with both!
+			ex. w0W@x, r1B@(x+4).   how implement this forwarding?
+	*
+	*	IMPLEMENT arraywidth MMR
+	* 
+	*	TEST
+	*		everything written to correct parts of regs?
+	*		final behavior on long read
+	*		etc	
+	*
+*/
+
+module bramctl(
+	input clk, input rst,
+	input fastclk,				//4x system clk speed, synchronized.
+	//controller end
+	input[15:0]	arraywidth,		//for neighborhood calculations. from a MMR.
+	input[39:0]	MemAddr0, MemAddr1,
+	input[1:0]	mode0, mode1,			//byte(8b), halfword(16b), word(40b), neighborhood(discontiguous 72b)
+	input		RW0, RW1,			//write when low
+	//provisionally always enabled
+	input[39:0]	MemDataIn0, MemDataIn1,
+	output[39:0]	MemDataOut0, MemDataOut1
+	);
+
+
+	//PARAMETERS-------------------------------------------------------------------------
+	`include "I:/Desktop/ece554/projectsvnwin/hardware/peripheralinterface/brammodes.inc"
+
+
+	//BRAM INSTANTIATED ---------------------------------------------------------------
+	/*
+	 when simult read and write, old data is read. read-before-write.
+	 always enabled, reads by default.	 
+	 rising edge active.
+	*/
+	
+	reg[7:0]	writedata0[3:0], nextwritedata0[3:0], writedata1[3:0], nextwritedata1[3:0];
+	reg[39:0]	bram0addr[3:0], nextbram0addr[3:0], bram1addr[3:0], nextbram1addr[3:0];
+	wire[7:0]	bram0data[3:0], bram1data[3:0];
+	reg[3:0]		bram0we[3:0], nextbram0we[3:0], bram1we[3:0], nextbram1we[3:0];
+	
+
+dmem_bram_simulator #(40,8) daram[3:0]( //For Simulation Only
+//bram[3:0] daram( //Synthesis Only
+		.dina(nextwritedata0),
+		.addra(nextbram0addr),
+		.wea(nextbram0we),
+		.clka(fastclk),
+		.douta(bram0data),
+		
+		.dinb(nextwritedata1),
+		.addrb(nextbram1addr),
+		.web(nextbram1we),
+		.clkb(fastclk),
+		.doutb(bram1data)
+	);
+	// use nextsignals instead to advance a cycle? DEBUG
+	
+
+
+	//SLOW STATE MACHINE - captures input values ---------------------------------------
+	
+	reg[1:0]	captmode0, captmode1;
+	reg		captRW0, captRW1;
+	reg[39:0] 	captdata0, captdata1;	//ignored later iff a read
+	reg[39:0] 	captaddr0, captaddr1;
+	reg		captrst;	//synchronizes the count
+	
+	always@(posedge clk) begin
+		captmode0 <= mode0;
+		captmode1 <= mode1;
+		captRW0 <= RW0;
+		captRW1	<= RW1;
+		captdata0 <= MemDataIn0;
+		captdata1 <= MemDataIn1;
+		captaddr0 <= MemAddr0;
+		captaddr1 <= MemAddr1;
+		//arraywidth change assumed to be slow, uncaptured.
+		captrst<=rst;
+	end
+	
+
+	//COMBINATIONAL SIGGEN -------------------------------------------------------
+
+	// data busses outputs
+	reg[39:0]	outdata0, nextoutdata0, outdata1, nextoutdata1;
+	assign MemDataOut0 = (captmode0==NEIG) ? 5'bz : outdata0;	//advance the word read for the second cycle
+	assign MemDataOut1 = (captmode0==NEIG) ?  5'bz : nextoutdata1;  //also here if neighborhood read
+	
+
+	//FAST STATE MACHINE- handles all write combining -----------------------------------
+	
+	reg	count2;		//0 iff also on a slow clk edge	
+	reg 	addrsame;	//for priority calcs
+
+	always@(posedge fastclk) begin
+		outdata0 <= nextoutdata0;
+		outdata1 <= nextoutdata1;
+		writedata0 <= nextwritedata0;
+		writedata1 <= nextwritedata1;
+		
+		bram0addr <= nextbram0addr;
+		bram1addr <= nextbram1addr;
+
+		if(rst) begin
+			count2<=1'b0;
+			bram0we <= 1'b0;
+			bram1we <= 1'b0;
+		end
+		else begin
+		       count2 <= ~count2;
+		       bram0we <= nextbram0we;
+			bram1we <= nextbram1we;
+		end
+	end
+	
+	always@(*) begin
+		//defaults
+		nextoutdata0 = outdata0;
+		nextoutdata1 = outdata1;
+		nextwritedata0 = 8'bx;
+		nextwritedata1 = 8'bx;
+		
+		nextbram0addr = 8'bx;	//bram0addr;
+		nextbram1addr = 8'bx;	//bram1addr;
+
+		//read is harmless
+		nextbram0we= 1'b0;
+		nextbram1we= 1'b0;
+		
+		//data and enables massage
+		//word to write generation
+		case(count2)
+			//PATH 0
+			1'b1: begin				
+				//read path 1 logic - from this cycle
+				//combinational output will use nextvalue directly
+				case((mode1))
+					WORD : begin
+						case(captaddr1[1:0])
+							2'b00 : begin
+								nextoutdata1={bram0data,bram1data[0]};
+							end
+							2'b01 : begin
+								nextoutdata1={bram0data[1:3],bram0data[0],bram1data[1]};
+							end
+							2'b10 : begin
+								nextoutdata1={bram0data[2:3],bram0data[0:1],bram1data[1]};
+							end
+							2'b11 : begin
+								nextoutdata1={bram0data[3],bram0data[0:2],bram1data[3]};
+							end
+						endcase
+					end
+					HALF : begin
+						case(captaddr1[1:0])
+							2'b00 : begin
+								nextoutdata1[15:0]=bram0data[0:1];	//order of indices matters in latter
+							end
+							2'b01 : begin
+								nextoutdata1[15:0]=bram0data[1:2];
+							end
+							2'b10 : begin
+								nextoutdata1[15:0]=bram0data[2:3];
+							end
+							2'b11 : begin
+								nextoutdata1[15:8]=bram0data[3];
+								nextoutdata1[7:0]=bram0data[0];
+							end
+						endcase
+					end
+					BYTE : begin
+						nextoutdata1[7:0]=bram0data[captaddr1[1:0]];	//still captured from last access!
+					end
+					NEIG : begin
+								//IMPLEMENT ME LAST
+					end
+				endcase
+				//setup path 0 logic - for next cycle
+				//new values not yet captured. preset combinational for slow clk edge.
+				//values will be present before edge.  (enough?)
+				
+				//setup addresses for modes other than neighborhood
+				case(MemAddr0[1:0])
+					2'b00 : begin
+						nextbram0addr=MemAddr0[39:2];	//ex2pansion correct?
+					end
+					2'b01 : begin
+						nextbram0addr[0]=MemAddr0[39:2]+38'd1;
+						nextbram0addr[1:3]=MemAddr0[39:2];
+					end
+					2'b10 : begin
+						nextbram0addr[0:1]=MemAddr0[39:2]+38'd1;
+						nextbram0addr[2:3]=MemAddr0[39:2];
+					end
+					2'b11 : begin
+						nextbram0addr=MemAddr0[39:2]+38'd1;
+					end
+				endcase
+				case((mode0))
+					WORD : begin
+						nextbram0we=~RW0;	//always accessing every path at least once
+						//nextbram1we=1'b0;	default behavior reads
+						nextbram1addr=MemAddr0[39:2]+38'b1;
+						nextwritedata1=MemDataIn0[7:0];
+						case(MemAddr0[1:0])
+							2'b00 : begin
+								nextbram1we[0]=~RW0;
+								nextwritedata0[0:3]=MemDataIn0[39:8];
+							end
+							2'b01 : begin
+								nextbram1we[1]=~RW0;
+								{nextwritedata0[1:3],nextwritedata0[0]}=MemDataIn0[39:8];
+							end
+							2'b10 : begin
+								nextbram1we[2]=~RW0;
+								{nextwritedata0[2:3],nextwritedata0[0:1]}=MemDataIn0[39:8];
+							end
+							2'b11 : begin
+								nextbram1we[3]=~RW0;
+								{nextwritedata0[3],nextwritedata0[0:2]}=MemDataIn0[39:8];
+							end
+						endcase
+					end //END CASE WORD
+					HALF : begin	//finished in this cycle
+						case(MemAddr0[1:0])
+						2'b00 : begin
+							nextbram0we[0:1]=~RW0;
+							nextwritedata0[0:1] = MemDataIn0[15:0];	//order of indices matters
+						end
+						2'b01 : begin
+							nextbram0we[1:2]=~RW0;
+							nextwritedata0[1:2] = MemDataIn0[15:0];
+						end
+						2'b10 : begin
+							nextbram0we[3:2]=~RW0;
+							nextwritedata0[2:3] = MemDataIn0[15:0];
+						end
+						2'b11 : begin
+							nextbram0we[0]=~RW0;
+							nextbram0we[3]=~RW0;
+							nextwritedata0[0] = MemDataIn0[15:8];
+							nextwritedata0[3] = MemDataIn0[7:0];
+						end
+						endcase
+					end //END CASE HALF
+					BYTE : begin
+						nextbram0we[MemAddr0[1:0]] = ~RW0;
+						nextwritedata0[MemAddr0[1:0]] = MemDataIn0[7:0];
+					end //END CASE BYTE
+					NEIG : begin
+						//FIRST PASS SYNHTH AND TIMING
+						//SADFHL;SJKOAFHKLASJDFHKLASJDFHKLJASDFHLKASDJFHSAKJDFLFGDHLGSAGHFKLGASDKF
+					end // END CASE NEIG
+				endcase
+			end
+			//LAST CYCLE ---------------------------------------------------------------------------------------
+			1'b0 : begin
+				//PATH 1
+
+				//read path 0 logic
+				case((mode0))
+					WORD : begin
+						case(captaddr0[1:0])
+							2'b00 : begin
+								nextoutdata0={bram0data,bram1data[0]};
+							end
+							2'b01 : begin
+								nextoutdata0={bram0data[1:3],bram0data[0],bram1data[1]};
+							end
+							2'b10 : begin
+								nextoutdata0={bram0data[2:3],bram0data[0:1],bram1data[1]};
+							end
+							2'b11 : begin
+								nextoutdata0={bram0data[3],bram0data[0:2],bram1data[3]};
+							end
+						endcase
+					end
+					HALF : begin
+						case(captaddr0[1:0])
+							2'b00 : begin
+								nextoutdata0[15:0]=bram0data[0:1];	//order of indices matters in latter
+							end
+							2'b01 : begin
+								nextoutdata0[15:0]=bram0data[1:2];
+							end
+							2'b10 : begin
+								nextoutdata0[15:0]=bram0data[2:3];
+							end
+							2'b11 : begin
+								nextoutdata0[15:8]=bram0data[3];
+								nextoutdata0[7:0]=bram0data[0];
+							end
+						endcase
+					end
+					BYTE : begin
+						nextoutdata0[7:0]=bram0data[captaddr0[1:0]];
+					end
+					NEIG : begin
+								//IMPLEMENT ME LAST
+					end
+				endcase
+				// setup path 1 logic
+				//setup addresses for modes other than neighborhood
+				case(captaddr1[1:0])
+					2'b00 : begin
+						nextbram0addr=captaddr1[39:2];	//ex2pansion correct?
+					end
+					2'b01 : begin
+						nextbram0addr[0]=captaddr1[39:2]+38'd1;
+						nextbram0addr[1:3]=captaddr1[39:2];
+					end
+					2'b10 : begin
+						nextbram0addr[0:1]=captaddr1[39:2]+38'd1;
+						nextbram0addr[2:3]=captaddr1[39:2];
+					end
+					2'b11 : begin
+						nextbram0addr=captaddr1[39:2]+38'd1;
+					end
+				endcase
+				case((mode1))
+					WORD : begin
+						nextbram0we=~captRW1;	//always accessing every path at least once
+						//nextbram1we=1'b0;	default behavior reads
+						nextbram1addr=captaddr1[39:2]+38'b1;
+						nextwritedata1=captdata1[7:0];
+						case(captaddr1[1:0])
+							2'b00 : begin
+								nextbram1we[0]=~captRW1;
+								nextwritedata0[0:3]=captdata1[39:8];
+							end
+							2'b01 : begin
+								nextbram1we[1]=~captRW1;
+								{nextwritedata0[1:3],nextwritedata0[0]}=captdata1[39:8];
+							end
+							2'b10 : begin
+								nextbram1we[2]=~captRW1;
+								{nextwritedata0[2:3],nextwritedata0[0:1]}=captdata1[39:8];
+							end
+							2'b11 : begin
+								nextbram1we[3]=~captRW1;
+								{nextwritedata0[3],nextwritedata0[0:2]}=captdata1[39:8];
+							end
+						endcase
+					end //END CASE WORD
+					HALF : begin
+						case(captaddr1[1:0])
+						2'b00 : begin
+							nextbram0we[0:1]=~captRW1;
+							nextwritedata0[0:1] = captdata1[15:0];	//order of indices matters
+						end
+						2'b01 : begin
+							nextbram0we[1:2]=~captRW1;
+							nextwritedata0[1:2] = captdata1[15:0];
+						end
+						2'b10 : begin
+							nextbram0we[3:2]=~captRW1;
+							nextwritedata0[2:3] = captdata1[15:0];
+						end
+						2'b11 : begin
+							nextbram0we[0]=~captRW1;
+							nextbram0we[3]=~captRW1;
+							nextwritedata0[0] = captdata1[15:8];
+							nextwritedata0[3] = captdata1[7:0];
+						end
+						endcase
+					end //END CASE HALF
+					BYTE : begin
+						nextbram0we[captaddr1[1:0]] = ~captRW1;
+					end //END CASE BYTE
+					NEIG : begin
+						//FIRST PASS SYNHTH AND TIMING
+						//SADFHL;SJKOAFHKLASJDFHKLASJDFHKLJASDFHLKASDJFHSAKJDFLFGDHLGSAGHFKLGASDKF
+					end // END CASE NEIG
+				endcase
+			end
+		endcase
+	end
+endmodule

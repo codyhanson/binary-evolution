@@ -1,0 +1,4 @@
+fb1: .filebin lightsaltpep.raw
+fb2: .space 65536 //blank fb2 
+swapspace: .space 10 
+mmradd: .word40 0xFFF0000000

@@ -1,0 +1,224 @@
+#! /usr/bin/perl 
+# Architecture Assembler for the ECE 554 Binary Evolution ISA
+# This module depends on ISA_TOOLS.pm for some subroutines
+# As well as ISA_REGEX.pm for ISA regular epressions
+# 2/11/2011 by Cody Hanson
+# If you don't like my code, TMTOWTDI!
+
+use strict;
+#use warnings;
+use ISA_TOOLS;
+use Bit::Vector;
+
+my %program;
+my @src_filenames;
+my $data_filename;
+
+if (scalar(@ARGV) == 0) { 
+	die "USAGE: asm.pl <outputfname without filename extension> <1 or more .s files> <1 .data file>\n";
+}
+
+#first arg is output filename
+#this arg provides the string prefix for all output files, for assembled code for imem and dmem
+my $outfilename = shift @ARGV; 
+foreach (@ARGV) {
+	# regular asm source file, not an option
+	if (/\w+\.s/){
+		 push @src_filenames, $_; #assembly files that end in .s 
+	}
+	elsif (/.*\.data/ and !defined($data_filename)){ 
+		#data file end in .data, also can only have one.datafile
+		$data_filename = $_;
+	}
+	else { #was not a .s file, or .data file, or 2 .data files were specified
+		die "USAGE: asm.pl <output file destination and name> <1 or more .s files> <1 .data file>\nFor example, to put all output files into mydir with a prefix of MyProg, set the first arg to mydir/MyProg\n";
+	}
+}
+
+%program = &readFiles(@src_filenames); 
+&processDataFile($data_filename,$outfilename,1) if $data_filename; #only run if datafile present. 2nd arg means output files
+&EQUreplace($program{$_}) foreach (@src_filenames); #perform macro substition.  
+&FirstPass(\%program,\@src_filenames);
+&computePseudoOps; 
+
+#######################################################
+#At this point, begin to assemble files into binary
+#######################################################
+
+
+my @allcode = (@code[ISA_TOOLS::CODEBASE..ISA_TOOLS::EXBASE-1],@ex[ISA_TOOLS::EXBASE..ISA_TOOLS::ISRBASE-1],@isr[ISA_TOOLS::ISRBASE..ISA_TOOLS::ENDOFIMEM],);
+chomp (@allcode);
+
+open (my $OUTFILE_SIM, '>', $outfilename.".bin") or die "unable to open $outfilename".".bin for output $!";
+open (my $OUTFILE_DEBUG, '>',$outfilename.".debug") or die "unable to open $outfilename" .".debug for output $!";
+open (my $OUTFILE_XILINX, '>',$outfilename.".coe") or die "unable to open $outfilename" .".coe for output $!";
+
+#write memory_initialization strings for Xilinx
+my $radix = 16;
+print $OUTFILE_XILINX ("memory_initialization_radix = $radix;\n");
+print $OUTFILE_XILINX ("memory_initialization_vector = \n");
+
+my $mem_add = Bit::Vector->new(32); 
+my $instrcount = 0; 
+my $blank;
+foreach (@allcode) {
+	my $registerbit; my $opcode;
+	my $arg1; my $arg2; my $arg3; my $ccode;
+	my $enc = Bit::Vector->new(32);
+	$blank = 0;
+
+	if (/$ISA_REGEX::regex_add/ or m/$ISA_REGEX::regex_bic/ or m/$ISA_REGEX::regex_sub/ or
+		m/$ISA_REGEX::regex_and/ or m/$ISA_REGEX::regex_or/ or m/$ISA_REGEX::regex_rsb/) {
+		$opcode = $2;
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; $arg3 = $6;
+		$registerbit = ($arg3 =~ /^r/i) ? 0b0 : 0b1; 
+		$enc->Chunk_Store(5,27,$opcode_encodings{lc($opcode)});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,12,$rf_address{lc($arg2)});
+		if (!$registerbit) { $enc->Chunk_Store(5,7,$rf_address{lc($arg3)});
+		}else{ 
+			$enc->Chunk_Store(12,0,$arg3);
+			&immcheck(12,$arg3);
+		 }
+
+	}elsif(/$ISA_REGEX::regex_swp/){
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; $arg3 = $6;
+		$registerbit = 0b0; #third arg always register
+		$enc->Chunk_Store(5,27,$opcode_encodings{"swp"});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,12,$rf_address{lc($arg2)});
+		$enc->Chunk_Store(5,7,$rf_address{lc($arg3)}); 
+
+	}elsif(/$ISA_REGEX::regex_branch/){	
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $opcode = $2;
+		$registerbit = ($arg1 =~ /^r/i) ? 0b0 : 0b1; 
+		$enc->Chunk_Store(5,27,$opcode_encodings{lc($opcode)});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		if (!$registerbit) { $enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		}else{ 
+			$enc->Chunk_Store(22,0,$arg1); 
+			&immcheck(22,$arg1);
+		} 
+
+	}elsif(/$ISA_REGEX::regex_cmp/ or m/$ISA_REGEX::regex_teq/ or m/$ISA_REGEX::regex_tst/){
+		$opcode = $2;
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; 
+		$registerbit = ($arg2 =~ /^r/i) ? 0b0 : 0b1; 
+		$enc->Chunk_Store(5,27,$opcode_encodings{lc($opcode)});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		if (!$registerbit) { $enc->Chunk_Store(5,12,$rf_address{lc($arg2)});
+		}else{ 
+			$enc->Chunk_Store(17,0,$arg2); 
+			&immcheck(17,$arg2);
+		} 
+
+	}elsif(/$ISA_REGEX::regex_not/){
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; 
+		$registerbit = 0b0;
+		$enc->Chunk_Store(5,27,$opcode_encodings{"not"});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,12,$rf_address{lc($arg2)});
+
+	}elsif(/$ISA_REGEX::regex_mov/){
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; 
+		my $rm = $6; my $rn = $7; my $shiftarg =$8;
+		$registerbit = ($arg2 =~ /^r/i) ? 0b0 : 0b1; 
+		$enc->Chunk_Store(5,27,$opcode_encodings{"mov"});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)}); #rd
+		if (!$registerbit) { 
+			$enc->Chunk_Store(5,12,$rf_address{lc($rm)});
+			$enc->Chunk_Store(5,7,$rf_address{lc($rn)});
+			$enc->Chunk_Store(2,5,$shiftcodes{lc($shiftarg)});
+		}else{ 
+			$enc->Chunk_Store(17,0,$arg2); 
+			&immcheck(17,$arg2);
+		}
+
+	}elsif(/$ISA_REGEX::regex_bwcmpl/){
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; 
+		$registerbit = 0b0;
+		$enc->Chunk_Store(5,27,$opcode_encodings{"bwcmpl"});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,12,$rf_address{lc($arg2)}); 
+
+	}elsif(m/$ISA_REGEX::regex_mxsub/ or m/$ISA_REGEX::regex_mxadd/ or
+		m/$ISA_REGEX::regex_accumbytes/ or m/$ISA_REGEX::regex_mxmul/){
+		$opcode = $2;
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; $arg3 = $6;
+		$registerbit = 0b0; #third arg always register
+		$enc->Chunk_Store(5,27,$opcode_encodings{lc($opcode)});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(1,22,$registerbit);
+		$enc->Chunk_Store(5,17,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,12,$rf_address{lc($arg2)});
+		$enc->Chunk_Store(5,7,$rf_address{lc($arg3)}); 
+
+	}elsif(m/$ISA_REGEX::regex_str/ or m/$ISA_REGEX::regex_ld/ or
+		m/$ISA_REGEX::regex_ldnbh/ or m/$ISA_REGEX::regex_strnbh/){
+		$opcode = $2;
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		$arg1 = $4; $arg2 = $5; $arg3 = $6; 
+		$enc->Chunk_Store(5,27,$opcode_encodings{lc($opcode)});
+		$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+		$enc->Chunk_Store(5,18,$rf_address{lc($arg1)});
+		$enc->Chunk_Store(5,13,$rf_address{lc($arg2)});
+		$enc->Chunk_Store(13,0,$arg3); #13 bit immediate
+		&immcheck(13,$arg3);
+
+	}elsif(/$ISA_REGEX::regex_return/){
+		$ccode = $3; $ccode = "_al" unless $ccode; #if no ccode, always execute		
+		if ($4 == 2) {
+			#special case for return 2 dump instruction, assemble as noop
+			$enc->Chunk_Store(5,27,$opcode_encodings{"noop"});
+		}
+		else {
+			$arg1 = $4 ? 0b1: 0b0; #set return bit?  
+			$enc->Chunk_Store(5,27,$opcode_encodings{"return"});
+			$enc->Chunk_Store(4,23,$conditionals{lc($ccode)});	
+			$enc->Chunk_Store(1,22,$arg1); 
+		}
+
+	} elsif(/$ISA_REGEX::regex_halt/) {
+		#encode as halt 
+		$enc->Chunk_Store(5,27,$opcode_encodings{"halt"});
+		$enc->Chunk_Store(4,23,$conditionals{"_al"});
+	}else {
+		#blank line
+		$blank = 1;
+		$enc->Chunk_Store(5,27,$opcode_encodings{"halt"});
+		$enc->Chunk_Store(4,23,$conditionals{"_al"});
+	}
+
+	$instrcount++ unless  $blank;
+
+	printf $OUTFILE_DEBUG ("IMEM:0x%s INSTR:0x%s    %s   $_\n",$mem_add->to_Hex(),$enc->to_Hex(),$enc->to_Bin());
+	printf $OUTFILE_SIM("@%x %s\n",$mem_add->to_Dec(),$enc->to_Hex());
+	printf $OUTFILE_XILINX("%s\n",$enc->to_Hex()); 
+	$mem_add->increment();
+} 
+	#put semicolon on end of OUTFILE
+	print $OUTFILE_XILINX (";\n"); 
+
+	printf ("Program Imem usage summary:\n%d 32 bit instructions.\n",$instrcount);
+	print  "Assembly completed.\n";

@@ -1,0 +1,7 @@
+
+VGAFB1: .space 65536
+VGAFB2: .space 65536
+
+w1: .word40 0x330F0F0F0F
+w2: .word40 0x0101010101
+w3: .word40 0x0202020202

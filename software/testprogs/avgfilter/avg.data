@@ -1,0 +1,4 @@
+fb0: .filebin lenna256x256.raw
+fb1: .space 65536
+mmradd: .word40 0xFFF0000000
+space: .space 100

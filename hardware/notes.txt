@@ -1,0 +1,13 @@
+NOTES
+eric weisman
+
+
+how do irqs get disabled?
+what keyboard buffer?
+
+serial is so slow that proc should load DRAM from serial at beginning of program
+	also preps cache
+how to abstract the sparts? does mmrs need to stall?
+how 2 addrs into mmrs?
+
+RW is W when 1'b1

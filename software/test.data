@@ -1,0 +1,63 @@
+myA:		.word40 0x00000000A 
+my100:		.word40 100
+my101:		.word40 101
+my50:		.word40 50 
+my100a:		.word32 100
+my101a:		.word32 101
+my50a:		.word32 50 
+my100b:		.word16 100
+my101b:		.word16 101
+my50b:		.word16 50 
+my100c:		.byte 100
+my101c:		.byte 101
+my50c:		.byte 50 
+myB:		.word40 0x00000000B
+//comment
+myC:		.word40 0x00000000C
+myMiOne:	.word40 -1 
+myMiOne2:	.word40 -1  //comment 2
+myspace20:	.space 20 
+myMiOne3:	.word40 -15  //comment 2 
+myMiOnea:	.word32 -1 
+myMiOne2a:	.word32 -1  //comment 2
+myMiOne3a:	.word32 -15  //comment 2 
+myMiOneb:	.word16 -1 
+myMiOne2b:	.word16 -1  //comment 2
+myMiOne3b:	.word16 -15  //comment 
+dumblabel:	.byte -1 
+myspace1:	.space 1
+myMiOneb2:	.byte -1  //comment 2
+myMiOne3c:	.byte -15  //comment 2
+
+abc1:	.word40 0xF12345ABC0
+abc2:	.word16 0x5ABF
+abc3:	.byte 0xBC
+
+myMiOnec:	.word40 -1 
+
+myLUT:	.byte 0
+	.byte 2
+	.byte 1
+	.byte 3
+	.byte 4
+	.byte 5
+	.byte 6
+	.byte 7
+	.byte 8
+	.byte 8
+	.byte 8
+	.byte 8
+	.byte -2
+	.byte 2
+	.byte 0
+	.byte 0
+	.byte 0
+	.byte 0
+	.byte 0
+	.byte 8
+	.byte 2
+	.byte 1
+//myHEX:	.file datafile.hex
+//myWHITE: .filebin rawwhitesquare.rawimg
+//myBLACK: .filebin rawblacksquare.rawimg
+//myMARIO: .filebin super_mario_flash.jpg

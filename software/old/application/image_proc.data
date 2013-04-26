@@ -1,0 +1,9 @@
+// Game of Life - Data Memory
+// FRAME BUFFER INIT
+myFB1:	.file application/fb1_init.hex
+myFB2:	.file application/fb2_init.hex
+myImKern1: .file application/image_kernel1.hex
+myImKern2: .file application/image_kernel2.hex
+myspace: .space 100
+mmrFB: .space 1
+

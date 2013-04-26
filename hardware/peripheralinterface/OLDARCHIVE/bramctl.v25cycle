@@ -1,0 +1,353 @@
+/*
+Module:			bramctl
+
+Description:		provides 1cycle rw to bram
+Hierarchy:		SYSTEM=>memctl=>bramctl
+
+
+Team Binary Evolution
+Ben Fuhrmann, Cody Hanson, Eric Harris, Ross Nordstrom, Eric Weisman
+
+Module designed by:	Eric Weisman
+Edited by:		
+Module interface by:	Eric Weisman
+
+Date:			
+
+*/
+
+/*		TODO
+	*
+	*	reIMPLEMENT? PRIORITY
+	*		@addr, r0 w1 => get old val		automatic
+	*		@addr, r1 w0 => get new val
+	*		@addr, w1 w0 => write w1 val
+	*		can this be done in slow fsm?neighborhoods
+	*		whole vs. partial addressing conflicts, must deal with both!
+			ex. w0W@x, r1B@(x+4).   how implement this forwarding?
+	*
+	*	IMPLEMENT arraywidth MMR
+	* 
+	*	TEST
+	*		everything written to correct parts of regs?
+	*		final behavior on long read
+	*		etc	
+	*
+*/
+
+module bramctl(
+	input clk, input rst,
+	input fastclk,				//4x system clk speed, synchronized.
+	//controller end
+	input[15:0]	arraywidth,		//for neighborhood calculations. from a MMR.
+	input[39:0]	MemAddr0, MemAddr1,
+	input[1:0]	mode0, mode1,			//byte(8b), halfword(16b), word(40b), neighborhood(discontiguous 72b)
+	input		RW0, RW1,			//write when low
+	//provisionally always enabled
+	input[39:0]	MemDataIn0, MemDataIn1,
+	output[39:0]	MemDataOut0, MemDataOut1
+	);
+
+
+	//PARAMETERS-------------------------------------------------------------------------
+	`include "I:/Desktop/ece554/projectsvnwin/hardware/peripheralinterface/brammodes.inc"
+
+
+	//BRAM INSTANTIATED ---------------------------------------------------------------
+	/*
+	 when simult read and write, old data is read. read-before-write.
+	 always enabled, reads by default.	 
+	 rising edge active.
+	*/
+	
+	reg[7:0]	writedata0, nextwritedata0, writedata1, nextwritedata1;
+	reg[39:0]	bram0addr, nextbram0addr, bram1addr, nextbram1addr;
+	wire[7:0]	bram0data, bram1data;
+	reg		bram0we, nextbram0we, bram1we, nextbram1we;
+	
+
+dmem_bram_simulator #(40,8) daram( //For Simulation Only
+//dmem_bram_simulator daram( //Synthesis Only
+		.dina(nextwritedata0),
+		.addra(nextbram0addr),
+		.wea(nextbram0we),
+		.clka(fastclk),
+		.douta(bram0data),
+		
+		.dinb(nextwritedata1),
+		.addrb(nextbram1addr),
+		.web(nextbram1we),
+		.clkb(fastclk),
+		.doutb(bram1data)
+	);
+	// use nextsignals instead to advance a cycle? DEBUG
+	
+
+
+	//SLOW STATE MACHINE - captures input values ---------------------------------------
+	
+	reg[1:0]	captmode0, captmode1;
+	reg		captRW0, captRW1;
+	reg[39:0] 	captdata0, captdata1;	//ignored later iff a read
+	reg[39:0] 	captaddr0, captaddr1;
+	reg		captrst;	//synchronizes the count
+	
+	always@(posedge clk) begin
+		captmode0 <= mode0;
+		captmode1 <= mode1;
+		captRW0 <= RW0;
+		captRW1	<= RW1;
+		captdata0 <= MemDataIn0;
+		captdata1 <= MemDataIn1;
+		captaddr0 <= MemAddr0;
+		captaddr1 <= MemAddr1;
+		//arraywidth change assumed to be slow, uncaptured.
+		captrst<=rst;
+	end
+	
+
+	//COMBINATIONAL SIGGEN -------------------------------------------------------
+
+	// data busses tristate
+	reg[39:0]	outdata0, nextoutdata0, outdata1, nextoutdata1;
+	assign MemDataOut0 = (captmode0==WORD) ? {nextoutdata0[39:8], bram0data} : outdata0;	//advance the word read for the second cycle
+	assign MemDataOut1 = (captmode1==WORD || captmode0==NEIG) ?  {nextoutdata1[39:8], bram1data} : outdata1;  //also here if neighborhood read
+
+
+	//FAST STATE MACHINE- handles all write combining -----------------------------------
+	
+	reg[2:0]	count5, nextcount5;	//0 iff also on a slow clk edge
+	reg 		addrsame;	//for priority calcs
+
+	always@(posedge fastclk) begin
+		outdata0 <= nextoutdata0;
+		outdata1 <= nextoutdata1;
+		writedata0 <= nextwritedata0;
+		writedata1 <= nextwritedata1;
+		
+		bram0addr <= nextbram0addr;
+		bram1addr <= nextbram1addr;
+
+		bram0we <= nextbram0we;
+		bram1we <= nextbram1we;
+
+		count5 <= nextcount5;
+	end
+	
+	always@(*) begin
+		//defaults
+		nextoutdata0 = outdata0;
+		nextoutdata1 = outdata1;
+		nextwritedata0 = 8'bx;
+		nextwritedata1 = 8'bx;
+		
+		nextbram0addr = 8'bx;	//bram0addr;
+		nextbram1addr = 8'bx;	//bram1addr;
+
+		//read is harmless
+		nextbram0we= 1'b0;
+		nextbram1we= 1'b0;
+
+		//state counter
+		if(count5 == 3'd4) nextcount5 = 1'b0;
+	 	else nextcount5 = count5 + 3'd1;
+		
+
+		//state behavior - straight sequential
+		if(count5==3'b0) begin
+			//new values not yet captured.
+			if(mode0==NEIG) begin	//neighborhood 0,1 0,0.   Encoding from ...ISA.doc
+				//no output yet
+				//bram1op
+				nextbram1addr = MemAddr0 - arraywidth;
+				nextwritedata1 = MemDataIn0[23:16];
+				nextbram1we = ~RW0;
+				//bram0op
+				nextbram0addr = nextbram1addr - 2'b1;
+				nextwritedata0 = MemDataIn0[31:24];
+				nextbram0we = ~RW0;
+			end
+			else begin
+				//no output yet
+				//path1
+				nextbram1addr = MemAddr1;
+				nextbram1we = ~RW1;
+				if(mode1==WORD)		nextwritedata1 = MemDataIn1[39:32];
+				else if(mode1==HALF)		nextwritedata1 = MemDataIn1[15:8];
+				else /*if(Memmode1==BYTE)*/	nextwritedata1 = MemDataIn1[7:0];	
+				//path0
+				nextbram0addr = MemAddr0;
+				nextbram0we = ~RW0;
+				if(mode0==WORD)		nextwritedata0 = MemDataIn0[39:32];
+				else if(mode0==HALF)		nextwritedata0 = MemDataIn0[15:8];
+				else /*if(Memmode0==BYTE)*/	nextwritedata0 = MemDataIn0[7:0];	
+			end
+		end
+		else if(count5==3'd1) begin
+			if(captmode0==NEIG) begin	//neighborhood 0,2 1,2.   Encoding from ...ISA.doc
+				//recover vals read in last cycle.
+				nextoutdata0[39:32] = 8'b0;	//for ISA spec.
+				nextoutdata0[31:24] = bram0data;
+				nextoutdata0[23:16] = bram1data;
+				//bram1op
+				nextbram1addr = bram1addr + 2'b1;
+				nextwritedata1 = captdata0[15:8];
+				nextbram1we = ~captRW0;
+				//bram0op
+				nextbram0addr = captaddr0 + 2'b1;
+				nextwritedata0 = captdata0[7:0];
+				nextbram0we = ~captRW0;
+			end
+			else begin
+				//path 1
+				if(captmode1==WORD) begin	//still accessing word path 1
+					nextbram1addr = bram1addr + 2'b1;
+					nextbram1we = ~captRW1;
+					nextoutdata1[39:32] = bram1data;	//retrieve previous chunk
+					nextwritedata1 = captdata1[31:24];
+				end
+				else if(captmode1==HALF) begin	//still accessing halfword path 1
+					nextbram1addr = bram1addr + 2'b1;
+					nextbram1we = ~captRW1;
+					nextoutdata1[15:8] = bram1data;		//retrieve previous chunk
+					nextwritedata1 = captdata1[7:0];
+				end
+				else /*if(captmode1==BYTE)*/ begin	//last read of byte path 1
+					nextoutdata1[7:0] = bram1data;		//retrieve previous chunk
+				end
+				//path 0
+				if(captmode0==WORD) begin	//still accessing word path 0
+					nextbram0addr = bram0addr + 2'b1;
+					nextbram0we = ~captRW0;
+					nextoutdata0[39:32] = bram0data;	//retrieve previous chunk
+					nextwritedata0 = captdata0[31:24];
+				end
+				else if(captmode0==HALF) begin	//still accessing halfword path 0
+					nextbram0addr = bram0addr + 2'b1;
+					nextbram0we = ~captRW0;
+					nextoutdata0[15:8] = bram0data;		//retrieve previous chunk
+					nextwritedata0 = captdata0[7:0];
+				end
+				else /*if(captmode0==BYTE)*/ begin	//last read of byte path 0
+					nextoutdata0[7:0] = bram0data;		//retrieve previous chunk
+				end
+			end
+		end
+		else if(count5==3'd2) begin
+			if(captmode0==NEIG) begin	//neighborhood 1,1 1,0.   Encoding from ...ISA.doc
+				//recover vals read in last cycle.
+				nextoutdata0[15:8] = bram1data;
+				nextoutdata0[7:0] = bram0data;
+				//bram1op
+				nextbram1addr = captaddr0 - 2'b1;
+				nextwritedata1 = captdata1[31:24];
+				nextbram1we = ~captRW0;
+				//bram0op
+				nextbram0addr = captaddr0;
+				nextwritedata0 = captdata1[39:32];
+				nextbram0we = ~captRW0;
+			end
+			else begin
+				//path 1
+				nextbram1addr = bram1addr + 2'b1;
+				if(captmode1==WORD) begin	//still accessing word path 1
+					nextbram1we = ~captRW1;
+					nextoutdata1[31:24] = bram1data;	//retrieve previous chunk
+					nextwritedata1 = captdata1[23:16];
+				end
+				else if(captmode1==HALF) begin	//last read of halfword path 1
+					nextoutdata1[7:0] = bram1data;		//retrieve previous chunk
+				end
+				//path 0
+				nextbram0addr = bram0addr + 2'b1;
+				if(captmode0==WORD) begin	//still accessing word path 0
+					nextbram0we = ~captRW0;
+					nextoutdata0[31:24] = bram0data;	//retrieve previous chunk
+					nextwritedata0 = captdata0[23:16];
+				end
+				else if(captmode0==HALF) begin	//last read of halfword path 0
+					nextoutdata0[7:0] = bram0data;		//retrieve previous chunk
+				end
+			end
+		end
+		else if(count5==3'd3) begin
+			if(captmode0==NEIG) begin	//neighborhood 2,0 2,1.   Encoding from ...ISA.doc
+				//recover vals read in last cycle.
+				nextoutdata1[39:32] = bram0data;
+				nextoutdata1[31:24] = bram1data;
+				//bram1op
+				nextbram1addr = captaddr0 + arraywidth;
+				nextwritedata1 = captdata1[15:8];
+				nextbram1we = ~captRW0;
+				//bram0op
+				nextbram0addr = nextbram1addr - 2'b1;
+				nextwritedata0 = captdata1[23:16];
+				nextbram0we = ~captRW0;
+			end
+			else begin
+				if(captmode1==WORD) begin	//still accessing word, path 1
+					//bram1op
+					nextoutdata1[15:8] = bram1data;
+					nextbram1addr = bram1addr + 2'b1;
+					nextwritedata1 = captdata1[15:8];
+					nextbram1we = ~captRW1;
+				end
+				if(captmode0==WORD) begin	//still accessing word, path 0
+					//bram0op
+					nextoutdata0[15:8] = bram0data;
+					nextbram0addr = bram0addr + 2'b1;
+					nextwritedata0 = captdata0[15:8];
+					nextbram0we = ~captRW0;
+				end
+			end
+		end
+		else if(count5==3'd4) begin
+			if(captmode0==NEIG) begin	//neighborhood 2,2.   Encoding from ...ISA.doc
+				//recover vals read in last cycle.
+				nextoutdata1[23:16] = bram0data;
+				nextoutdata1[15:8] = bram1data;
+				//bram1op
+				nextbram1addr = bram1addr + 2'b1;
+				nextwritedata1 = captdata1[7:0];
+				nextbram1we = ~captRW0;
+				//bram0op
+				nextbram0we = 1'b0;	//NOP'd
+			end
+			else begin
+				if(captmode1==WORD) begin	//still accessing word, path 1
+					//bram1op
+					nextoutdata1[7:0] = bram1data;
+					nextbram1addr = bram1addr + 2'b1;
+					nextwritedata1 = captdata1[7:0];
+					nextbram1we = ~captRW1;
+				end
+				if(captmode0==WORD) begin	//still accessing word, path 0
+					//bram0op
+					nextoutdata0[7:0] = bram0data;
+					nextbram0addr = bram0addr + 2'b1;
+					nextwritedata0 = captdata0[7:0];
+					nextbram0we = ~captRW0;
+				end
+			end
+		end
+		///AKSDL;FHASDFKLASDH;FJASDHKLFJSDHAKFLHKLFJSDGALJKFHGSDLAJKGHF
+		//how recover last value(s) read? in next maxicycle? too late!
+		//^== hacked into combinational siggen section
+
+
+
+		// priority and forwarding
+		addrsame=(nextbram0addr==nextbram1addr);
+		// @addr, r0 w1 => get old val			default, set in BRAM instantiation
+		nextoutdata1=(addrsame & nextbram0we & ~nextbram1we)? nextwritedata0 : nextoutdata1 ;	//@addr, r1 w0 => get new val 
+		nextbram0we=~(addrsame & nextbram0we & nextbram1we) & nextbram0we;	//@addr, w1 w0 => write w1 val only	(NOP'd)
+			
+
+
+
+		//synch reset overrides all; must be last
+		if(rst || captrst) begin
+			nextcount5 = 3'd0;
+		end
+	end
+endmodule
